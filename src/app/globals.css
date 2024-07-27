@@ -2,13 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overflow-x: hidden;
-  font-family: "IRANSans" !important;
+@font-face {
+  font-family: "Negar";
+  src: url("../../public/fonts/Negar.TTF");
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+body {
+  font-family: "Negar";
+  overflow-x: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-initialized {
+overflow: unset !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.swiper-pagination-bullet-active {
+  background-color: #f43f5e !important;
 }
