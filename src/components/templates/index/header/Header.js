@@ -44,10 +44,29 @@ export default function Header() {
                     width={0}
                     height={0}
                     sizes='100%'
-                    className=' w-full absolute left-0 -bottom-3 drag-none z-10'
-                    data-swiper-parallax="-700"
+                    className=' w-full absolute left-0 -bottom-5 drag-none z-10'
                 />
-           
+                <Image
+                    alt='logo'
+                    src={'/images/png/logo2.png'}
+                    width={150}
+                    height={0}
+                    className=' absolute left-5 bottom-10 drag-none z-20'
+                />
+                <Image
+                    alt='logo'
+                    src={'/images/png/flower1.png'}
+                    width={150}
+                    height={0}
+                    className=' absolute left-36 top-10 drag-none -rotate-45'
+                />
+                <Image
+                    alt='logo'
+                    src={'/images/png/flower2.png'}
+                    width={150}
+                    height={0}
+                    className=' absolute right-36 top-10 drag-none  rotate-45'
+                />
             </div>
         </div>
     )
