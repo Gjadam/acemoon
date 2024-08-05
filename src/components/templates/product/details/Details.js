@@ -32,11 +32,11 @@ export default function Details() {
                 <p className="">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد</p>
                 <div className="flex justify-start items-center flex-wrap gap-5">
                 <div className="flex items-center gap-1">
-                    <span className=" text-secondary ">دسته بندی:</span>
+                    <span className=" text-secondary ">سایز:</span>
                     <FormInput type={'select-option'} />
                 </div>
                 <div className="flex items-center gap-1">
-                    <span className=" text-secondary ">رنگ بندی:</span>
+                    <span className=" text-secondary ">رنگ:</span>
                     <FormInput type={'select-option'} />
                 </div>
 
