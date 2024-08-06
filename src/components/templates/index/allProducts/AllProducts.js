@@ -5,22 +5,21 @@ import SectionHeader from '@/components/modules/sectionHeader/SectionHeader'
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 
 export default function AllProducts() {
     return (
-        <div className=' flex justify-center items-center my-28 bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
+        <div className=' flex justify-center items-center mt-28 bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
             <div className="container mx-auto xl:container-fluid">
-                <SectionHeader />
+                <SectionHeader title={"محصولات ما"} route={"/"} linkText={"همه محصولات"} />
                 <div className='container mx-auto xl:container-fluid overflow-hidden flex justify-center items-center my-10'>
                     <Swiper
-                        navigation={true}
                         autoplay={true}
                         speed={1000}
-                        modules={[Navigation, Autoplay]}
+                        modules={[Autoplay]}
                         breakpoints={{
                             640: {
                                 slidesPerView: 1,

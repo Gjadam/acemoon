@@ -5,15 +5,18 @@ import Box from './Box';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Parallax } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 export default function Categories() {
     return (
-        <div className=" container mx-auto xl:container-fluid flex justify-center items-center h-52 my-28 overflow-hidden">
-            <div className=" flex justify-center items-center h-full w-1/2 z-10 bg-[url('/images/jpg/category.jpg')] bg-cover bg-right bg-no-repeat rounded-l-3xl">
+        <div className="  container mx-auto xl:container-fluid flex justify-center items-center h-52 mt-28 overflow-hidden">
+            <div className=" flex justify-center items-center flex-col h-full w-1/2 z-10 bg-[url('/images/jpg/category.jpg')] bg-cover bg-left bg-no-repeat rounded-l-3xl">
+
                 <h1 className=" text-secondary text-5xl font-bold">دسته بندی ها</h1>
+                <p className=' '>پرطرفدارترین محصولات را در لیدی شاپ کشف کنید</p>
             </div>
             <div className="container mx-auto xl:container-fluid overflow-hidden flex justify-center items-center h-full w-1/2">
                 <Swiper
@@ -52,6 +55,7 @@ export default function Categories() {
                     </SwiperSlide>
                 </Swiper>
             </div>
-        </div>
+ 
+            </div>
     )
 }
