@@ -1,22 +1,25 @@
-import React from 'react'
 
-export default function Button({ type, text, children }) {
+export default function Button({ type, text, children, isSubmitType, onClick, isDisabled, isWidthFull }) {
     return (
         type === 'simple' ? (
-            <div className="flex justify-center items-center gap-2  hover:text-rose-500 text-center rounded-3xl relative after:absolute after:left-0 after:bottom-0 after:bg-rose-500 after:h-px after:w-0 hover:after:w-full after:transition-all after:duration-200 transition-colors duration-200 ">
+            <button type={isSubmitType ? 'submit' : 'button'} className={`  flex justify-center items-center gap-2  hover:text-rose-500 text-center rounded-3xl ${isDisabled && "opacity-50 bg-secondary cursor-not-allowed"} relative after:absolute after:left-0 after:bottom-0 after:bg-rose-500 after:h-px after:w-0 hover:after:w-full after:transition-all after:duration-300 transition-colors duration-300 `} disabled={isDisabled} onClick={onClick}>
                 <span className="">{text}</span>
                 {
                     children && children
                 }
-            </div>
+            </button>
 
+        ) : type === 'circle' ? (
+            <button className=" p-3 border-1 border-primary text-xl text-rose-500 rounded-full  hover:text-white bg-zinc-100 hover:bg-rose-500 hover:border-rose-500 transition-colors" >
+                {children}
+            </button>
         ) : (
-            <div className="flex justify-center items-center gap-3 bg-rose-500 hover:bg-zinc-700 text-white min-w-32 max-w-40 text-center py-3 rounded-3xl transition-colors duration-200">
+            <button type={isSubmitType ? 'submit' : 'button'} className={`  flex justify-center items-center gap-3 bg-secondary hover:bg-rose-500 text-white ${isDisabled && "opacity-50 bg-secondary cursor-not-allowed"} ${isWidthFull ? "w-full" : "w-full md:min-w-40 md:max-w-44"}   text-center py-3 rounded-3xl overflow-hidden  z-10  relative after:absolute after:left-0 after:bottom-0 after:w-full after:bg-[rgba(225,225,225,225.0.5)] after:h-0 after:hover:h-full after:-z-10 after:transition-all after:duration-300 before:absolute before:left-0 before:bottom-0 before:hover:bottom-full before:w-full before:h-px before:bg-zinc-100 before:transition-all before:duration-300 transition-colors duration-500`} disabled={isDisabled} onClick={onClick}>
                 <span className="">{text}</span>
                 {
                     children && children
                 }
-            </div>
+            </button>
         )
     )
 }

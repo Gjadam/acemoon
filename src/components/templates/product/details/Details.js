@@ -17,7 +17,7 @@ export default function Details() {
     const [count, setCount] = useState(1)
 
     return (
-        <div className=" w-1/2">
+        <div data-aos='fade-right' className=" w-full xl:w-1/2">
             <div className=" flex flex-col gap-5 text-secondary">
                 <div className=" flex justify-between items-start">
                     <div className=" flex flex-col gap-3">
@@ -41,7 +41,7 @@ export default function Details() {
                 </div>
 
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center flex-wrap gap-3">
                     <QuantityCounter count={count} setCount={setCount} />
                     <Button text={"افزودن به سبد خرید"} />
                 </div>

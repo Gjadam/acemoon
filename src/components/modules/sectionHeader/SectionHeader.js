@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Button from "../button/Button";
 import { IoIosLink } from "react-icons/io";
-export default function SectionHeader() {
+export default function SectionHeader({ title, linkText, route }) {
     return (
-        <div className=" flex justify-between items-center w-full">
+        <div className={`flex ${route ? "justify-between" : "justify-center"} items-center w-full`}>
             <div className=" flex justify-center items-center">
                 <Image
                     alt='section-header'
@@ -11,11 +11,21 @@ export default function SectionHeader() {
                     width={60}
                     height={0}
                 />
-                <h1 className="text-4xl  text-secondary font-bold">محصولات ما</h1>
+                <h1 className="text-4xl  text-secondary font-bold">{title}</h1>
+                <Image
+                    alt='section-header'
+                    src={'/images/png/header.png'}
+                    width={60}
+                    height={0}
+                     className=" rotate-180"
+                />
             </div>
-            <Button text={"همه محصولات"} type={"simple"} >
-                <IoIosLink/>
-            </Button>
+            {
+                route &&
+                <Button text={linkText} type={"simple"} >
+                    <IoIosLink />
+                </Button>
+            }
         </div>
     )
 }

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Button from "../button/Button";
 
 export default function ProductBox() {
   return (
-    <div className="group relative flex justify-center items-center flex-col mt-8 h-120 w-96  transition-all">
+    <div className="group mx-auto relative flex justify-center items-center flex-col mt-8 h-120 w-96  transition-all">
       <Image
         alt='product'
         src={'/images/jpg/product1.jpg'}

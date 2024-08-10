@@ -14,7 +14,6 @@ import Box from './Box';
 export default function Header() {
     return (
         <div className=" relative">
-
             <div className="  container mx-auto xl:container-fluid  ">
                 <div data-aos='fade-down' data-aos-delay="400" className='relative flex justify-center items-center bg-zinc-100 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
                     <Swiper
@@ -75,7 +74,7 @@ export default function Header() {
 
                 </div>
             </div>
-            <div className="absolute -rotate-90  -left-16 top-1/2 z-50">
+            <div className="absolute -rotate-90  -left-16 top-1/2 z-40">
                 <div className=" flex items-center gap-10 text-lg">
                     <a href="https://www.instagram.com/ladyshop7191">
                         <p className=' hover:text-rose-500 transition-colors'>اینستاگرام</p>

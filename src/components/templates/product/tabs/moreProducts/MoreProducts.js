@@ -35,7 +35,7 @@ export default function MoreProducts({ relatedProducts }) {
                         },
                     }}
                     slidesPerView={4}
-                    spaceBetween={50}
+                    spaceBetween={100}
                     loop={true}
                     speed={1000}
                     navigation={true}

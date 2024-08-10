@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Gallery() {
     return (
-        <div className=" ">
+        <div data-aos='fade-left' className=" ">
             <div className=" flex flex-col gap-5 w-120">
                 <Image
                     alt='product'

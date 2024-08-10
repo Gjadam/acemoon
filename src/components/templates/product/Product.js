@@ -9,11 +9,11 @@ import MoreProducts from "./tabs/moreProducts/MoreProducts";
 export default function Product() {
     return (
         <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat">
-            <div className=" container mx-auto xl:container-fluid bg-zinc-100 p-5">
+            <div data-aos='fade-up' className=" container mx-auto xl:container-fluid bg-zinc-100 p-5 overflow-hidden">
                 <BreadCrumb routeText={'نام محصول'} />
             </div>
-            <div className=" container mx-auto my-10 overflow-hidden">
-                <div className=" flex justify-center items-start gap-10 w-full">
+            <div className=" container mx-auto my-10 overflow-hidden p-10">
+                <div className=" flex justify-center items-start flex-wrap gap-10 w-full">
                     <Gallery />
                     <Details />
                 </div>
