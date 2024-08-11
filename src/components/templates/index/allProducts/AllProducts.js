@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-export default function AllProducts() {
+export default function AllProducts({ products }) {
     return (
         <div className=' flex justify-center items-center mt-28 bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
             <div className="container mx-auto xl:container-fluid">
@@ -32,24 +32,13 @@ export default function AllProducts() {
                             },
                         }}
                         className="mySwiper">
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductBox />
-                        </SwiperSlide>
+                        {
+                            products.map(product => (
+                                <SwiperSlide>
+                                    <ProductBox key={product._id} {...product} />
+                                </SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                 </div>
             </div>

@@ -1,14 +1,16 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Components
 import Button from '@/components/modules/button/Button'
+import ProductPrice from '@/components/modules/productPrice/ProductPrice'
 
-export default function Box() {
+export default function Box({ _id, images, name, price }) {
     return (
         <div className=' flex justify-evenly items-center text-start h-full overflow-hidden'>
             <Image
                 alt='product'
-                src={'/images/jpg/product1.jpg'}
+                src={images[0].fileUrl}
                 width={500}
                 height={0}
                 className=' rounded-3xl'
@@ -19,10 +21,14 @@ export default function Box() {
                     کالکشن
                     <span className=' text-rose-500'> تابستونی</span>
                 </h1>
-                <h1 data-swiper-parallax="-200" className=' text-4xl  '>نام محصول</h1>
-                <p data-swiper-parallax="-150" className=' max-w-[40rem]'>150,000 تومان</p>
+                <h1 data-swiper-parallax="-200" className=' text-4xl  '>{name}</h1>
+                <div data-swiper-parallax="-150">
+                <ProductPrice price={price}/>
+                </div>
                 <div data-swiper-parallax="-50" className=' z-50'>
-                    <Button text={"مشاهده"} />
+                    <Link href={`/product/${_id}`}>
+                        <Button text={"مشاهده"} />
+                    </Link>
                 </div>
             </div>
         </div>
