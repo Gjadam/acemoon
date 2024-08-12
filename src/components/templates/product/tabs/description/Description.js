@@ -1,10 +1,10 @@
 
-export default function Description() {
+export default function Description({ longDescription }) {
     return (
         <div data-aos='fade-left' >
-        <p className=" text-zinc-500 text-lg">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-        </p>
+            <p className=" text-zinc-500 text-lg">
+                {longDescription}
+            </p>
         </div>
     )
 }

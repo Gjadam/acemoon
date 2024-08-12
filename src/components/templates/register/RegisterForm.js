@@ -16,7 +16,7 @@ import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
 import toastAlert from "@/utils/toastAlert";
 
 // Axios
-import apiRequest from "@/Services/Axios/Configs/Configs";
+import apiRequest from "@/Services/Axios/Configs/configs";
 
 export default function RegisterForm() {
 

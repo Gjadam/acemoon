@@ -6,10 +6,8 @@ import { useState } from "react"
 import Description from "./description/Description"
 import Comments from "./comments/Comments"
 
-export default function Tabs() {
+export default function Tabs({longDescription}) {
     const [active, setActive] = useState('desc')
-
-
 
   return (
     <div className=" my-28">
@@ -35,7 +33,7 @@ export default function Tabs() {
 
         {
             active === 'desc' ? (
-                <Description/>
+                <Description longDescription={longDescription}/>
             ) : (
                 <Comments/>
             )

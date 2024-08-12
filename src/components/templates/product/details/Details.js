@@ -11,35 +11,53 @@ import FormInput from "@/components/modules/formInput/FormInput";
 
 // Icons
 import { IoHeartOutline } from "react-icons/io5";
+import SelectItem from "./selectItem/SelectItem";
 
-export default function Details() {
+export default function Details({ name, price, shortDescription, score, size: sizes, color: colors, collection, comments }) {
 
     const [count, setCount] = useState(1)
+    const [selectedSize, setSelectedSize] = useState(-1);
+    const [selectedColor, setSelectedColor] = useState(-1);
 
     return (
         <div data-aos='fade-right' className=" w-full xl:w-1/2">
             <div className=" flex flex-col gap-5 text-secondary">
                 <div className=" flex justify-between items-start">
                     <div className=" flex flex-col gap-3">
-                        <h1 className=" text-3xl font-bold">تایتل محصول</h1>
-                        <ProductPrice price={150000} />
+                        <h1 className=" text-3xl font-bold">{name}</h1>
+                        <ProductPrice price={price} />
                     </div>
                     <div className=" flex items-center gap-3">
-                        <StarScore />
-                        <span className=" text-secondary">(دیدگاه 1 کاربر)</span>
+                        <StarScore score={score} />
+                        <span className=" text-secondary">(دیدگاه {comments.length} کاربر)</span>
                     </div>
                 </div>
-                <p className="">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                <p>{shortDescription}</p>
                 <div className="flex justify-start items-center flex-wrap gap-5">
-                <div className="flex items-center gap-1">
-                    <span className=" text-secondary ">سایز:</span>
-                    <FormInput type={'select-option'} />
-                </div>
-                <div className="flex items-center gap-1">
-                    <span className=" text-secondary ">رنگ:</span>
-                    <FormInput type={'select-option'} />
-                </div>
-
+                    {
+                        sizes ? (
+                            <div className="flex items-center gap-2">
+                                <span className=" text-secondary ">سایز:</span>
+                                {
+                                    sizes.split(' ، ').map(size => (
+                                        <SelectItem key={size} item={size} state={selectedSize} setState={setSelectedSize} />
+                                    ))
+                                }
+                            </div>
+                        ) : null
+                    }
+                    {
+                        colors ? (
+                            <div className="flex items-center gap-2">
+                                <span className=" text-secondary ">رنگ:</span>
+                                {
+                                    colors.split(' ، ').map(color => (
+                                        <SelectItem key={color} item={color} state={selectedColor} setState={setSelectedColor} />
+                                    ))
+                                }
+                            </div>
+                        ) : null
+                    }
                 </div>
                 <div className="flex items-center flex-wrap gap-3">
                     <QuantityCounter count={count} setCount={setCount} />
@@ -49,11 +67,7 @@ export default function Details() {
                 <div className=" border-t-1  pt-5">
                     <div className="flex items-center gap-1">
                         <span className=" text-secondary ">دسته بندی:</span>
-                        <span className=" hover:text-rose-500 transition-colors">لباس زنانه</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <span className=" text-secondary ">برچسب:</span>
-                        <span className=" hover:text-rose-500 transition-colors">لباس</span>
+                        <span className=" hover:text-rose-500 transition-colors">{collection}</span>
                     </div>
                 </div>
                 <div className=" border-t-1  pt-5">
