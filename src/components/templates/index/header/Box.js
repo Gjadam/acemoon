@@ -6,11 +6,12 @@ import Button from '@/components/modules/button/Button'
 import ProductPrice from '@/components/modules/productPrice/ProductPrice'
 
 export default function Box({ _id, images, name, price }) {
+    
     return (
         <div className=' flex justify-evenly items-center text-start h-full overflow-hidden'>
             <Image
                 alt='product'
-                src={images[0].fileUrl}
+                src={images[0].url}
                 width={500}
                 height={0}
                 className=' rounded-3xl'

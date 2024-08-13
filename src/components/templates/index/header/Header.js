@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 // Components
 import Box from './Box';
 
-export default function Header() {
+export default function Header({products}) {
     return (
         <div className=" relative">
             <div className="  container mx-auto xl:container-fluid  ">
@@ -28,15 +28,13 @@ export default function Header() {
                         modules={[Pagination, Autoplay, Parallax]}
                         className="mySwiper"
                     >
+                        {
+                            products.map(product => (
                         <SwiperSlide>
-                            <Box />
+                            <Box key={product._id} {...product} />
                         </SwiperSlide>
-                        <SwiperSlide>
-                            <Box />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Box />
-                        </SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                     <Image
                         alt='cloud'

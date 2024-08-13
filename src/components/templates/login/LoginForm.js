@@ -14,7 +14,7 @@ import { validateEmail, validatePassword } from '@/utils/auth'
 import toastAlert from '@/utils/toastAlert'
 
 // Axios
-import apiRequest from '@/Services/Axios/Configs/Configs'
+import apiRequest from '@/Services/Axios/Configs/configs'
 
 export default function LoginForm() {
 
@@ -78,6 +78,7 @@ export default function LoginForm() {
             <div className=" flex flex-col gap-5 my-5" >
                 <FormInput name={"email"} placeholder={'ایمیل'} type={'email'} error={form.errors.email} value={form.values.email} onChange={form.handleChange} />
                 <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={form.errors.password} value={form.values.password} onChange={form.handleChange} />
+    
             </div>
             <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
                 <Button text={'ورود به حساب کاربری'} isSubmitType={true} isDisabled={form.isSubmitting} type={'outline'} isWidthFull={true} />
