@@ -12,13 +12,32 @@ body {
   overflow-x: hidden;
 }
 
+/* Start webkit scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1c1c1c;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* End webkit scrollbar */
+
+ /* Start Swiper */
 .swiper {
   width: 100%;
   height: 100%;
 }
 
 .swiper-initialized {
-overflow: unset !important;
+  overflow: unset !important;
 }
 
 .swiper-slide {
@@ -35,3 +54,38 @@ overflow: unset !important;
 .swiper-pagination-bullet-active {
   background-color: #f43f5e !important;
 }
+
+
+
+ /* End Swiper */
+
+ /* Start Sweet Alert */
+.swal2-popup {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.swal2-title {
+  font-size: 1.5rem;
+}
+
+.swal2-confirm {
+  background-color: #be9c79 !important;
+}
+
+.swal2-cancel {
+  background-color: #1c1c1c !important;
+}
+
+.swal2-deny {
+  background-color: #1c1c1c !important;
+}
+
+.swal2-timer-progress-bar {
+  background-color: #f43f5e !important;
+}
+
+ /* End Sweet Alert */
