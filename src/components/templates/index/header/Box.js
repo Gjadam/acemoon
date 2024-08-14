@@ -22,11 +22,11 @@ export default function Box({ _id, images, name, price, collection }) {
                 />
             </div>
             <div className=" flex flex-col gap-5 text-secondary ">
-                <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-6xl font-bold '>
+                <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-4xl xl:text-6xl font-bold '>
                     <span>کالکشن</span>
                     <p className=' text-rose-500'>{collection.name}</p>
                 </div>
-                <h1 data-swiper-parallax="-200" className=' text-4xl  '>{name}</h1>
+                <h1 data-swiper-parallax="-200" className=' text-3xl xl:text-4xl  '>{name}</h1>
                 <div data-swiper-parallax="-150">
                     <ProductPrice price={price} />
                 </div>

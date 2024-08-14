@@ -76,14 +76,6 @@ export default function Details({ name, price, shortDescription, collection, sco
                     <div className="flex items-center gap-2">
                         <span className=" text-secondary ">صفحات ما در فضای مجازی:</span>
                         <div className=" flex items-center gap-3">
-                            <a href="https://rubika.ir/Ladyshop2222">
-                                <Image
-                                    alt="social"
-                                    src={'/images/png/rubika.png'}
-                                    width={30}
-                                    height={0}
-                                />
-                            </a>
                             <a href="https://eitaa.com/LadyShop7171">
                                 <Image
                                     alt="social"
@@ -96,6 +88,14 @@ export default function Details({ name, price, shortDescription, collection, sco
                                 <Image
                                     alt="social"
                                     src={'/images/png/instagram.png'}
+                                    width={30}
+                                    height={0}
+                                />
+                            </a>
+                            <a href="https://rubika.ir/Ladyshop2222">
+                                <Image
+                                    alt="social"
+                                    src={'/images/png/rubika.png'}
                                     width={30}
                                     height={0}
                                 />

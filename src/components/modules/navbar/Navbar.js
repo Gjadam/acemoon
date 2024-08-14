@@ -39,7 +39,7 @@ export default function Navbar({ isLogin }) {
 
     return (
         <div className={` container mx-auto sm:container-fluid flex justify-between items-center p-5 z-40 bg-white ${fixTop ? " text-secondary" : " sticky top-0 border-b-1 shadow-xl rounded-b-3xl"} transition-all `}>
-            <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-72 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all`}>
+            <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-72 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all duration-500 ease-in-out`}>
                 <div className=" flex justify-between items-center">
 
                     <span>LOGO</span>
@@ -50,13 +50,39 @@ export default function Navbar({ isLogin }) {
                     </div>
                 </div>
                 <form className="w-full xl:w-0 my-5 ">
-                    <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-md p-2.5 bg-white outline-none placeholder:text-sm w-full transition-colors' />
+                    <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-3xl p-2.5 bg-white outline-none placeholder:text-sm w-full transition-colors' />
                 </form>
-                <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full">
+                <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
                     <NavBarLink text={'صفحه اصلی'} route={'/'} />
                     <NavBarLink text={'فروشگاه'} route={'/'} />
                     <NavBarLink text={'درباره ما'} route={'/'} />
                     <NavBarLink text={'ارتباط با ما'} route={'/'} />
+                </div>
+                <div className=" flex xl:hidden items-center gap-3 border-t-1 pt-3 mt-3">
+                    <a href="https://eitaa.com/LadyShop7171">
+                        <Image
+                            alt="social"
+                            src={'/images/png/eitaa.png'}
+                            width={24}
+                            height={0}
+                        />
+                    </a>
+                    <a href="https://www.instagram.com/ladyshop7191">
+                        <Image
+                            alt="social"
+                            src={'/images/png/instagram.png'}
+                            width={30}
+                            height={0}
+                        />
+                    </a>
+                    <a href="https://rubika.ir/Ladyshop2222">
+                        <Image
+                            alt="social"
+                            src={'/images/png/rubika.png'}
+                            width={30}
+                            height={0}
+                        />
+                    </a>
                 </div>
             </div>
             <div className=" xl:hidden">

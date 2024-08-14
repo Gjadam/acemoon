@@ -19,7 +19,7 @@ export default function Product({product}) {
                     <Details {...product} />
                 </div>
                 <Tabs longDescription={product.longDescription}/>
-                <MoreProducts/>
+                {/* <MoreProducts/> */}
             </div>
         </div>
     )
