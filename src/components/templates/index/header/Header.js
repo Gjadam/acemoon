@@ -11,11 +11,11 @@ import 'swiper/css/pagination';
 // Components
 import Box from './Box';
 
-export default function Header({products}) {
+export default function Header({ products }) {
     return (
         <div className=" relative">
             <div className="  container mx-auto xl:container-fluid  ">
-                <div data-aos='fade-down' data-aos-delay="400" className='relative flex justify-center items-center bg-zinc-100 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
+                <div data-aos='fade-down' data-aos-delay="400" className='relative flex justify-center items-center bg-zinc-50 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
                     <Swiper
                         direction={'vertical'}
                         autoplay={true}
@@ -30,9 +30,9 @@ export default function Header({products}) {
                     >
                         {
                             products.map(product => (
-                        <SwiperSlide>
-                            <Box key={product._id} {...product} />
-                        </SwiperSlide>
+                                <SwiperSlide>
+                                    <Box key={product._id} {...product} />
+                                </SwiperSlide>
                             ))
                         }
                     </Swiper>
@@ -42,14 +42,7 @@ export default function Header({products}) {
                         width={0}
                         height={0}
                         sizes='100%'
-                        className=' w-full absolute left-0 -bottom-5 drag-none z-10'
-                    />
-                    <Image
-                        alt='logo'
-                        src={'/images/png/logo2.png'}
-                        width={150}
-                        height={0}
-                        className=' absolute left-5 bottom-10 drag-none z-20'
+                        className=' hidden xl:block w-full absolute left-0 -bottom-5 drag-none z-10'
                     />
                     <Image
                         alt='logo'
@@ -69,10 +62,9 @@ export default function Header({products}) {
                         data-aos='fade-up'
                         data-aos-delay='800'
                     />
-
                 </div>
             </div>
-            <div className="absolute -rotate-90  -left-16 top-1/2 z-40">
+            <div className=" hidden xl:block absolute -rotate-90  -left-16 top-1/2 z-30">
                 <div className=" flex items-center gap-10 text-lg">
                     <a href="https://www.instagram.com/ladyshop7191">
                         <p className=' hover:text-rose-500 transition-colors'>اینستاگرام</p>

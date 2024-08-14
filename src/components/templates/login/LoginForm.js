@@ -64,6 +64,7 @@ export default function LoginForm() {
                     icon: "error",
                 })
             } else if (res.status === 401) {
+                log
                 toastAlert.fire({
                     text: "ایمیل یا پسوورد صحیح نیست!",
                     icon: "error",

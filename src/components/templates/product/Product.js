@@ -7,6 +7,7 @@ import Tabs from "./tabs/Tabs";
 import MoreProducts from "./tabs/moreProducts/MoreProducts";
 
 export default function Product({product}) {
+    
     return (
         <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat">
             <div data-aos='fade-up' className=" container mx-auto xl:container-fluid bg-zinc-100 p-5 overflow-hidden">

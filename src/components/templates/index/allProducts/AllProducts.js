@@ -11,8 +11,9 @@ import 'swiper/css/pagination';
 
 
 export default function AllProducts({ products }) {
+    
     return (
-        <div className=' flex justify-center items-center mt-28 bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
+        <div className=' flex justify-center items-center mt-28  bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
             <div className="container mx-auto xl:container-fluid">
                 <SectionHeader title={"محصولات ما"} route={"/"} linkText={"همه محصولات"} />
                 <div className='container mx-auto xl:container-fluid overflow-hidden flex justify-center items-center my-10'>

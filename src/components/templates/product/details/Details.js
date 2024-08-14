@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 
 import { useState } from "react";
 // Components
@@ -7,13 +8,12 @@ import Button from "@/components/modules/button/Button";
 import ProductPrice from "@/components/modules/productPrice/ProductPrice";
 import QuantityCounter from "@/components/modules/quantityCounter/QuantityCounter";
 import StarScore from "@/components/modules/starScore/StarScore";
-import FormInput from "@/components/modules/formInput/FormInput";
+import SelectItem from "./selectItem/SelectItem";
 
 // Icons
 import { IoHeartOutline } from "react-icons/io5";
-import SelectItem from "./selectItem/SelectItem";
 
-export default function Details({ name, price, shortDescription, score, size: sizes, color: colors, collection, comments }) {
+export default function Details({ name, price, shortDescription, collection, score, size: sizes, color: colors, comments }) {
 
     const [count, setCount] = useState(1)
     const [selectedSize, setSelectedSize] = useState(-1);
@@ -67,7 +67,9 @@ export default function Details({ name, price, shortDescription, score, size: si
                 <div className=" border-t-1  pt-5">
                     <div className="flex items-center gap-1">
                         <span className=" text-secondary ">دسته بندی:</span>
-                        <span className=" hover:text-rose-500 transition-colors">{collection}</span>
+                        <Link href={`/collection/${collection._id}`}>
+                            <span className=" hover:text-rose-500 transition-colors">{collection.name}</span>
+                        </Link>
                     </div>
                 </div>
                 <div className=" border-t-1  pt-5">

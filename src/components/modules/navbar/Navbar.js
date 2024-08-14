@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 // Components
 import Button from '../button/Button';
 import LinkWithIcon from '../linkButtons/LinkWithIcon';
+import NavBarLink from './navBarLink/NavBarLink';
 
 // Icons
 import { IoHeart, IoHome, IoLogOut, IoSearch, IoTicket } from "react-icons/io5";
@@ -14,16 +15,18 @@ import { LuUser2 } from "react-icons/lu"
 import { BiSolidCategory } from 'react-icons/bi';
 import { LiaTimesSolid } from "react-icons/lia";
 import { MdAdminPanelSettings } from "react-icons/md";
+import { FaBars } from 'react-icons/fa6';
 
 export default function Navbar({ isLogin }) {
 
-    const [fixTop, setFixTop] = useState(false)
+    const [fixTop, setFixTop] = useState(true)
     const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
+    const [isOpenNavbar, setIsOpenNavbar] = useState(false)
 
     useEffect(() => {
         const fixNavbarToTop = () => {
             const currentScroll = window.pageYOffset
-            if (currentScroll > 200) {
+            if (currentScroll > 250) {
                 setFixTop(false)
             } else {
                 setFixTop(true)
@@ -35,22 +38,37 @@ export default function Navbar({ isLogin }) {
     }, [])
 
     return (
-        <div className={`container-fluid flex justify-between items-center py-5 z-50 ${fixTop ? "bg-white text-secondary" : " sticky top-0  backdrop-blur-3xl border-b-1 border-rose-500 shadow-lg rounded-b-3xl"} transition-all `}>
-            <div className="flex justify-center items-center gap-10">
-                <Image
-                    src={"/images/png/logo.png"}
-                    alt='logo'
-                    height={0}
-                    width={170}
-                />
-                <div className=" flex gap-5">
-                    <span className=' font-bold hover:text-rose-500 cursor-pointer transition-colors'>صفحه اصلی</span>
-                    <span className=' font-bold hover:text-rose-500 cursor-pointer transition-colors'>فروشگاه</span>
-                    <span className=' font-bold hover:text-rose-500 cursor-pointer transition-colors'>درباره ما</span>
+        <div className={` container mx-auto sm:container-fluid flex justify-between items-center p-5 z-40 bg-white ${fixTop ? " text-secondary" : " sticky top-0 border-b-1 shadow-xl rounded-b-3xl"} transition-all `}>
+            <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-72 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all`}>
+                <div className=" flex justify-between items-center">
+
+                    <span>LOGO</span>
+                    <div className=" xl:hidden">
+                        <Button type={'circle'} onClick={() => setIsOpenNavbar(false)} >
+                            <LiaTimesSolid />
+                        </Button>
+                    </div>
+                </div>
+                <form className="w-full xl:w-0 my-5 ">
+                    <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-md p-2.5 bg-white outline-none placeholder:text-sm w-full transition-colors' />
+                </form>
+                <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full">
+                    <NavBarLink text={'صفحه اصلی'} route={'/'} />
+                    <NavBarLink text={'فروشگاه'} route={'/'} />
+                    <NavBarLink text={'درباره ما'} route={'/'} />
+                    <NavBarLink text={'ارتباط با ما'} route={'/'} />
                 </div>
             </div>
+            <div className=" xl:hidden">
+                <Button type={'circle'} onClick={() => setIsOpenNavbar(true)} >
+                    <FaBars />
+                </Button>
+            </div>
+            <div className="  xl:hidden">
+                logo
+            </div>
             <div className=" flex justify-center items-center gap-5">
-                <div className=" flex justify-center items-center flex-row-reverse border-1  rounded-full p-1 bg-zinc-100  hover:bg-rose-500 text-rose-500 hover:text-white transition-colors overflow-hidden" >
+                <div className=" hidden xl:flex justify-center items-center flex-row-reverse border-1  rounded-full p-1 bg-zinc-100  hover:bg-rose-500 text-rose-500 hover:text-white transition-colors overflow-hidden" >
                     <div className=" p-2 cursor-pointer text-xl " onClick={() => setIsOpenSearchBox(!isOpenSearchBox)}>
                         {
                             isOpenSearchBox ? (
@@ -81,7 +99,7 @@ export default function Navbar({ isLogin }) {
                     }
                     {
                         isLogin &&
-                        <div className=" invisible opacity-0 group-hover:visible group-hover:opacity-100  absolute -left-0 top-full pt-[20.5px] z-50 transition-all ">
+                        <div className=" invisible opacity-0 group-hover:visible group-hover:opacity-100  absolute -left-0 top-full pt-5 z-50 transition-all ">
                             <div className="w-60 p-5 border-b-1 border-rose-500 bg-white shadow-lg rounded-b-3xl transition-all">
                                 <div className=" flex justify-center items-center gap-5 border-b-1 pb-3 border-rose-500 ">
                                     <Image

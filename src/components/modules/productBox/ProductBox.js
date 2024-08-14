@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-export default function ProductBox() {
+export default function ProductBox({images}) {
   return (
     <div className="group mx-auto relative flex justify-center items-center flex-col mt-8 h-120 w-96  transition-all">
       <Image
         alt='product'
-        src={'/images/jpg/product1.jpg'}
+        src={images && images[0].url}
         width={0}
         height={0}
         sizes="100%"
