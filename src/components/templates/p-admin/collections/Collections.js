@@ -9,8 +9,8 @@ export default function Collections({ collections }) {
       {
         collections.map(collection => (
           <PanelCard title={collection.name} date={collection.createdAt}>
-            <PanelCardButton bgColor={'bg-red-500'} text={'ویرایش'} />
-            <PanelCardButton bgColor={'bg-blue-500'} text={'حذف'} />
+            <PanelCardButton bgColor={'bg-blue-500'} text={'ویرایش'} />
+            <PanelCardButton bgColor={'bg-red-500'} text={'حذف'} />
           </PanelCard>
         ))
       }
