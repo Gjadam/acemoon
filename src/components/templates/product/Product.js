@@ -6,7 +6,7 @@ import Details from "../product/details/Details";
 import Tabs from "./tabs/Tabs";
 import MoreProducts from "./tabs/moreProducts/MoreProducts";
 
-export default function Product({product}) {
+export default function Product({product, relatedProducts}) {
     
     return (
         <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat">
@@ -18,8 +18,12 @@ export default function Product({product}) {
                     <Gallery images={product.images}/>
                     <Details {...product} />
                 </div>
-                <Tabs longDescription={product.longDescription}/>
-                {/* <MoreProducts/> */}
+                <Tabs productID={product._id} longDescription={product.longDescription} comments={product.comments}/>
+                {
+                    relatedProducts.length > 0 ? (
+                        <MoreProducts relatedProducts={relatedProducts}/>
+                    ) : null
+                }
             </div>
         </div>
     )

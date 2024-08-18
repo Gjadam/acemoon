@@ -4,12 +4,19 @@ import { useEffect, useState } from "react"
 // Components
 import Button from "@/components/modules/button/Button"
 import FormInput from "@/components/modules/formInput/FormInput"
+import Comment from "./Comment"
 
 // Icons
 import { FaStar } from "react-icons/fa"
-import Comment from "./Comment"
 
-export default function Comments() {
+// Axios
+import apiRequest from "@/Services/Axios/Configs/configs"
+
+// SweetAlert
+import toastAlert from "@/utils/toastAlert"
+import Alert from "@/components/modules/alert/Alert"
+
+export default function Comments({ productID, comments }) {
 
     const [hoverRateIcon, setHoverRateIcon] = useState(null)
     const [isSaveUserInfo, setIsSaveUserInfo] = useState(false)
@@ -17,11 +24,11 @@ export default function Comments() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [body, setBody] = useState('')
-    const [score, setScore] = useState(4)
+    const [score, setScore] = useState(5)
 
     useEffect(() => {
         const userInfos = JSON.parse(localStorage.getItem("userInfo"))
-        if(userInfos) {
+        if (userInfos) {
             setUsername(userInfos.username)
             setEmail(userInfos.email)
         }
@@ -29,20 +36,61 @@ export default function Comments() {
 
     const submitComment = async () => {
 
-        if(isSaveUserInfo) {
+        if (isSaveUserInfo) {
             const userInfo = {
                 username,
                 email
             }
             localStorage.setItem("userInfo", JSON.stringify(userInfo))
         }
+
+        apiRequest.post('/comments', {
+            username,
+            email,
+            body,
+            score,
+            productID
+        })
+            .then(res => {
+                if (res.status === 201) {
+                    toastAlert.fire({
+                        text: "دیدگاه شما با موفقیت ثبت شد.",
+                        icon: "success",
+                    })
+                    setUsername('')
+                    setEmail('')
+                    setBody('')
+                }
+            })
+            .catch(err => {
+                if (err.response) {
+                    if (err.response.status === 400) {
+                        toastAlert.fire({
+                            text: "لطفا فیلدهای موردنظر را کامل کنید!",
+                            icon: "error",
+                        })
+                    }
+                }
+            })
     }
     return (
         <div data-aos='fade-left'>
-            {/* <span className=" text-2xl" ><span className=" text-primary ml-1">{product.comments.filter(comment => comment.isAccept).length}</span>دیدگاه برای {product.name}</span> */}
             <div className=" flex flex-col gap-10 my-10">
-
-                        <Comment  />
+                {
+                    comments.length > 0 ? (
+                        comments.map(comment => (
+                            comment.isAccept ?
+                                (
+                                    <Comment key={comment._id} {...comment} />
+                                )
+                                : (
+                                    <Alert text={'دیدگاهی برای این محصول ثبت نشده'} />
+                                )
+                        ))
+                    ) : (
+                        <Alert text={'دیدگاهی برای این محصول ثبت نشده'} />
+                    )
+                }
 
             </div>
             <div className="flex flex-col gap-5">

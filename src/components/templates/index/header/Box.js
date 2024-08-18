@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Button from '@/components/modules/button/Button'
 import ProductPrice from '@/components/modules/productPrice/ProductPrice'
 
-export default function Box({ _id, images, name, price, collection }) {
+export default function Box({ _id, images, name, price, priceBeforeDiscount, collection }) {
 
     return (
         <div className=' flex justify-evenly items-center flex-col lg:flex-row text-start h-full overflow-hidden'>
@@ -22,13 +22,17 @@ export default function Box({ _id, images, name, price, collection }) {
                 />
             </div>
             <div className=" flex flex-col gap-5 text-secondary ">
-                <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-4xl xl:text-6xl font-bold '>
-                    <span>کالکشن</span>
-                    <p className=' text-rose-500'>{collection.name}</p>
-                </div>
+                {
+                    collection ? (
+                        <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-4xl xl:text-6xl font-bold '>
+                            <span>کالکشن</span>
+                            <p className=' text-rose-500'>{collection.name}</p>
+                        </div>
+                    ) : null
+                }
                 <h1 data-swiper-parallax="-200" className=' text-3xl xl:text-4xl  '>{name}</h1>
                 <div data-swiper-parallax="-150">
-                    <ProductPrice price={price} />
+                    <ProductPrice price={price} priceBeforeDiscount={priceBeforeDiscount} />
                 </div>
                 <div data-swiper-parallax="-50" className=' z-50'>
                     <Link href={`/product/${_id}`}>

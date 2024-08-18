@@ -27,8 +27,8 @@ export default function SideBar({ user }) {
                     LOGO
                 </div>
             </div>
-            <div className={`${isOpenSideBar ? 'fixed left-0 top-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)]' : 'bg-inherit relative'} xl:relative xl:bg-inherit h-full  z-50 `}>
-                <div className={` bg-white  fixed ${isOpenSideBar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 py-5  xl:py-0  rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none border-rose-500 xl:relative xl:flex justify-center items-start flex-col h-full w-56  overflow-hidden transition-all`}>
+            <div className={`${isOpenSideBar ? 'fixed left-0 top-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)]' : 'bg-inherit relative'} xl:relative xl:bg-inherit h-full  z-50  transition-all duration-500`}>
+                <div className={` bg-white  fixed ${isOpenSideBar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 py-5  xl:py-0  rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none border-rose-500 xl:relative xl:flex justify-center items-start flex-col h-full w-56  overflow-hidden transition-all duration-500 ease-in-out`}>
                     <div className=" flex justify-between items-start flex-col h-full">
                         <div className="  w-full flex justify-between items-center px-5">
                             <span>Logo</span>
@@ -48,13 +48,13 @@ export default function SideBar({ user }) {
                             <SideBarLink text='دسته بندی ها' route={'/p-admin/collections'}>
                                 <BiSolidCategoryAlt />
                             </SideBarLink>
-                            <SideBarLink text='کاربران' route={'/p-admin/b'}>
+                            <SideBarLink text='کاربران' route={'/p-admin/users'}>
                                 <FaUsers />
                             </SideBarLink>
                             <SideBarLink text='ارتباط با ما' route={'/p-admin/c'}>
                                 <BiSolidContact />
                             </SideBarLink>
-                            <SideBarLink text='کامنت ها' route={'/p-admin/c'}>
+                            <SideBarLink text='کامنت ها' route={'/p-admin/comments'}>
                                 <IoIosChatboxes />
                             </SideBarLink>
                             <SideBarLink text='تیکت های پشتیبانی' route={'/p-admin/c'}>

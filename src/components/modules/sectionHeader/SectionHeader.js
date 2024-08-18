@@ -9,26 +9,40 @@ export default function SectionHeader({ title, linkText, route }) {
     return (
         <div className={`flex ${route ? "justify-between" : "justify-center"} p-5 xl:p-0 items-center w-full`}>
             <div className=" flex justify-center items-center">
-                <Image
-                    alt='section-header'
-                    src={'/images/png/header.png'}
-                    width={50}
-                    height={0}
-                />
-                <h1 className="text-3xl text-center text-secondary font-bold">{title}</h1>
                 {
-                    route ? null : (
-                        <Image
-                            alt='section-header'
-                            src={'/images/png/header.png'}
-                            width={50}
-                            height={0}
-                            className=" rotate-180"
-                        />
+                    route ? (
+                        <>
+                            <Image
+                                alt='section-header'
+                                src={'/images/png/header.png'}
+                                width={40}
+                                height={0}
+                            />
+                            <h1 className=" mr-1  text-xl xl:text-3xl text-center text-secondary font-bold">{title}</h1>
+                        </>
+                    ) : (
+                        <>
+                            <Image
+                                alt='section-header'
+                                src={'/images/png/flower1.png'}
+                                width={60}
+                                height={0}
+                                className=" rotate-90"
+                            />
+                            <h1 className=" text-xl xl:text-3xl text-center text-secondary font-bold">{title}</h1>
+                            <Image
+                                alt='section-header'
+                                src={'/images/png/flower1.png'}
+                                width={60}
+                                height={0}
+                                className=" -rotate-90"
+                            />
+                        </>
 
                     )
-
                 }
+
+
             </div>
             {
                 route &&

@@ -49,7 +49,7 @@ export default function Header({ products }) {
                         src={'/images/png/flower1.png'}
                         width={150}
                         height={0}
-                        className=' absolute left-36 top-10 drag-none -rotate-45'
+                        className=' absolute left-36 top-10 drag-none -rotate-45 hidden lg:block'
                         data-aos='fade-up'
                         data-aos-delay='600'
                     />
@@ -58,7 +58,7 @@ export default function Header({ products }) {
                         src={'/images/png/flower2.png'}
                         width={150}
                         height={0}
-                        className=' absolute right-36 top-10 drag-none  rotate-45'
+                        className=' absolute right-36 top-10 drag-none  rotate-45 hidden lg:block'
                         data-aos='fade-up'
                         data-aos-delay='800'
                     />

@@ -14,23 +14,30 @@ export default function AddCollection() {
     const router = useRouter()
     const [name, setName] = useState()
 
-    const addNewCollection = async () => {
-        const res = await apiRequest.post('/collections', {
+    const addNewCollection = () => {
+        apiRequest.post('/collections', {
             name
         })
-        if (res.status === 201) {
-            toastAlert.fire({
-                text: "دسته بندی جدید با موفقیت افزوده شد.",
-                icon: "success",
-            }).then(() => {
-                router.refresh()
+            .then(res => {
+                if (res.status === 201) {
+                    toastAlert.fire({
+                        text: "دسته بندی جدید با موفقیت افزوده شد.",
+                        icon: "success",
+                    }).then(() => {
+                        router.refresh()
+                    })
+                }
             })
-        } else if (res.status === 400) {
-            toastAlert.fire({
-                text: "نام دسته بندی الزامی است!ً",
-                icon: "error",
+            .catch(err => {
+                if (err.response) {
+                    if (err.response.status === 400) {
+                        toastAlert.fire({
+                            text: "نام دسته بندی الزامی است!",
+                            icon: "error",
+                        })
+                    }
+                }
             })
-        }
     }
 
     return (

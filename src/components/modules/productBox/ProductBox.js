@@ -8,10 +8,10 @@ import Button from "../button/Button";
 // Icons
 import { IoBasket, IoHeart } from "react-icons/io5";
 
-export default function ProductBox({ _id, name, price, images }) {
+export default function ProductBox({ _id, name, price, priceBeforeDiscount, images }) {
   return (
-    <div className=" flex justify-center items-center flex-col">
-      <div className=" relative group flex justify-center items-center flex-col mt-8 h-120 w-96 overflow-hidden border-1 rounded-3xl transition-all">
+    <div className="  flex justify-center items-center flex-col w-96 mx-auto">
+      <div className=" relative group flex justify-center items-center flex-col mt-8 h-120 w-full overflow-hidden border-1 rounded-3xl transition-all">
         <Image
           alt='product'
           src={images && images[0].url}
@@ -28,18 +28,18 @@ export default function ProductBox({ _id, name, price, images }) {
             width={0}
             height={0}
             sizes="100%"
-            className=" absolute -bottom-[30rem] h-full group-hover:bottom-0 w-full group-hover:brightness-50 object-cover object-top transition-all duration-700"
+            className=" absolute -bottom-[30rem] h-full group-hover:bottom-0 w-full group-hover:brightness-90 object-cover object-top transition-all duration-700"
           />
         }
-        <div className=" absolute bottom-48 group-hover:bottom-5  opacity-0 group-hover:opacity-100 invisible group-hover:visible w-full transition-all duration-500">
-          <div className=" flex justify-between items-center px-10">
+        <div className="p-5 absolute bottom-24 group-hover:bottom-0 opacity-0 group-hover:opacity-100 invisible group-hover:visible w-full transition-all duration-500">
+          <div className=" flex justify-between items-center w-full bg-white border-1 p-5 rounded-2xl">
             <Button type={'circle'}>
               <IoBasket />
             </Button>
             <Link href={`/product/${_id}`}>
-            <div className=" w-40">
-              <Button text={'مشاهده'} isWidthFull={true} />
-            </div>
+              <div className=" w-40">
+                <Button text={'مشاهده'} isWidthFull={true} />
+              </div>
             </Link>
             <Button type={'circle'}>
               <IoHeart />
@@ -47,9 +47,9 @@ export default function ProductBox({ _id, name, price, images }) {
           </div>
         </div>
       </div>
-      <div className=" flex justify-center flex-col items-center p-3">
+      <div className=" flex justify-between items-center w-full p-3">
         <h1 className=" text-secondary font-bold text-2xl">{name}</h1>
-        <ProductPrice price={price} />
+        <ProductPrice price={price} priceBeforeDiscount={priceBeforeDiscount} />
       </div>
     </div>
 

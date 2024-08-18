@@ -24,7 +24,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                     />
                 </div>
                 <div>
-                    <MdOutlineKeyboardArrowDown className=' group-hover:opacity-0 animate-bounce text-lg text-rose-500 transition-opacity' />
+                    <MdOutlineKeyboardArrowDown className=' group-hover:opacity-0 animate-bounce text-lg text-zinc-400 transition-opacity' />
                 </div>
             </div>
             <div className=" flex flex-col gap-3 h-0 opacity-0 group-hover:opacity-100 invisible group-hover:visible group-hover:h-20 group-hover:my-5 overflow-hidden transition-all duration-300">

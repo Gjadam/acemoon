@@ -54,29 +54,36 @@ export default function RegisterForm() {
             password: "",
         },
         validate,
-        onSubmit: async (values, { setSubmitting }) => {
+        onSubmit: (values, { setSubmitting }) => {
             setTimeout(() => {
                 setSubmitting(false)
             }, 3000)
-            const res = await apiRequest.post("/auth/signup", {
+            apiRequest.post("/auth/signup", {
                 name: values.name.trim(),
                 phone: `0${values.phone}`,
                 email: values.email,
                 password: values.password,
             })
-            if (res.status === 201) {
-                toastAlert.fire({
-                    text: "ثبت نام با موفقیت انجام شد",
-                    icon: "success",
-                }).then(() => {
-                    router.replace("/")
+                .then(res => {
+                    if (res.status === 201) {
+                        toastAlert.fire({
+                            text: "ثبت نام با موفقیت انجام شد",
+                            icon: "success",
+                        }).then(() => {
+                            router.replace("/")
+                        })
+                    }
                 })
-            } else if (res.status === 422) {
-                toastAlert.fire({
-                    text: "کاربری با همین اطلاعات قبلا ثبت نام شده است!",
-                    icon: "error",
+                .catch(err => {
+                    if (err.response) {
+                        if (err.response.status === 422) {
+                            toastAlert.fire({
+                                text: "کاربری با همین اطلاعات قبلا ثبت نام شده است!",
+                                icon: "error",
+                            })
+                        }
+                    }
                 })
-            }
         },
     })
 
