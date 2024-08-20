@@ -10,7 +10,7 @@ export default function Button({ type, text, children, isSubmitType, onClick, is
             </button>
 
         ) : type === 'circle' ? (
-            <button className=" p-3 border-1 border-primary text-xl text-rose-500 rounded-full  hover:text-white bg-zinc-100 hover:bg-rose-500 hover:border-rose-500 overflow-hidden relative before:absolute before:left-0 before:-bottom-1 before:hover:bottom-full before:w-full before:h-px before:bg-zinc-100 before:transition-all before:duration-300 transition-colors duration-500" onClick={onClick}>
+            <button className=" p-3 border-1 text-xl text-rose-500 rounded-full  hover:text-white bg-zinc-100 hover:bg-rose-500 hover:border-rose-500 overflow-hidden relative before:absolute before:left-0 before:-bottom-1 before:hover:bottom-full before:w-full before:h-px before:bg-zinc-100 before:transition-all before:duration-300 transition-colors duration-500" onClick={onClick}>
                 {children}
             </button>
         ) : (

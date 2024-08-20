@@ -8,8 +8,8 @@ export default function SideBarLink({ text, route, children, onClick }) {
 
     return (
         <Link href={route ? route : ''}>
-            <div className={` group flex items-center gap-1 ${isActive ? 'text-rose-500' : 'text-zinc-500 hover:text-rose-500'}  cursor-pointer transition-colors`}>
-                <div className={` text-xl ${isActive ? "border-1 border-primary rounded-l-full  bg-rose-500 text-white" : " text-zinc-500 group-hover:text-rose-500 "} transition-colors`} onClick={onClick}>
+            <div className={` group flex items-center gap-1 ${isActive ? 'text-rose-500' : 'text-zinc-500 hover:text-rose-500'}  cursor-pointer transition-colors`} onClick={onClick}>
+                <div className={` text-xl ${isActive ? "border-1 border-primary rounded-l-full  bg-rose-500 text-white" : " text-zinc-500 group-hover:text-rose-500 "} transition-colors`}>
                     <div className=" flex items-center gap-1 p-3">
                         {children}
                     </div>

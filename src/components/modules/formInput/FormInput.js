@@ -39,7 +39,7 @@ export default function FormInput({  error, placeholder, name, type, value, isDi
     ) : type === 'select-option' ? (
       <div className="flex  flex-col gap-2 w-full">
         <label>{placeholder}</label>
-        <select name={name} className={` text-gray-400 w-full px-3 py-3.5 border-1 ${!isDisabled && 'hover:border-secondary'}  ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} >
+        <select name={name} className={` text-gray-400 focus:text-secondary w-full px-3 py-3.5 border-1  ${!isDisabled && 'hover:border-secondary'}  ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} >
           <option value={-1} className=' text-gray-400' >لطفا یک مورد را انتخاب نمایید</option>
           {
             options?.map(option => (

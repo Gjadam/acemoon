@@ -31,7 +31,7 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
             className=" absolute -bottom-[30rem] h-full group-hover:bottom-0 w-full group-hover:brightness-90 object-cover object-top transition-all duration-700"
           />
         }
-        <div className="p-5 absolute bottom-24 group-hover:bottom-0 opacity-0 group-hover:opacity-100 invisible group-hover:visible w-full transition-all duration-500">
+        <div className="p-5 absolute bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 invisible group-hover:visible w-full transition-all duration-500">
           <div className=" flex justify-between items-center w-full bg-white border-1 p-5 rounded-2xl">
             <Button type={'circle'}>
               <IoBasket />

@@ -24,13 +24,18 @@ export default function Box({ _id, images, name, price, priceBeforeDiscount, col
             <div className=" flex flex-col gap-5 text-secondary ">
                 {
                     collection ? (
+                        <>
                         <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-4xl xl:text-6xl font-bold '>
                             <span>کالکشن</span>
                             <p className=' text-rose-500'>{collection.name}</p>
                         </div>
-                    ) : null
+                        <h1 data-swiper-parallax="-200" className=' text-3xl xl:text-4xl  '>{name}</h1>
+                        </>
+                    ) : (
+                        <h1 data-swiper-parallax="-200" className=' text-3xl xl:text-6xl font-bold  '>{name}</h1>
+
+                    )
                 }
-                <h1 data-swiper-parallax="-200" className=' text-3xl xl:text-4xl  '>{name}</h1>
                 <div data-swiper-parallax="-150">
                     <ProductPrice price={price} priceBeforeDiscount={priceBeforeDiscount} />
                 </div>

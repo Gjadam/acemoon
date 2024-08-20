@@ -17,11 +17,17 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaBars } from 'react-icons/fa6';
 
+// Hooks
+import useAuth from '@/Hooks/useAuth';
+
 export default function Navbar({ isLogin }) {
 
     const [fixTop, setFixTop] = useState(true)
     const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
     const [isOpenNavbar, setIsOpenNavbar] = useState(false)
+
+    // LogOut
+    const { logOut } = useAuth()
 
     useEffect(() => {
         const fixNavbarToTop = () => {
@@ -159,7 +165,7 @@ export default function Navbar({ isLogin }) {
                                     <LinkWithIcon text='جزئیات حساب' route={'/p-user/account-details'}>
                                         <BiSolidCategory />
                                     </LinkWithIcon>
-                                    <LinkWithIcon text='خروج' route={null} >
+                                    <LinkWithIcon text='خروج'  onClick={logOut}>
                                         <IoLogOut />
                                     </LinkWithIcon>
                                 </div>

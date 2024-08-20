@@ -9,7 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
-import Link from 'next/link';
 
 export default function MoreProducts({ relatedProducts }) {
     return (
@@ -43,21 +42,13 @@ export default function MoreProducts({ relatedProducts }) {
                     modules={[Navigation, Autoplay]}
                     className="mySwiper"
                 >
+                    {
+                        relatedProducts.map(relatedProduct => (
                             <SwiperSlide>
-                                        <ProductBox />
+                                <ProductBox key={relatedProduct._id} {...relatedProduct} />
                             </SwiperSlide>
-                            <SwiperSlide>
-                                        <ProductBox />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                        <ProductBox />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                        <ProductBox />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                        <ProductBox />
-                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>

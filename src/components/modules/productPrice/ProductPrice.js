@@ -2,9 +2,9 @@
 export default function ProductPrice({ price, priceBeforeDiscount }) {
     return (
         <div className=" flex items-center flex-wrap gap-3 ">
-            <span className=" text-2xl text-rose-500 brightness-75  ">
+            <span className=" text-2xl text-rose-600 brightness-75  ">
                 {price?.toLocaleString()}
-                <span className=' text-xs mr-1 '>تومان</span>
+                <span className=' text-xs mr-1 text-rose-400 '>تومان</span>
             </span>
             {
                 priceBeforeDiscount ? (
