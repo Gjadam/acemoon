@@ -23,10 +23,9 @@ export default function Details({ name, price, priceBeforeDiscount, shortDescrip
         <div data-aos='fade-right' className=" w-full xl:w-1/2">
             <div className=" flex flex-col gap-5 text-secondary">
                 <div className="flex flex-col gap-5 pb-5 border-b-1">
-
                     <div className=" flex justify-between items-start gap-5">
                         <div className=" flex flex-col gap-3">
-                            <h1 className=" text-3xl font-bold">{name}</h1>
+                            <h1 className=" text-xl md:text-3xl font-bold">{name}</h1>
                             <ProductPrice price={price} priceBeforeDiscount={priceBeforeDiscount} />
                         </div>
                         <div className=" flex items-center flex-wrap mt-2 gap-3">

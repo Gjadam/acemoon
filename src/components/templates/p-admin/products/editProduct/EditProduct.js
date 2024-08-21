@@ -7,6 +7,7 @@ import Button from "@/components/modules/button/Button";
 import FormInput from "@/components/modules/formInput/FormInput";
 import apiRequest from "@/Services/Axios/Configs/configs";
 import toastAlert from "@/utils/toastAlert";
+import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 
 export default function EditProduct({ isShowEditProduct, setIsShowEditProduct, collections, _id, name, priceBeforeDiscount, price, shortDescription, longDescription, size, color, collection: productCollection }) {
 
@@ -50,6 +51,7 @@ export default function EditProduct({ isShowEditProduct, setIsShowEditProduct, c
     return (
         <div className={` container-fluid fixed left-0 top-0 right-0 bottom-0 z-40 flex justify-center items-center bg-[rgba(0,0,0,0.6)] ${isShowEditProduct ? ' visible opacity-100' : ' invisible opacity-0'} transition-all duration-300`} onClick={() => setIsShowEditProduct(false)}>
             <div className=" flex justify-between items-start flex-col gap-10 md:w-[50rem] w-full h-120 overflow-y-auto p-5 bg-white rounded-xl z-50" onClick={(e) => e.stopPropagation()}>
+                <SectionHeader title={'ویرایش محصول'}/>
                 <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap w-full">
                     <FormInput type={'text'} placeholder={'نام محصول'} value={editName} onChange={(e) => setEditName(e.target.value)} />
                     <div className="flex  flex-col gap-2 w-full">

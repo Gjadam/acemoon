@@ -33,7 +33,7 @@ export default function Gallery({ images }) {
 
     return (
         <div data-aos='fade-left' className=" ">
-            <div className={` flex justify-center items-center flex-col gap-5 w-120 ${images.length > 1 && loading ? " h-96" : null} overflow-hidden`}>
+            <div className={` flex justify-center items-center flex-col gap-5 w-80 md:w-120 ${images.length > 1 && loading ? " h-96" : null} overflow-hidden`}>
                 {
                     images.length === 1 ? (
                         <Image
@@ -96,7 +96,7 @@ export default function Gallery({ images }) {
                                                     src={image.url}
                                                     width={500}
                                                     height={0}
-                                                    className="rounded-3xl cursor-pointer"
+                                                    className=" rounded-xl md:rounded-3xl cursor-pointer grayscale hover:grayscale-0 transition-all"
                                                 />
                                             </SwiperSlide>
                                         ))

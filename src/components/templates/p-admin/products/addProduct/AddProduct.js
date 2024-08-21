@@ -125,7 +125,7 @@ export default function AddProduct({ collections }) {
                 <Button text={'افزودن محصول'} onClick={addProduct} />
             </div>
             <div className={`fixed ${isImageUploaded ? "right-5" : " -right-96"} top-5  z-50 w-64 transition-all`}>
-                <div className="flex justify-between items-center shadow-lg border-b-1 border-rose-500 bg-secondary text-white p-5 rounded-2xl overflow-hidden">
+                <div className="flex justify-between items-center shadow-xl border-b-1 border-rose-500 bg-secondary text-white p-5 rounded-[2rem] overflow-hidden">
                     <span>درحال آپلود تصاویر</span>
                     <LuLoader2 className=' animate-spin text-2xl text-rose-500' />
                 </div>

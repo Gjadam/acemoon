@@ -31,13 +31,6 @@ export default function Products({ product, collections }) {
             cancelButtonText: "خیر"
         }).then((result) => {
             if (result.isConfirmed) {
-                // fetch('/api/products', {
-                //     method: 'DELETE',
-                //     headers: {
-                //       'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify({ productID: product._id })
-                //   })
                 apiRequest.delete('/products', { data: { productID: product._id }})
                     .then(res => {
                         if (res.status === 200) {
