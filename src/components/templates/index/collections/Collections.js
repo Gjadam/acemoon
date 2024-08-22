@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 export default function Categories({ collections }) {
     return (
-        <div className="xl:container-fluid flex justify-center items-center h-auto xl:h-52 mt-28 overflow-hidden p-5 xl:p-0 bg-rose-500 xl:bg-inherit">
+        <div id='category' className="xl:container-fluid flex justify-center items-center h-auto xl:h-52 mt-28 overflow-hidden p-5 xl:p-0 bg-rose-500 xl:bg-inherit">
             <div className=" flex justify-center items-center flex-col h-full w-1/2 text-center z-10 text-white xl:text-secondary  xl:bg-[url('/images/jpg/category.jpg')] bg-cover bg-left bg-no-repeat xl:rounded-l-3xl">
                 <Image
                     alt='logo'

@@ -18,7 +18,7 @@ export default function SectionHeader({ title, linkText, route }) {
                                 width={40}
                                 height={0}
                             />
-                            <h1 className=" mr-1  text-xl xl:text-3xl text-center text-secondary font-bold">{title}</h1>
+                            <h1 className=" mr-1  text-xl text-center text-secondary font-bold">{title}</h1>
                         </>
                     ) : (
                         <>
@@ -29,7 +29,7 @@ export default function SectionHeader({ title, linkText, route }) {
                                 height={0}
                                 className=" rotate-90"
                             />
-                            <h1 className=" text-xl xl:text-3xl text-center text-secondary font-bold">{title}</h1>
+                            <h1 className=" text-xl  text-center text-secondary font-bold">{title}</h1>
                             <Image
                                 alt='section-header'
                                 src={'/images/png/flower1.png'}

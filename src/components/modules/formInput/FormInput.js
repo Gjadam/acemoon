@@ -6,21 +6,21 @@ import { FaRegEye } from "react-icons/fa6"
 import { IoCloudUploadOutline } from "react-icons/io5"
 import { RiEyeCloseLine } from "react-icons/ri"
 
-export default function FormInput({  error, placeholder, name, type, value, isDisabled, onChange, onBlur, options }) {
+export default function FormInput({ error, placeholder, name, type, value, isDisabled, onChange, onBlur, options }) {
 
   const [showPassword, setShowPassword] = useState(false)
 
   const showPasswordHandler = () => {
-      setShowPassword(!showPassword)
+    setShowPassword(!showPassword)
   }
 
   return (
     type === 'password' ? (
       <div className=" relative flex flex-col gap-2 w-full">
-        <label>{placeholder}</label>
-        <input disabled={isDisabled} value={value} name={name} type={showPassword ? 'text' : 'password'} placeholder={placeholder} className={` w-full px-3 py-4 border-1 ${!isDisabled && 'hover:border-secondary'} ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-none placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
-        {error ? <span className=' text-xs text-red-500'>{error}</span> : null}
-        <div className=" absolute left-4 top-[51px] text-xl bg-white " onClick={showPasswordHandler}>
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <input disabled={isDisabled} value={value} name={name} type={showPassword ? 'text' : 'password'} className={` w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
+        {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
+        <div className=" absolute left-4 top-5 text-xl bg-white cursor-pointer" onClick={showPasswordHandler}>
           {
             showPassword ? (
               <FaRegEye />
@@ -31,23 +31,23 @@ export default function FormInput({  error, placeholder, name, type, value, isDi
         </div>
       </div>
     ) : type === 'textarea' ? (
-      <div className="flex  flex-col gap-2 w-full">
-        <label>{placeholder}</label>
-        <textarea disabled={isDisabled} name={name} value={value} placeholder={placeholder} className={` w-full h-48 px-3 py-4 border-1 ${!isDisabled && 'hover:border-secondary'}  ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-none placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
-        {error ? <span className=' text-xs text-red-500'>{error}</span> : null}
+      <div className=" relative flex  flex-col gap-2 w-full">
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <textarea disabled={isDisabled} name={name} value={value} className={` h-60 w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
+        {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>
     ) : type === 'select-option' ? (
       <div className="flex  flex-col gap-2 w-full">
-        <label>{placeholder}</label>
-        <select name={name} className={` text-gray-400 focus:text-secondary w-full px-3 py-3.5 border-1  ${!isDisabled && 'hover:border-secondary'}  ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} >
-          <option value={-1} className=' text-gray-400' >لطفا یک مورد را انتخاب نمایید</option>
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <select name={name} className={` w-full px-3 py-4 border-1 text-gray-400 text-sm ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} >
+          <option value={-1}  disabled selected >دسته بندی</option>
           {
             options?.map(option => (
               <option value={option._id} key={option._id} className=' text-black'>{option.title ? option.title : option.name}</option>
             ))
           }
         </select>
-        {error ? <span className=' text-xs text-red-500'>{error}</span> : null}
+        {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>
     ) : type === 'file' ? (
       <label htmlFor='upload' className="flex justify-center items-center flex-col gap-3 w-full p-10 bg-white border-1 hover:border-rose-500 rounded-2xl  active:rounded-none transition-all duration-200 ">
@@ -58,15 +58,14 @@ export default function FormInput({  error, placeholder, name, type, value, isDi
           <IoCloudUploadOutline className=' text-rose-500 text-4xl' />
         </div>
         <div className=" flex flex-col gap-3 text-zinc-500 text-center text-sm">
-          <span>حداکثر اندازه: 6 مگابایت</span>
           <span>فرمت های مجاز: jpg, png, jpeg</span>
         </div>
       </label>
     ) : (
-      <div className="flex  flex-col gap-2 w-full">
-        <label >{placeholder}</label>
-        <input disabled={isDisabled} name={name} value={value} type={type} placeholder={placeholder} min={0} className={` w-full px-3 py-4 border-1 ${!isDisabled && 'hover:border-secondary'} ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
-        {error ? <span className=' text-xs text-red-500'>{error}</span> : null}
+      <div className="relative flex flex-col gap-2 w-full">
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <input disabled={isDisabled} name={name} value={value} type={type} min={0} className={` w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
+        {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>
     )
   )

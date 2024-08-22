@@ -4,7 +4,7 @@ import Alert from "@/components/modules/alert/Alert";
 
 export default function Collection({ products }) {
     return (
-        <div className=" flex justify-center items-center flex-wrap gap-5 my-20">
+        <div className=" flex justify-center items-center flex-wrap gap-5 my-10">
             {
                 products.length > 0 ? (
                     products.map(product => (

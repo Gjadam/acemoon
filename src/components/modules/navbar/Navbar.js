@@ -32,7 +32,7 @@ export default function Navbar({ isLogin }) {
     useEffect(() => {
         const fixNavbarToTop = () => {
             const currentScroll = window.pageYOffset
-            if (currentScroll > 250) {
+            if (currentScroll > 150) {
                 setFixTop(false)
             } else {
                 setFixTop(true)

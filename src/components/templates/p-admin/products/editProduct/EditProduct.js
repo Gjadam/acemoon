@@ -55,19 +55,18 @@ export default function EditProduct({ isShowEditProduct, setIsShowEditProduct, c
                 <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap w-full">
                     <FormInput type={'text'} placeholder={'نام محصول'} value={editName} onChange={(e) => setEditName(e.target.value)} />
                     <div className="flex  flex-col gap-2 w-full">
-                        <label>دسته بندی</label>
                         {/* <select name={name} className={` text-gray-400 focus:text-secondary w-full px-3 py-3.5 border-1  ${!isDisabled && 'hover:border-secondary'}  ${error ? "border-red-600" : "focus:border-rose-200"} focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} > */}
-                        <select className={` text-gray-400 focus:text-secondary w-full px-3 py-3.5 border-1  focus:placeholder:text-secondary focus:bg-rose-50 rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={(e) => setEditCollection(e.target.value)}  >
+                        <select className={` w-full px-3 py-4 border-1 text-gray-400 text-sm  focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={(e) => setEditCollection(e.target.value)}  >
                             {
                                 productCollection ? (
-                                    <option value={productCollection._id} className=' text-secondary' >{productCollection.name}</option>
+                                    <option value={productCollection._id}  >{productCollection.name}</option>
                                 ) : (
-                                    <option value={-1} className=' text-secondary' >لطفا یک مورد را انتخاب کنید</option>
+                                    <option value={-1} disabled selected >دسته بندی</option>
                                 )
                             }
                             {
                                 collections?.filter(collection => collection._id !== productCollection?._id).map(collection => (
-                                    <option value={collection._id} key={collection._id} className=' text-secondary'>{collection.name}</option>
+                                    <option value={collection._id} key={collection._id} >{collection.name}</option>
                                 ))
                             }
                         </select>
