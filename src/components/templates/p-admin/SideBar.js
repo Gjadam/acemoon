@@ -63,7 +63,7 @@ export default function SideBar({ user }) {
                             <SideBarLink text='کامنت ها' route={'/p-admin/comments'}>
                                 <IoIosChatboxes />
                             </SideBarLink>
-                            <SideBarLink text='تیکت های پشتیبانی' route={'/p-admin/c'}>
+                            <SideBarLink text='تیکت های پشتیبانی' route={'/p-admin/tickets'}>
                                 <IoTicket />
                             </SideBarLink>
                             <SideBarLink text={'خروج '} onClick={logOut}>
