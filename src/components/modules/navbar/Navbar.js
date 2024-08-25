@@ -19,11 +19,12 @@ import { FaBars } from 'react-icons/fa6';
 
 // Hooks
 import useAuth from '@/Hooks/useAuth';
+import FormInput from '../formInput/FormInput';
 
 export default function Navbar({ isLogin }) {
 
     const [fixTop, setFixTop] = useState(true)
-    const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
+
     const [isOpenNavbar, setIsOpenNavbar] = useState(false)
 
     // LogOut
@@ -60,7 +61,7 @@ export default function Navbar({ isLogin }) {
                 </form>
                 <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
                     <NavBarLink text={'صفحه اصلی'} route={'/'} />
-                    <NavBarLink text={'فروشگاه'} route={'/'} />
+                    <NavBarLink text={'فروشگاه'} route={'/shop'} />
                     <NavBarLink text={'درباره ما'} route={'/'} />
                     <NavBarLink text={'ارتباط با ما'} route={'/'} />
                 </div>
@@ -100,22 +101,10 @@ export default function Navbar({ isLogin }) {
                 logo
             </div>
             <div className=" flex justify-center items-center gap-5">
-                <div className=" hidden xl:flex justify-center items-center flex-row-reverse border-1  rounded-full p-1 bg-zinc-100  hover:bg-rose-500 text-rose-500 hover:text-white transition-colors overflow-hidden" >
-                    <div className=" p-2 cursor-pointer text-xl " onClick={() => setIsOpenSearchBox(!isOpenSearchBox)}>
-                        {
-                            isOpenSearchBox ? (
-                                <LiaTimesSolid />
-                            ) : (
-                                <IoSearch />
-                            )
-                        }
-                    </div>
-                    <form >
-                        <input type="text" placeholder="جستوجو..." className={`  text-secondary placeholder:text-secondary placeholder:text-xs text-sm bg-transparent outline-none ${isOpenSearchBox ? 'w-40' : 'w-0'} transition-all`} />
-                    </form>
+                <div className="hidden xl:block">
+                <FormInput type={'search'} />
                 </div>
                 <div className=" relative group">
-
                     {
                         isLogin ? (
                             <Button type='circle'>
@@ -165,7 +154,7 @@ export default function Navbar({ isLogin }) {
                                     <LinkWithIcon text='جزئیات حساب' route={'/p-user/account-details'}>
                                         <BiSolidCategory />
                                     </LinkWithIcon>
-                                    <LinkWithIcon text='خروج'  onClick={logOut}>
+                                    <LinkWithIcon text='خروج' onClick={logOut}>
                                         <IoLogOut />
                                     </LinkWithIcon>
                                 </div>

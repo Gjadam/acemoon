@@ -107,7 +107,7 @@ export default function AddProduct({ collections }) {
             <div className=" flex flex-col gap-5 mt-5">
                 <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
                     <FormInput type={'text'} placeholder={'نام محصول'} value={name} onChange={(e) => setName(e.target.value)} />
-                    <FormInput type={'select-option'} placeholder={'دسته بندی'} options={collections} value={collection} onChange={(e) => setCollection(e.target.value)} />
+                    <FormInput type={'select-option'} options={collections} value={collection} onChange={(e) => setCollection(e.target.value)} />
                 </div>
                 <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
                     <FormInput type={'number'} placeholder={'قیمت قبل از تخفیف(تومان)'} value={priceBeforeDiscount} onChange={(e) => setPriceBeforeDiscount(e.target.value)} />

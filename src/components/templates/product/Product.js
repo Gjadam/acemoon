@@ -9,7 +9,7 @@ import MoreProducts from "./tabs/moreProducts/MoreProducts";
 export default function Product({product, relatedProducts}) {
     
     return (
-        <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
             <div className=" container mx-auto xl:container-fluid bg-zinc-100 p-5 overflow-hidden">
                 <div  data-aos='fade-up'>
                 <BreadCrumb routeText={product.name} />

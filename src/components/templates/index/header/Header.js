@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Parallax } from 'swiper/modules';
+import { Autoplay, Pagination, Parallax } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -19,13 +19,16 @@ export default function Header({ products }) {
                 <div data-aos='fade-left' data-aos-delay="400" className='relative flex lg:hidden justify-center items-center bg-zinc-50 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
                     <Swiper
                         direction={'horizontal'}
+                        autoplay={{
+                            delay: 6000
+                        }}
                         speed={2000}
                         loop={true}
                         pagination={{
                             dynamicBullets: true
                         }}
                         parallax={true}
-                        modules={[Pagination, Parallax]}
+                        modules={[Pagination, Autoplay, Parallax]}
                         className="mySwiper"
                     >
                         {
@@ -40,14 +43,16 @@ export default function Header({ products }) {
                 <div data-aos='fade-down' data-aos-delay="400" className='relative hidden lg:flex justify-center items-center bg-zinc-50 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
                     <Swiper
                         direction={'vertical'}
-                        autoplay={true}
+                        autoplay={{
+                            delay: 6000
+                        }}
                         speed={2000}
                         loop={true}
                         pagination={{
                             dynamicBullets: true
                         }}
                         parallax={true}
-                        modules={[Pagination, Parallax]}
+                        modules={[Pagination, Autoplay, Parallax]}
                         className="mySwiper"
                     >
                         {

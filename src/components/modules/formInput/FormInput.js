@@ -3,12 +3,14 @@ import { useState } from "react"
 
 // Icons
 import { FaRegEye } from "react-icons/fa6"
-import { IoCloudUploadOutline } from "react-icons/io5"
+import { IoCloudUploadOutline, IoSearch } from "react-icons/io5"
+import { LiaTimesSolid } from "react-icons/lia"
 import { RiEyeCloseLine } from "react-icons/ri"
 
 export default function FormInput({ error, placeholder, name, type, value, isDisabled, onChange, onBlur, options }) {
 
   const [showPassword, setShowPassword] = useState(false)
+  const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
 
   const showPasswordHandler = () => {
     setShowPassword(!showPassword)
@@ -36,6 +38,21 @@ export default function FormInput({ error, placeholder, name, type, value, isDis
         <textarea disabled={isDisabled} name={name} value={value} className={` h-60 w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
         {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>
+    ) : type === 'search' ? (
+      <div className="flex justify-center items-center flex-row-reverse border-1  rounded-full p-1 bg-zinc-100  hover:bg-rose-500 text-rose-500 hover:text-white transition-colors overflow-hidden" >
+      <div className=" p-2 cursor-pointer text-xl " onClick={() => setIsOpenSearchBox(!isOpenSearchBox)}>
+          {
+              isOpenSearchBox ? (
+                  <LiaTimesSolid />
+              ) : (
+                  <IoSearch />
+              )
+          }
+      </div>
+      <form >
+          <input type="text" placeholder="جستوجو..." className={`  text-secondary placeholder:text-secondary placeholder:text-xs text-sm bg-transparent outline-none ${isOpenSearchBox ? 'w-40' : 'w-0'} transition-all`} />
+      </form>
+  </div>
     ) : type === 'select-option' ? (
       <div className="flex  flex-col gap-2 w-full">
         <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>

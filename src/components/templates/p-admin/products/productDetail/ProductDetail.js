@@ -23,11 +23,12 @@ export default function ProductDetail({ isShowProductDetail, setIsShowProductDet
                     </div>
                     <div className=" flex flex-col gap-2 border-t-1 pt-3">
                         {
-                            priceBeforeDiscount &&
-                            <div className=" flex justify-between items-center">
-                                <p>قیمت قبل از تخفیف: </p>
-                                <ProductPrice price={priceBeforeDiscount} />
-                            </div>
+                            priceBeforeDiscount ? (
+                                <div className=" flex justify-between items-center">
+                                    <p>قیمت قبل از تخفیف: </p>
+                                    <ProductPrice price={priceBeforeDiscount} />
+                                </div>
+                            ) : null
                         }
                         <div className=" flex justify-between items-center">
                             <p>قیمت اصلی: </p>

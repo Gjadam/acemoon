@@ -73,7 +73,7 @@ export default function Box({ _id, images, name, price, priceBeforeDiscount, col
                         </div>
                     </Link>
                 </div>
-                <div className=" absolute -left-10 -top-10 text-8xl text-rose-500">
+                <div className=" absolute -left-11 -top-11 text-8xl text-rose-500 animate-spin-slow">
                     <GiFlowerStar/>
                 </div>
             </div>
