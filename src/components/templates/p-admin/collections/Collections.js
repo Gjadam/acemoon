@@ -1,10 +1,12 @@
 'use client'
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 // Components
 import PanelCard from "@/components/modules/panelCard/PanelCard";
 import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton";
 import Alert from "@/components/modules/alert/Alert";
+import Pagination from "@/components/modules/pagination/Pagination";
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
@@ -14,6 +16,8 @@ import toastAlert from "@/utils/toastAlert";
 import Swal from "sweetalert2";
 
 export default function Collections({ collections }) {
+
+  const [paginateCollection, setPaginateCollection] = useState(collections)
 
   const router = useRouter()
 
@@ -69,14 +73,19 @@ export default function Collections({ collections }) {
     <div className=" flex justify-center items-center flex-col gap-5 bg-white p-5 rounded-2xl w-full">
       {
         collections.length > 0 ? (
-          collections.map(collection => (
-            <PanelCard title={collection.name} date={collection.createdAt}>
-              <PanelCardButton bgColor={'bg-blue-500'} text={'ویرایش'} onClick={() => editCollection(collection._id)} />
-              <PanelCardButton bgColor={'bg-red-500'} text={'حذف'} onClick={() => deleteCollection(collection._id)} />
-            </PanelCard>
-          ))
+          <>
+            {
+              paginateCollection.slice(0, 9).map(collection => (
+                <PanelCard title={collection.name} date={collection.createdAt}>
+                  <PanelCardButton bgColor={'bg-blue-500'} text={'ویرایش'} onClick={() => editCollection(collection._id)} />
+                  <PanelCardButton bgColor={'bg-red-500'} text={'حذف'} onClick={() => deleteCollection(collection._id)} />
+                </PanelCard>
+              ))
+            }
+            <Pagination items={collections} setShowItems={setPaginateCollection} />
+          </>
         ) : (
-          <Alert text={'دسته بندی یافت نشد'}/>
+          <Alert text={'دسته بندی یافت نشد'} />
         )
       }
     </div>

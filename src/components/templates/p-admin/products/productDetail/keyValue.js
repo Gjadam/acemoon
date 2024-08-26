@@ -7,7 +7,7 @@ export default function KeyValue({ title, text, date }) {
                 date ?
                     <p>{new Date(date).toLocaleDateString('fa-IR')}</p>
                     : text ?
-                        <p className={`${text.length > 50 && ' h-20 overflow-y-auto'}`}>{text}</p>
+                        <p className={`${text.length > 50 && ' max-h-16 overflow-y-auto'}`}>{text}</p>
                         :
                         <p>---</p>
             }

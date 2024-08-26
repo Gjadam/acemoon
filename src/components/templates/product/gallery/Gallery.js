@@ -45,7 +45,7 @@ export default function Gallery({ images }) {
                         />
                     ) : (
                         loading ? (
-                                <LoadingGif />
+                            <LoadingGif />
                         ) : (
                             <>
                                 <Swiper
