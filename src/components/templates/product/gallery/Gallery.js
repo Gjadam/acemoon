@@ -94,9 +94,9 @@ export default function Gallery({ images }) {
                                                 <Image
                                                     alt='product'
                                                     src={image.url}
-                                                    width={500}
+                                                    width={400}
                                                     height={0}
-                                                    className=" rounded-xl md:rounded-3xl cursor-pointer grayscale hover:grayscale-0 transition-all"
+                                                    className=" rounded-xl md:rounded-3xl cursor-pointer transition-all"
                                                 />
                                             </SwiperSlide>
                                         ))

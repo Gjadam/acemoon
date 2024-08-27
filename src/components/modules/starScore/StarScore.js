@@ -5,7 +5,7 @@ export default function StarScore({score}) {
   return (
     <div className=' flex items-center text-lg '>
       {
-        Array(score).fill(0).map(star => <FaStar className='text-rose-500'/>)
+        Array(score).fill(0).map(star => <FaStar className='text-yellow-500'/>)
       }
       {
         Array(5 - score).fill(0).map(star => <FaStar className='text-zinc-300'/>)

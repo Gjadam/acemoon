@@ -8,11 +8,10 @@ import SectionHeader from '@/components/modules/sectionHeader/SectionHeader'
 export default function AllProducts({ products }) {
 
     return (
-        <div className=' flex justify-center items-center mt-28 bg-[url("/images/jpg/products.jpg")] bg-cover bg-center bg-no-repeat'>
+        <div className=" flex justify-center items-center mt-28 overflow-x-hidden bg-[url('/images/jpg/product-flip.jpg')] bg-cover bg-no-repeat ">
             <div className="container mx-auto">
-                <SectionHeader title={"محصولات ما"} route={"/shop"} linkText={"همه محصولات"} />
-                <div className=' flex justify-center items-center my-10'>
-
+                <SectionHeader title={"محصولات ماه آس"} route={"/shop"} linkText={"همه محصولات"} />
+                <div className=' flex justify-center items-center flex-wrap p-5 sm:p-0 my-10'>
                         {
                             products.map(product => (
                                     <ProductBox key={product._id} {...product} />
