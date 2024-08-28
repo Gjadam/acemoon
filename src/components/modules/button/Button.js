@@ -1,12 +1,12 @@
+// Icons
+import { IoIosLink } from "react-icons/io";
 
 export default function Button({ type, text, children, isSubmitType, onClick, isDisabled, isWidthFull }) {
     return (
         type === 'simple' ? (
-            <button type={isSubmitType ? 'submit' : 'button'} className={`  flex justify-center items-center gap-2  hover:text-rose-500 text-center rounded-3xl ${isDisabled && "opacity-50 bg-secondary cursor-not-allowed"} relative after:absolute after:left-0 after:bottom-0 after:bg-rose-500 after:h-px after:w-0 hover:after:w-full after:transition-all after:duration-300 transition-colors duration-300 `} disabled={isDisabled} onClick={onClick}>
+            <button type={isSubmitType ? 'submit' : 'button'} className={` group flex justify-center items-center gap-2 text-secondary hover:text-white p-2 text-sm text-center rounded-3xl ${isDisabled && "opacity-50 bg-secondary cursor-not-allowed"} overflow-hidden relative after:absolute after:left-0 after:bottom-0 z-10 after:-z-10 after:bg-rose-500 after:h-full after:w-0 hover:after:w-full after:transition-all after:duration-300 transition-colors duration-300 `} disabled={isDisabled} onClick={onClick}>
                 <span className="">{text}</span>
-                {
-                    children && children
-                }
+                <IoIosLink className=" group-hover:animate-pulse"/>
             </button>
 
         ) : type === 'circle' ? (

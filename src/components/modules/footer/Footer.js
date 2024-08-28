@@ -84,10 +84,10 @@ export default async function Footer() {
           </List>
         </div>
       </div>
-      <div className=" flex justify-center items-center bg-white  py-5">
+      <div className=" flex justify-center items-center bg-secondary py-5">
         <span>
           <a href="https://github.com/Gjadam">
-            <span className=' flex justify-center items-center gap-1 text-secondary hover:text-rose-500 transition-colors duration-200'> &copy; 1403 | ساخته شده با<IoMdHeart className='text-red-500' />توسط TheGjadam</span>
+            <span className=' flex justify-center items-center gap-1 text-white hover:text-rose-500 transition-colors duration-200'> &copy; 1403 | ساخته شده با<IoMdHeart className='text-red-500' />توسط TheGjadam</span>
           </a>
         </span>
       </div>

@@ -47,9 +47,7 @@ export default function SectionHeader({ title, linkText, route }) {
             {
                 route &&
                 <Link href={route}>
-                    <Button text={linkText} type={"simple"} >
-                        <IoIosLink />
-                    </Button>
+                    <Button text={linkText} type={"simple"} />
                 </Link>
             }
         </div>
