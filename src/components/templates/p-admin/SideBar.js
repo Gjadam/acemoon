@@ -12,6 +12,7 @@ import { FaBars, FaUsers } from "react-icons/fa6";
 import { BiSolidCategoryAlt, BiSolidContact } from "react-icons/bi";
 import { IoIosChatboxes } from "react-icons/io";
 import { LiaTimesSolid } from "react-icons/lia";
+import { HiShoppingCart } from "react-icons/hi2";
 
 // Hooks
 import useAuth from "@/Hooks/useAuth";
@@ -56,6 +57,9 @@ export default function SideBar({ user }) {
                             </SideBarLink>
                             <SideBarLink text='کاربران' route={'/p-admin/users'}>
                                 <FaUsers />
+                            </SideBarLink>
+                            <SideBarLink text='سفارشات' route={'/p-admin/orders'}>
+                                <HiShoppingCart />
                             </SideBarLink>
                             <SideBarLink text='ارتباط با ما' route={'/p-admin/c'}>
                                 <BiSolidContact />

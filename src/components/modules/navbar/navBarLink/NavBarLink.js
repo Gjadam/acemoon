@@ -1,7 +1,5 @@
 import Link from "next/link"
 
-// Icons
-import { GiLotusFlower } from "react-icons/gi";
 
 export default function NavBarLink({ route, text, children }) {
     return (

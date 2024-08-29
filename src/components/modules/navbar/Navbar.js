@@ -16,12 +16,12 @@ import SearchBox from '../searchBox/SearchBox';
 
 // Icons
 import { RxExternalLink } from "react-icons/rx";
-import { IoHeart, IoHome, IoLogOut, IoTicket } from "react-icons/io5";
+import { IoBookmark, IoHeart, IoHome, IoLogOut, IoStorefront, IoTicket } from "react-icons/io5";
 import { FiLogIn } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu"
 import { BiSolidCategory } from 'react-icons/bi';
 import { MdAdminPanelSettings } from "react-icons/md";
-import { FaBars } from 'react-icons/fa6';
+import { FaBars, FaPhone } from 'react-icons/fa6';
 
 // Hooks
 import useAuth from '@/Hooks/useAuth';
@@ -89,10 +89,18 @@ export default function Navbar({ isLogin }) {
                         <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded p-2.5 bg-white outline-none placeholder:text-sm w-full transition-colors' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                     </form>
                     <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
-                        <NavBarLink text={'صفحه اصلی'} route={'/'} />
-                        <NavBarLink text={'فروشگاه'} route={'/shop'} />
-                        <NavBarLink text={'درباره ما'} route={'/'} />
-                        <NavBarLink text={'ارتباط با ما'} route={'/'} />
+                        <NavBarLink text={'صفحه اصلی'} route={'/'} >
+                            <IoHome />
+                        </NavBarLink>
+                        <NavBarLink text={'فروشگاه'} route={'/shop'} >
+                            <IoStorefront />
+                        </NavBarLink>
+                        <NavBarLink text={'درباره ما'} route={'/'} >
+                            <IoBookmark />
+                        </NavBarLink>
+                        <NavBarLink text={'ارتباط با ما'} route={'/'} >
+                            <FaPhone  />
+                        </NavBarLink>
                         <div className=" flex xl:hidden items-center gap-3 border-t-1 pt-3 mt-3 w-full">
                             <a href="https://eitaa.com/LadyShop7171">
                                 <Image

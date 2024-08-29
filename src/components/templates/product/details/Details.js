@@ -13,11 +13,18 @@ import SelectItem from "./selectItem/SelectItem";
 // Icons
 import { IoHeartOutline } from "react-icons/io5";
 
-export default function Details({ name, price, priceBeforeDiscount, shortDescription, collection, score, size: sizes, color: colors, comments }) {
+// Hooks
+import useProduct from "@/Hooks/useProduct";
+
+
+export default function Details({_id: productID, name, price, priceBeforeDiscount, shortDescription, collection, score, size: sizes, color: colors, comments }) {
 
     const [count, setCount] = useState(1)
     const [selectedSize, setSelectedSize] = useState(-1);
     const [selectedColor, setSelectedColor] = useState(-1);
+
+    // AddToWishlist
+    const { addToWishlist } = useProduct(productID)
 
     return (
         <div data-aos='fade-right' className=" w-full xl:w-1/2">
@@ -64,7 +71,7 @@ export default function Details({ name, price, priceBeforeDiscount, shortDescrip
                         <QuantityCounter count={count} setCount={setCount} />
                         <Button text={"افزودن به سبد خرید"} />
                     </div>
-                    <span className=" flex items-center gap-2 hover:text-rose-500 transition-colors"><IoHeartOutline className=" text-xl" />افزودن به علاقه مندی ها</span>
+                    <span className=" flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer select-none"  onClick={addToWishlist}><IoHeartOutline className=" text-xl"/>افزودن به علاقه مندی ها</span>
                 </div>
                 {
                     collection ? (
