@@ -21,6 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-infinite-logo-slider": "^1.0.13",
     "sweetalert2": "^11.12.4",
     "swiper": "^11.1.7"
   },

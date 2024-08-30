@@ -1,5 +1,8 @@
 import "./globals.css";
 
+// Components
+import ScrollToTop from "@/components/modules/scrollToTop/ScrollToTop";
+
 // AOS 
 import AOSInit from "@/utils/aos";
 
@@ -12,9 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body>
-      <AOSInit/>
+        <AOSInit />
         {children}
-        </body>
+        <ScrollToTop/>
+      </body>
     </html>
   );
 }

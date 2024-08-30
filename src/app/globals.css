@@ -7,6 +7,10 @@
   src: url("../../public/fonts/Negar.TTF");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Negar";
   overflow-x: hidden;
@@ -19,7 +23,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1c1c1c;
+ background-color: #1c1c1c;
+ border-radius: 5rem;
+ -webkit-border-radius: 5rem;
+ -moz-border-radius: 5rem;
+ -ms-border-radius: 5rem;
+ -o-border-radius: 5rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -28,6 +37,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input:-webkit-autofill {  
+  -webkit-box-shadow: 0 0 0 1000px #fff inset; 
+}
 /* End webkit scrollbar */
 
  /* Start Swiper */
@@ -61,11 +73,12 @@ input::-webkit-inner-spin-button {
 
  /* Start Sweet Alert */
 .swal2-popup {
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
 }
 
 .swal2-title {
@@ -73,11 +86,11 @@ input::-webkit-inner-spin-button {
 }
 
 .swal2-confirm {
-  background-color: #be9c79 !important;
+  background-color: #22c55e !important;
 }
 
 .swal2-cancel {
-  background-color: #1c1c1c !important;
+  background-color: #f43f5e !important;
 }
 
 .swal2-deny {
