@@ -6,7 +6,7 @@ export default function ProductBox({ _id, images, name }) {
             <div className=" w-12 h-12">
                 <Image
                     alt={name}
-                    src={images[0].url}
+                    src={images[0]?.url}
                     width={0}
                     height={0}
                     sizes='100%'

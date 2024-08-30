@@ -33,7 +33,7 @@ export default function Box({ _id, images, name, price, score, priceBeforeDiscou
                                     <SwiperSlide>
                                         <Image
                                             alt="product"
-                                            src={image.url}
+                                            src={image?.url}
                                             width={0}
                                             height={0}
                                             sizes="100%"

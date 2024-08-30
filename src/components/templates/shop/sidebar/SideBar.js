@@ -51,7 +51,7 @@ export default function SideBar({ collections, products }) {
                         <div className=" w-20 h-16 ">
                           <Image
                             alt={product.name}
-                            src={product.images[0].url}
+                            src={product.images[0]?.url}
                             width={0}
                             height={0}
                             sizes='100&'

@@ -69,7 +69,7 @@ export default function ProductDetail({ isShowProductDetail, setIsShowProductDet
                                 <SwiperSlide>
                                     <Image
                                         alt="product"
-                                        src={image.url}
+                                        src={image?.url}
                                         width={0}
                                         height={0}
                                         sizes="100%"

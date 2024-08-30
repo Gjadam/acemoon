@@ -51,8 +51,8 @@ export default function WishBox({ _id: productID, images, name }) {
 
             <div className=' w-80 h-40'>
                 <Image
-                    alt={images[0].url}
-                    src={images[0].url}
+                    alt={images[0]?.url}
+                    src={images[0]?.url}
                     width={0}
                     height={0}
                     sizes='100%'

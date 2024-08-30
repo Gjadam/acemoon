@@ -21,7 +21,7 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
       <div className=" relative group flex justify-center items-center flex-col mt-8 h-72 w-full overflow-hidden border-1 rounded-3xl transition-all">
         <Image
           alt='product'
-          src={images && images[0].url}
+          src={images && images[0]?.url}
           width={0}
           height={0}
           sizes="100%"
@@ -31,7 +31,7 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
           images.length > 1 &&
           <Image
             alt='product'
-            src={images && images[1].url}
+            src={images && images[1]?.url}
             width={0}
             height={0}
             sizes="100%"

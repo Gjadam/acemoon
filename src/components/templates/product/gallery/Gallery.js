@@ -38,7 +38,7 @@ export default function Gallery({ images }) {
                     images.length === 1 ? (
                         <Image
                             alt='product'
-                            src={images[0].url}
+                            src={images[0]?.url}
                             width={500}
                             height={0}
                             className="rounded-3xl"
@@ -67,7 +67,7 @@ export default function Gallery({ images }) {
                                             <SwiperSlide>
                                                 <Image
                                                     alt='product'
-                                                    src={image.url}
+                                                    src={image?.url}
                                                     width={500}
                                                     height={0}
                                                     className="rounded-3xl"
@@ -93,7 +93,7 @@ export default function Gallery({ images }) {
                                             <SwiperSlide>
                                                 <Image
                                                     alt='product'
-                                                    src={image.url}
+                                                    src={image?.url}
                                                     width={400}
                                                     height={0}
                                                     className=" rounded-xl md:rounded-3xl cursor-pointer transition-all"

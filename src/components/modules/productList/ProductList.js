@@ -13,7 +13,7 @@ export default function ProductList({ _id, name, priceBeforeDiscount, price, ima
                     <div className=" w-full sm:w-96  h-52 overflow-hidden rounded-3xl ">
                         <Image
                             alt={name}
-                            src={images[0].url}
+                            src={images[0]?.url}
                             width={0}
                             height={0}
                             sizes="100%"
