@@ -22,6 +22,7 @@ import { LuUser2 } from "react-icons/lu"
 import { BiSolidCategory } from 'react-icons/bi';
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaBars, FaPhone } from 'react-icons/fa6';
+import { HiCollection } from "react-icons/hi";
 
 // Hooks
 import useAuth from '@/Hooks/useAuth';
@@ -95,11 +96,14 @@ export default function Navbar({ isLogin }) {
                         <NavBarLink text={'فروشگاه'} route={'/shop'} >
                             <IoStorefront />
                         </NavBarLink>
+                        <NavBarLink text={'دسته بندی ها'} route={'/collections'} >
+                            <HiCollection />
+                        </NavBarLink>
                         <NavBarLink text={'درباره ما'} route={'/'} >
                             <IoBookmark />
                         </NavBarLink>
-                        <NavBarLink text={'ارتباط با ما'} route={'/'} >
-                            <FaPhone  />
+                        <NavBarLink text={'ارتباط با ما'} route={'/contact-us'} >
+                            <FaPhone />
                         </NavBarLink>
                         <div className=" flex xl:hidden items-center gap-3 border-t-1 pt-3 mt-3 w-full">
                             <a href="https://eitaa.com/LadyShop7171">

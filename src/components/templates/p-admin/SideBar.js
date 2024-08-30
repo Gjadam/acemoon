@@ -61,7 +61,7 @@ export default function SideBar({ user }) {
                             <SideBarLink text='سفارشات' route={'/p-admin/orders'}>
                                 <HiShoppingCart />
                             </SideBarLink>
-                            <SideBarLink text='ارتباط با ما' route={'/p-admin/c'}>
+                            <SideBarLink text='ارتباط با ما' route={'/p-admin/contact-us'}>
                                 <BiSolidContact />
                             </SideBarLink>
                             <SideBarLink text='کامنت ها' route={'/p-admin/comments'}>

@@ -106,7 +106,7 @@ export default function Comments({ productID, comments }) {
                             <label key={i} >
                                 <input type="radio" name="rating" value={ratingValue} onChange={() => setScore(ratingValue)} className="hidden" />
                                 <FaStar
-                                    className={` ${ratingValue <= (hoverRateIcon || score) ? 'text-rose-500' : 'text-zinc-300'} active:text-rose-600 text-xl mb-1 transition-all duration-200`}
+                                    className={` ${ratingValue <= (hoverRateIcon || score) ? 'text-yellow-500' : 'text-zinc-300'} active:text-yellow-600 text-xl mb-1 transition-all duration-200`}
                                     onMouseEnter={() => setHoverRateIcon(ratingValue)}
                                     onMouseLeave={() => setHoverRateIcon(null)}
                                 />

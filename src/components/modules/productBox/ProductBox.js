@@ -8,7 +8,14 @@ import Button from "../button/Button";
 // Icons
 import { IoBasket, IoHeart } from "react-icons/io5";
 
+// Hooks
+import useProduct from "@/Hooks/useProduct";
+
 export default function ProductBox({ _id, name, price, priceBeforeDiscount, images }) {
+
+      // AddToWishlist
+      const { addToWishlist } = useProduct(_id )
+
   return (
     <div className=" relative  flex justify-center items-center flex-col w-120 mx-auto">
       <div className=" relative group flex justify-center items-center flex-col mt-8 h-72 w-full overflow-hidden border-1 rounded-3xl transition-all">
@@ -41,7 +48,7 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
                 <Button text={'مشاهده'} isWidthFull={true} />
               </div>
             </Link>
-            <Button type={'circle'}>
+            <Button type={'circle'} onClick={addToWishlist}>
               <IoHeart />
             </Button>
           </div>
@@ -52,19 +59,19 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
         <ProductPrice price={price} priceBeforeDiscount={priceBeforeDiscount} />
       </div>
       <Image
-                        alt="flower"
-                        src='/images/png/flower1.png'
-                        width={100}
-                        height={0}
-                        className=" absolute -right-10 -top-0 -rotate-45"
-                        />
+        alt="flower"
+        src='/images/png/flower1.png'
+        width={100}
+        height={0}
+        className=" absolute -right-10 -top-0 -rotate-45"
+      />
       <Image
-                        alt="flower"
-                        src='/images/png/flower1-flip.png'
-                        width={100}
-                        height={0}
-                        className=" absolute -left-10 -top-0 rotate-45"
-                        />
+        alt="flower"
+        src='/images/png/flower1-flip.png'
+        width={100}
+        height={0}
+        className=" absolute -left-10 -top-0 rotate-45"
+      />
     </div>
   )
 }
