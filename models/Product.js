@@ -10,6 +10,10 @@ const schema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    priceBeforeDiscount: {
+        type: Number,
+        required: false
+    },
     shortDescription: {
         type: String,
         required: true
