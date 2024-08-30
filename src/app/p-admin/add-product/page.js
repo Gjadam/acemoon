@@ -2,7 +2,7 @@
 // Components
 import AdminPanelLayout from '@/components/layouts/AdminPanelLayout'
 import SectionHeader from '@/components/modules/sectionHeader/SectionHeader'
-import AddProduct from '@/components/templates/p-admin/products/AddProduct'
+import AddProduct from '@/components/templates/p-admin/products/addProduct/AddProduct'
 
 // Backend
 import connectToDB from "@/configs/db";

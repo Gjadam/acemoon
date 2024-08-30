@@ -13,14 +13,14 @@ export default async function page() {
 
     connectToDB()
     const collections = await CollectionModel.find({})
+        .sort({ _id: -1 })
 
     return (
         <AdminPanelLayout>
             <SectionHeader title={'افزودن دسته بندی جدید'} />
-            <div className="flex justify-between items-start flex-col xl:flex-row gap-5 mt-5  w-full">
+            <div className="flex justify-center items-start flex-col  gap-5 mt-5 w-full">
                 <AddCollection />
                 <Collections collections={JSON.parse(JSON.stringify(collections))} />
-
             </div>
         </AdminPanelLayout>
     )
