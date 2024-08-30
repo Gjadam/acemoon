@@ -7,9 +7,9 @@ export async function POST(req) {
 
         connectToDB();
         const body = await req.json()
-        const { name, price, shortDescription, longDescription, collection, size, images, color } = body
+        const { name, price, priceBeforeDiscount, shortDescription, longDescription, collection, size, images, color } = body
 
-        if (!name || !price || !shortDescription || !longDescription || !collection || !images || !size || !color) {
+        if (!name || !price || !shortDescription || !longDescription || !collection || !images) {
             return Response.json(
                 { message: "Name or price or shortDescription or longDescription or collection or images or size or color not found !" },
                 { status: 400 }
@@ -19,6 +19,7 @@ export async function POST(req) {
         await ProductModel.create({
             name,
             price,
+            priceBeforeDiscount,
             shortDescription,
             longDescription,
             collection,
@@ -36,28 +37,74 @@ export async function POST(req) {
     }
 }
 
+export async function PUT(req) {
+    try {
+        connectToDB()
+        const body = await req.json()
 
-// export async function GET() {
-//     connectToDB()
-//     const products = await ProductModel.find({}, '-__v').populate('comments')
-//     return Response.json(products)
-// }
+        const {
+            productID,
+            name,
+            priceBeforeDiscount,
+            price,
+            shortDescription,
+            longDescription,
+            collection,
+            size,
+            color,
+        } = body
 
-// export async function DELETE(req) {
-//     try {
-//         connectToDB()
-//         const body = await req.json()
-//         const { id } = body
+        if (!productID) {
+            return Response.json(
+                { message: "Product id is not defined" },
+                { status: 400 }
+            )
+        }
 
-//         await ProductModel.findOneAndDelete({ _id: id })
-//         await CommentModel.findOneAndDelete({ productID: id })
+        await ProductModel.findOneAndUpdate(
+            { _id: productID },
+            {
+                $set: {
+                    name,
+                    priceBeforeDiscount,
+                    price,
+                    shortDescription,
+                    longDescription,
+                    collection,
+                    size,
+                    color,
+                }
+            }
+        )
 
-//         return Response.json({ message: "Product deleted successfully." })
+        return Response.json(
+            { message: 'Product updated successfully.' },
+        )
 
-//     } catch (err) {
-//         return Response.json(
-//             { message: err },
-//             { status: 500 }
-//         )
-//     }
-// }
+    } catch (err) {
+        return Response.json(
+            { message: err },
+            { status: 500 }
+        )
+    }
+
+}
+
+export async function DELETE(req) {
+    try {
+        connectToDB()
+        const body = await req.json()
+        const { productID } = body
+
+        await ProductModel.findOneAndDelete({ _id: productID })
+        await CommentModel.findOneAndDelete({ productID })
+
+        return Response.json({ message: "Product removed successfully." })
+
+    } catch (err) {
+        return Response.json(
+            { message: err },
+            { status: 500 }
+        )
+    }
+}
