@@ -28,7 +28,8 @@ const schema = new mongoose.Schema({
     },
     collection: {
         type: mongoose.Types.ObjectId,
-        ref: "Collection"
+        ref: "Collection",
+        required: false,
     },
     size: {
         type: String,

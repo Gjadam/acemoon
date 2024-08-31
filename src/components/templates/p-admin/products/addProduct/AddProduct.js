@@ -31,7 +31,8 @@ export default function AddProduct({ collections }) {
     const [isImageUploaded, setIsImageUploaded] = useState(false)
 
     const addProduct = async () => {
-
+        console.log(collection);
+        
         // ساختن محصول پس از دریافت تمام تصاویر
         const createProductHandler = async (uploadedImages) => {
             apiRequest.post('/products', {
@@ -40,7 +41,7 @@ export default function AddProduct({ collections }) {
                 price,
                 shortDescription,
                 longDescription,
-                collection,
+                collection: collection !== -1 ? collection : null,
                 size,
                 color,
                 images: uploadedImages,
@@ -58,7 +59,7 @@ export default function AddProduct({ collections }) {
                         setPrice("")
                         setShortDescription("")
                         setLongDescription("")
-                        setCollection(-1)
+                        setCollection('')
                         setColor('')
                         setSize('')
                     }

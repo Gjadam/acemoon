@@ -9,9 +9,9 @@ export async function POST(req) {
         const body = await req.json()
         const { name, price, priceBeforeDiscount, shortDescription, longDescription, collection, size, images, color } = body
 
-        if (!name || !price || !shortDescription || !longDescription || !collection || !images) {
+        if (!name || !price || !shortDescription || !longDescription || !images) {
             return Response.json(
-                { message: "Name or price or shortDescription or longDescription or collection or images or size or color not found !" },
+                { message: "Name or price or shortDescription or longDescription or images or size or color not found !" },
                 { status: 400 }
             )
         }
@@ -33,6 +33,8 @@ export async function POST(req) {
             { status: 201 }
         );
     } catch (err) {
+        console.log(err);
+        
         return Response.json({ message: err }, { status: 500 });
     }
 }
