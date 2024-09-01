@@ -6,6 +6,7 @@ import Button from '@/components/modules/button/Button';
 import SearchBox from '@/components/modules/searchBox/SearchBox';
 import ProductList from '@/components/modules/productList/ProductList';
 import Pagination from '@/components/modules/pagination/Pagination';
+import Alert from '@/components/modules/alert/Alert';
 
 // Icons
 import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";

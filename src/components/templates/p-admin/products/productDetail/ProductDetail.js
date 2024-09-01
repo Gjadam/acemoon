@@ -15,7 +15,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 export default function ProductDetail({ isShowProductDetail, setIsShowProductDetail, name, images, score, price, priceBeforeDiscount, createdAt, updatedAt, collection, size, color, shortDescription, longDescription }) {
     return (
         <div className={` container-fluid fixed left-0 top-0 right-0 bottom-0 z-40 flex justify-center items-center bg-[rgba(0,0,0,0.6)] ${isShowProductDetail ? ' visible opacity-100' : ' invisible opacity-0'} transition-all duration-300`} onClick={() => setIsShowProductDetail(false)}>
-            <div className=" flex justify-center items-start flex-col-reverse md:flex-row gap-10 md:w-[50rem] w-full  p-5 bg-white rounded-xl z-50" onClick={(e) => e.stopPropagation()}>
+            <div className=" flex justify-center items-start flex-col-reverse md:flex-row gap-10 md:w-[50rem] w-80  p-5 bg-white rounded-xl z-50" onClick={(e) => e.stopPropagation()}>
                 <div className=" flex flex-col gap-5 h-48 md:h-full overflow-y-auto md:overflow-hidden w-full md:w-1/2">
                     <div className=" flex justify-between items-center">
                         <h1 className=" font-bold text-xl">{name}</h1>
