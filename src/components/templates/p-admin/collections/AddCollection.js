@@ -42,8 +42,8 @@ export default function AddCollection() {
 
     return (
         <div className=" flex flex-col gap-5 w-full">
-            <FormInput type={'text'} placeholder={'نام دسته بندی را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)} />
-            <Button text={'افزودن'} onClick={addNewCollection} />
+            <FormInput type={'text'} placeholder={'نام دسته بندی را وارد کنید'} error={!name && 'نام دسته بندی را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)} />
+            <Button text={'افزودن'} onClick={addNewCollection} isDisabled={name ? false : true} />
         </div>
     )
 }

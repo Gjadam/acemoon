@@ -45,7 +45,7 @@ export default function ProductList({ _id, name, priceBeforeDiscount, price, ima
                         </div>
                     </div>
                     {
-                        collection.name ? (
+                        collection?.name ? (
                             <div className="">
                                 <div className="flex items-center gap-1">
                                     <span className=" text-xs text-rose-500">دسته بندی:</span>

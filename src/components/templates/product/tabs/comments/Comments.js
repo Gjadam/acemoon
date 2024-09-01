@@ -15,6 +15,7 @@ import apiRequest from "@/Services/Axios/Configs/configs"
 // SweetAlert
 import toastAlert from "@/utils/toastAlert"
 import Alert from "@/components/modules/alert/Alert"
+import { validateEmail } from "@/utils/auth"
 
 export default function Comments({ productID, comments }) {
 
@@ -116,16 +117,16 @@ export default function Comments({ productID, comments }) {
                 </div>
             </div>
             <div className=" flex flex-col gap-5 mt-5">
-                <FormInput type={'textarea'} placeholder={'دیدگاه شما'} onChange={(e) => setBody(e.target.value)} value={body} />
-                <div className=" flex justify-center items-center flex-col md:flex-row gap-5">
-                    <FormInput type={'text'} placeholder={'نام'} onChange={(e) => setUsername(e.target.value)} value={username} />
-                    <FormInput type={'email'} placeholder={'ایمیل'} onChange={(e) => setEmail(e.target.value)} value={email} />
+                <FormInput type={'textarea'} placeholder={'دیدگاه شما'} error={!body && 'دیدگاه خود را وارد کنید'} onChange={(e) => setBody(e.target.value)} value={body} />
+                <div className=" flex justify-center items-start flex-col md:flex-row gap-5">
+                    <FormInput type={'text'} placeholder={'نام'} error={!username && 'نام خود را وارد کنید'} onChange={(e) => setUsername(e.target.value)} value={username} />
+                    <FormInput type={'email'} placeholder={'ایمیل'} error={!email ? 'ایمیل خود را وارد کنید' : !validateEmail(email) && 'لطفا ایمیل را به درستی وارد کنید'} onChange={(e) => setEmail(e.target.value)} value={email} />
                 </div>
                 <div className="">
                     <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value={isSaveUserInfo} onChange={() => setIsSaveUserInfo(!isSaveUserInfo)} />
                     <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام و ایمیل من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
                 </div>
-                <Button text={'ثبت دیدگاه'} onClick={submitComment} />
+                <Button text={'ثبت دیدگاه'} onClick={submitComment} isDisabled={body && username && email ? false : true} />
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ import Pagination from "@/components/modules/pagination/Pagination";
 import { useState } from "react";
 
 export default function Products({ products, collections }) {
-    const [paginateProducts, setPaginateProducs] = useState(products)
+    const [paginateProducts, setPaginateProducts] = useState(products)
     return (
         <div className=' bg-white p-5 rounded-2xl mt-5'>
             {
@@ -17,7 +17,7 @@ export default function Products({ products, collections }) {
                                 <Product key={product._id} product={product} collections={collections} />
                             ))
                         }
-                        <Pagination items={products} setShowItems={setPaginateProducs} />
+                        <Pagination items={products} setShowItems={setPaginateProducts} />
                     </>
                 ) : (
                     <Alert text={'محصولی یافت نشد'} />

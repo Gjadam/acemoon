@@ -8,7 +8,7 @@ export async function POST(req) {
         const reqBody = await req.json()
         const { name, phone, email, title, body } = reqBody
 
-        if (!name || !phone || !email || !title || !body) {
+        if (!name || !phone || !title || !body) {
             return Response.json(
                 { message: "Name or phone or email or title or body is not defined!" },
                 { status: 400 }

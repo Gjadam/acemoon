@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     title: {
         type: String,

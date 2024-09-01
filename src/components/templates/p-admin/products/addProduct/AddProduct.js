@@ -31,8 +31,6 @@ export default function AddProduct({ collections }) {
     const [isImageUploaded, setIsImageUploaded] = useState(false)
 
     const addProduct = async () => {
-        console.log(collection);
-        
         // ساختن محصول پس از دریافت تمام تصاویر
         const createProductHandler = async (uploadedImages) => {
             apiRequest.post('/products', {
@@ -103,27 +101,29 @@ export default function AddProduct({ collections }) {
     }
 
 
+
+
     return (
         <>
             <div className=" flex flex-col gap-5 mt-5">
-                <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
-                    <FormInput type={'text'} placeholder={'نام محصول'} value={name} onChange={(e) => setName(e.target.value)} />
-                    <FormInput type={'select-option'} options={collections} value={collection} onChange={(e) => setCollection(e.target.value)} />
+                <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
+                    <FormInput type={'text'} placeholder={'نام محصول'} error={!name && 'نام محصول را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)} />
+                    <FormInput type={'select-option'} options={collections} error={collection === '-1' && 'دسته بندی را وارد کنید'} value={collection} onChange={(e) => setCollection(e.target.value)} />
                 </div>
-                <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
-                    <FormInput type={'number'} placeholder={'قیمت قبل از تخفیف(تومان)'} value={priceBeforeDiscount} onChange={(e) => setPriceBeforeDiscount(e.target.value)} />
-                    <FormInput type={'number'} placeholder={'قیمت اصلی(تومان)'} value={price} onChange={(e) => setPrice(e.target.value)} />
+                <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
+                    <FormInput type={'number'} placeholder={'قیمت قبل از تخفیف(تومان)'}  value={priceBeforeDiscount} onChange={(e) => setPriceBeforeDiscount(e.target.value)} />
+                    <FormInput type={'number'} placeholder={'قیمت اصلی(تومان)'} error={!price && 'قیمت اصلی محصول را وارد کنید'} value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
-                <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
+                <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
                     <FormInput type={'text'} placeholder={'سایز (مثل : S ، M ، L ، XL ، ...)'} value={size} onChange={(e) => setSize(e.target.value)} />
                     <FormInput type={'text'} placeholder={'رنگ (مثل : آبی ، سبز ،...)'} value={color} onChange={(e) => setColor(e.target.value)} />
                 </div>
-                <div className="flex justify-center items-center flex-col gap-5 ">
-                    <FormInput type={'text'} placeholder={'توضیحات کوتاه'} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
-                    <FormInput type={'textarea'} placeholder={'توضیحات بلند'} value={longDescription} onChange={(e) => setLongDescription(e.target.value)} />
+                <div className="flex justify-center items-start flex-col gap-5 ">
+                    <FormInput type={'text'} placeholder={'توضیحات کوتاه'} error={!shortDescription && 'توضیحات کوتاه محصول را وارد کنید'} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                    <FormInput type={'textarea'} placeholder={'توضیحات بلند'} error={!longDescription && 'توضیحات بلند محصول را وارد کنید'} value={longDescription} onChange={(e) => setLongDescription(e.target.value)} />
                     <FormInput type={"file"} onChange={(e) => setImages(e.target.files)} />
                 </div>
-                <Button text={'افزودن محصول'} onClick={addProduct} />
+                <Button text={'افزودن محصول'} onClick={addProduct} isDisabled={name && price && shortDescription && longDescription && images ? false : true} />
             </div>
             <div className={`fixed ${isImageUploaded ? "right-5" : " -right-96"} top-5  z-50 w-64 transition-all`}>
                 <div className="flex justify-between items-center shadow-xl border-b-1 border-rose-500 bg-secondary text-white p-5 rounded-[2rem] overflow-hidden">

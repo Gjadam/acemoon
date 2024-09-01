@@ -18,7 +18,7 @@ export default async function page({ params }) {
   .populate('comments')
  
   const relatedProducts = await ProductModel.find({
-    collection: product.collection?._id,
+    collection: product?.collection?._id,
     _id: { $ne: productID }
   })
     .populate('collection', 'name')

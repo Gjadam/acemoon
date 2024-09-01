@@ -13,6 +13,9 @@ import apiRequest from "@/Services/Axios/Configs/configs";
 // SweetAlert
 import toastAlert from "@/utils/toastAlert";
 
+// Email validation
+import { validateEmail } from "@/utils/auth";
+
 export default function ContactUs() {
 
     const [name, setName] = useState('')
@@ -62,16 +65,16 @@ export default function ContactUs() {
             <div className=" container mx-auto mt-28">
                 <SectionHeader title={'با ما در ارتباط باشید'} />
                 <div className="flex flex-col gap-5 mt-5 p-5 ">
-                    <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
-                        <FormInput type={'text'} placeholder={'نام و نام خانوادگی'} value={name} onChange={(e) => setName(e.target.value)}/>
-                        <FormInput type={'number'} placeholder={"شماره موبایل"} value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                    <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
+                        <FormInput type={'text'} placeholder={'نام و نام خانوادگی'} error={!name && 'نام و نام خانوادگی را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)}/>
+                        <FormInput type={'number'} placeholder={"شماره موبایل"} error={!phone && 'شماره موبایل را وارد کنید'} value={phone} onChange={(e) => setPhone(e.target.value)}/>
                     </div>
-                    <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
-                        <FormInput type={'email'} placeholder={"ایمیل"} value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        <FormInput type={'text'} placeholder={"عنوان"} value={title} onChange={(e) => setTitle(e.target.value)}/>
+                    <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
+                        <FormInput type={'email'} placeholder={"ایمیل"} error={email &&  !validateEmail(email) ? 'لطفا ایمیل را به درستی وارد کنید' : null} value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <FormInput type={'text'} placeholder={"عنوان"} error={!title && 'عنوان را وارد کنید'} value={title} onChange={(e) => setTitle(e.target.value)}/>
                     </div>
-                    <FormInput type={'textarea'} placeholder={"توضیحات"} value={body} onChange={(e) => setBody(e.target.value)}/>
-                    <Button text={'ارسال پیغام'} onClick={submitMessage}/>
+                    <FormInput type={'textarea'} placeholder={"توضیحات"} error={!body && 'توضیحات را وارد کنید'} value={body} onChange={(e) => setBody(e.target.value)}/>
+                    <Button text={'ارسال پیغام'} onClick={submitMessage} isDisabled={name && phone && title && body ? false : true}/>
                 </div>
                 <SocialMedias />
             </div>

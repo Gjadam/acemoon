@@ -23,12 +23,12 @@ export default function LoginForm() {
     const validate = values => {
         const errors = {};
         if (!values.email) {
-            errors.email = 'این فیلد ضروری است.';
+            errors.email = 'این فیلد الزامی است.';
         } else if (!validateEmail(values.email)) {
             errors.email = 'لطفا ایمیل را به درستی وارد کنید.';
         }
         if (!values.password) {
-            errors.password = 'این فیلد ضروری است.';
+            errors.password = 'این فیلد الزامی است.';
         } else if (!validatePassword(values.password)) {
             errors.password = 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.';
         }
@@ -69,7 +69,7 @@ export default function LoginForm() {
                             })
                         } else if (err.response.status === 401) {
                             toastAlert.fire({
-                                text: "ایمیل یا پسوورد صحیح نیست!",
+                                text: "ایمیل یا رمزعبور صحیح نیست!",
                                 icon: "error",
                             })
                         }
@@ -82,12 +82,11 @@ export default function LoginForm() {
     return (
         <form onSubmit={form.handleSubmit}>
             <div className=" flex flex-col gap-5 my-5" >
-                <FormInput name={"email"} placeholder={'ایمیل'} type={'email'} error={form.errors.email} value={form.values.email} onChange={form.handleChange} />
-                <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={form.errors.password} value={form.values.password} onChange={form.handleChange} />
-
+                <FormInput name={"email"} placeholder={'ایمیل'} type={'email'} error={form.errors.email} value={form.values.email} onChange={form.handleChange} onBlur={form.handleBlur} />
+                <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={form.errors.password} value={form.values.password} onChange={form.handleChange} onBlur={form.handleBlur} />
             </div>
             <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
-                <Button text={'ورود به حساب کاربری'} isSubmitType={true} isDisabled={form.isSubmitting} type={'outline'} isWidthFull={true} />
+                <Button text={'ورود به حساب کاربری'} isSubmitType={true} isDisabled={form.isSubmitting}  isWidthFull={true} />
                 <div className="w-full">
                     <Link href={'/register'}>
                         <Button text={'ثبت نام'} isWidthFull={true} />
