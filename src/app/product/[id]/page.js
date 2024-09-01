@@ -6,7 +6,6 @@ import Product from "@/components/templates/product/Product";
 // Backend
 import connectToDB from "@/configs/db";
 import ProductModel from "@/models/Product";
-import CommentModel from "@/models/Comment";
 
 export default async function page({ params }) {
 
