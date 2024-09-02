@@ -1,6 +1,7 @@
 import connectToDB from "@/configs/db";
 import ProductModel from '@/models/Product'
 import CommentModel from '@/models/Comment'
+import WishlistModel from '@/models/Wishlist'
 
 export async function POST(req) {
     try {
@@ -34,7 +35,7 @@ export async function POST(req) {
         );
     } catch (err) {
         console.log(err);
-        
+
         return Response.json({ message: err }, { status: 500 });
     }
 }
@@ -100,6 +101,7 @@ export async function DELETE(req) {
 
         await ProductModel.findOneAndDelete({ _id: productID })
         await CommentModel.findOneAndDelete({ productID })
+        await WishlistModel.findOneAndDelete({ product: productID })
 
         return Response.json({ message: "Product removed successfully." })
 

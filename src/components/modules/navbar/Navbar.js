@@ -99,7 +99,7 @@ export default function Navbar({ isLogin }) {
                         <NavBarLink text={'دسته بندی ها'} route={'/collections'} >
                             <HiCollection />
                         </NavBarLink>
-                        <NavBarLink text={'درباره ما'} route={'/'} >
+                        <NavBarLink text={'درباره ما'} route={'/about-us'} >
                             <IoBookmark />
                         </NavBarLink>
                         <NavBarLink text={'ارتباط با ما'} route={'/contact-us'} >

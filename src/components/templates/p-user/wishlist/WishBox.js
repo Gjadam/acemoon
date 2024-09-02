@@ -47,12 +47,11 @@ export default function WishBox({ _id: productID, images, name }) {
     }
 
     return (
-        <div className=" flex flex-col  rounded-xl overflow-hidden bg-white">
-
-            <div className=' w-80 h-40'>
+        <div className=" flex flex-col  rounded-xl overflow-hidden w-96 hover:shadow-xl bg-white transition-shadow">
+            <div className='  h-40'>
                 <Image
-                    alt={images[0]?.url}
-                    src={images[0]?.url}
+                    alt={images && images[0]?.url}
+                    src={images && images[0]?.url}
                     width={0}
                     height={0}
                     sizes='100%'
@@ -60,7 +59,7 @@ export default function WishBox({ _id: productID, images, name }) {
                 />
             </div>
             <div className=" flex justify-between items-center border-t-1 p-3">
-                <span className=' text-xl font-bold'>{name}</span>
+                <span className='  font-bold'>{name}</span>
                 <Button type={'circle'} onClick={removeProductFromWishlist}>
                     <IoTrash />
                 </Button>
