@@ -23,7 +23,9 @@ export default async function Footer() {
       <div className=' container mx-auto py-20 px-5 md:px-0'>
         <div className=" flex justify-between items-start flex-wrap gap-10">
           <div className=" flex items-start flex-col gap-3">
-            <span>LOGO</span>
+          <Link href={'/'}>
+                        <span className=" text-rose-500 text-xl font-bold">ماه آس</span>
+                    </Link>
             <p className=" text-sm max-w-64">ما در ماه آس به دنبال ارائه بهترین محصولات با کیفیت و قیمت مناسب هستیم. هدف ما رضایت مشتریان و ایجاد تجربه خریدی لذت‌بخش است. با ما همراه باشید و از تخفیف‌ها و پیشنهادات ویژه بهره‌مند شوید.</p>
             <div className=" flex items-center gap-3">
               <Button type={'circle'}>

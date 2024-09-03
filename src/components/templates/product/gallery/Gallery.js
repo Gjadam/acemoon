@@ -2,9 +2,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// Components
-import LoadingGif from "@/components/modules/LoadingGif/LoadingGif";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -45,7 +42,7 @@ export default function Gallery({ images }) {
                         />
                     ) : (
                         loading ? (
-                            <LoadingGif />
+                            <div className=" w-full h-full bg-zinc-50 rounded-3xl animate-pulse"></div>
                         ) : (
                             <>
                                 <Swiper
@@ -66,11 +63,11 @@ export default function Gallery({ images }) {
                                         images.map(image => (
                                             <SwiperSlide>
                                                 <Image
-                                                    alt='product'
+                                                    alt={image?.url}
                                                     src={image?.url}
                                                     width={500}
                                                     height={0}
-                                                    className="rounded-3xl"
+                                                    className=" rounded-3xl"
                                                 />
                                             </SwiperSlide>
                                         ))
@@ -102,7 +99,6 @@ export default function Gallery({ images }) {
                                         ))
                                     }
                                     <SwiperSlide>
-
                                     </SwiperSlide>
                                 </Swiper>
                             </>

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Box({ imageUrl, socialImage, socialLink }) {
     return (
         <a href={socialLink} className=" flex justify-center items-center  grow">
-            <div data-aos='zoom-in' className=" grow group flex justify-center items-center  relative w-64 h-64 md:rounded-3xl overflow-hidden ">
+            <div data-aos='zoom' className=" grow group flex justify-center items-center  relative w-64 h-64 md:rounded-3xl overflow-hidden ">
                 <Image
                     alt="background"
                     src={imageUrl}

@@ -6,7 +6,6 @@ import Image from 'next/image'
 // Components
 import Button from '@/components/modules/button/Button'
 import ContentLayout from './ContentLayout'
-import SearchBox from '@/components/modules/searchBox/SearchBox'
 
 // Icons
 import { FaBarsStaggered } from 'react-icons/fa6'
@@ -17,10 +16,7 @@ export default function SideBar({ collections, products }) {
 
   return (
     <>
-      <div className=" xl:hidden w-full flex justify-between items-center px-5">
-        <div className="block xl:hidden">
-          <SearchBox/>
-        </div>
+      <div className=" xl:hidden w-full flex justify-end items-center px-5">
         <Button type={'circle'} onClick={() => setIsOpenSidebar(true)}>
           <FaBarsStaggered />
         </Button>

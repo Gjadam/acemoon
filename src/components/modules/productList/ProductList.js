@@ -8,7 +8,7 @@ import { IoBasket, IoHeart } from "react-icons/io5";
 export default function ProductList({ _id, name, priceBeforeDiscount, price, images, shortDescription, size, color, score, collection }) {
     return (
         <div data-aos='fade-right' className=" w-full">
-            <div className="  relative flex justify-between items-center flex-col md:flex-row gap-5 w-full p-5 hover:bg-zinc-50 rounded-xl transition-colors">
+            <div className="  relative flex justify-between items-center flex-col md:flex-row gap-5 w-full p-5 bg-zinc-50 hover:bg-zinc-100 rounded-xl transition-colors">
                 <Link href={`/product/${_id}`} className=" w-full sm:w-96">
                     <div className=" w-full sm:w-96  h-52 overflow-hidden rounded-3xl ">
                         <Image
@@ -34,14 +34,22 @@ export default function ProductList({ _id, name, priceBeforeDiscount, price, ima
                     <div className="flex flex-col gap-5 pb-5">
                         <p className=" max-w-xl text-zinc-500">{shortDescription.length > 150 ? `${shortDescription.slice(0, 150)}...` : shortDescription}</p>
                         <div className="flex justify-start items-center flex-wrap gap-5">
-                            <div className=" flex items-center gap-3">
-                                <span className=" text-xs text-rose-500">سایز: </span>
-                                <span className=" text-sm text-zinc-600">{size}</span>
-                            </div>
-                            <div className=" flex items-center gap-3">
-                                <span className=" text-xs text-rose-500">رنگ: </span>
-                                <span className=" text-sm  text-zinc-600">{color}</span>
-                            </div>
+                            {
+                                size ? (
+                                    <div className=" flex items-center gap-3">
+                                        <span className=" text-xs text-rose-500">سایز: </span>
+                                        <span className=" text-sm text-zinc-600">{size}</span>
+                                    </div>
+                                ) : null
+                            }
+                            {
+                                color ? (
+                                    <div className=" flex items-center gap-3">
+                                        <span className=" text-xs text-rose-500">رنگ: </span>
+                                        <span className=" text-sm  text-zinc-600">{color}</span>
+                                    </div>
+                                ) : null
+                            }
                         </div>
                     </div>
                     {

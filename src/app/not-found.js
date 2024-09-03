@@ -7,8 +7,15 @@ import Button from "@/components/modules/button/Button";
 export default function NotFound() {
   return (
     <div className=" relative h-screen overflow-hidden bg-white">
-      <div className=" w-full flex justify-center items-center border-b-1 p-10">
-        <span>LOGO</span>
+      <div className=" w-full flex justify-center items-center border-b-1 p-5">
+        <Link href={'/'}>
+          <Image
+            alt='logo'
+            src='/images/png/logo.png'
+            width={70}
+            height={0}
+          />
+        </Link>
       </div>
       <div className="flex justify-center items-center flex-col gap-5 h-full text-center">
         <h1 className=" text-9xl sm:text-[12rem] text-rose-500 ">404</h1>

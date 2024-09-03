@@ -82,12 +82,26 @@ export default function Navbar({ isLogin }) {
                     <FaBars />
                 </Button>
             </div>
-            <span className='xl:hidden'>LOGO</span>
+            <Link href={'/'} className='xl:hidden'>
+                <Image
+                    alt='logo'
+                    src='/images/png/logo.png'
+                    width={60}
+                    height={0}
+                />
+            </Link>
             <div className={` fixed z-50 ${isOpenNavbar ? ' xl:relative left-0 right-0 bottom-0 top-0 bg-[rgba(0,0,0,0.5)] xl:bg-inherit ' : '-right-[40rem] '}  xl:right-0 xl:relative transition-all duration-500 ease-in-out`} onClick={isOpenNavbar ? () => setIsOpenNavbar(false) : null}>
                 <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0 ' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-72 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all duration-500 ease-in-out`} onClick={(e) => e.stopPropagation()}>
-                    <span>LOGO</span>
+                    <Link href={'/'} className='hidden xl:block'>
+                        <Image
+                            alt='logo'
+                            src='/images/png/logo.png'
+                            width={70}
+                            height={0}
+                        />
+                    </Link>
                     <form onSubmit={goToSearchPage} className="w-full xl:w-0 my-5 ">
-                        <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded p-2.5 bg-white outline-none placeholder:text-sm w-full transition-colors' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                        <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-md p-2 bg-white outline-none placeholder:text-sm w-full transition-colors' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                     </form>
                     <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
                         <NavBarLink text={'صفحه اصلی'} route={'/'} >

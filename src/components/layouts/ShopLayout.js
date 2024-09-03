@@ -26,7 +26,7 @@ export default async function ShopLayout({ children }) {
         <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
             <div className="  container mx-auto  flex flex-col  xl:flex-row justify-center items-start p-5 ">
                 <SideBar collections={JSON.parse(JSON.stringify(collections))} products={JSON.parse(JSON.stringify(products))}/>
-                <div className="p-5 w-full rounded mt-5">
+                <div className="p-5 w-full rounded ">
                     {children}
                 </div>
             </div>

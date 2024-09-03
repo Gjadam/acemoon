@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 // Components
@@ -30,15 +31,27 @@ export default function SideBar({ user }) {
                 <Button type={'circle'} onClick={() => setIsOpenSidebar(true)}>
                     <FaBars />
                 </Button>
-                <div className=" flex justify-center items-center">
-                    LOGO
-                </div>
+                <Link href={'/'}>
+                    <Image
+                        alt='logo'
+                        src='/images/png/logo.png'
+                        width={50}
+                        height={0}
+                    />
+                </Link>
             </div>
             <div className={`${isOpenSideBar ? 'fixed left-0 top-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)]' : 'bg-inherit relative'} xl:relative xl:bg-inherit h-full  z-30  transition-all duration-500`} onClick={() => setIsOpenSidebar(false)}>
                 <div className={` bg-white  fixed ${isOpenSideBar ? 'right-0' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 py-5  xl:py-0  rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none border-rose-500 xl:relative xl:flex justify-center items-start flex-col h-full w-56  overflow-hidden transition-all duration-500 ease-in-out`} onClick={(e) => e.stopPropagation()}>
                     <div className=" flex justify-between items-start flex-col h-full">
                         <div className="  w-full flex justify-between items-center px-5">
-                            <span>Logo</span>
+                           <Link href={'/'}>
+                    <Image
+                        alt='logo'
+                        src='/images/png/logo.png'
+                        width={50}
+                        height={0}
+                    />
+                </Link>
                             <div className="xl:hidden">
                                 <Button type={'circle'} onClick={() => setIsOpenSidebar(false)}>
                                     <LiaTimesSolid />

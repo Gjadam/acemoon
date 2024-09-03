@@ -1,10 +1,10 @@
 // Components
-import LoadingGif from '@/components/modules/LoadingGif/LoadingGif'
+import LoadingIcon from '@/components/modules/LoadingIcon/LoadingIcon'
 
 export default function loading() {
     return (
         <div className=' w-full h-screen  flex justify-center items-center  z-50'>
-            <LoadingGif />
+            <LoadingIcon />
         </div>
     )
 }
