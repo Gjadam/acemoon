@@ -29,7 +29,7 @@ export default function Shop({ products }) {
                 </div>
 
             </div>
-            <div className=" flex justify-center items-center flex-wrap gap-5 py-5">
+            <div className=" flex justify-center items-center flex-wrap gap-5 py-5 overflow-x-hidden">
                 {
                     products.length > 0 ? (
                         <>

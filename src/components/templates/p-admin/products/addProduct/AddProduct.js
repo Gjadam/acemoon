@@ -123,13 +123,9 @@ export default function AddProduct({ collections }) {
                     <FormInput type={'textarea'} placeholder={'توضیحات بلند'} error={!longDescription && 'توضیحات بلند محصول را وارد کنید'} value={longDescription} onChange={(e) => setLongDescription(e.target.value)} />
                     <FormInput type={"file"} onChange={(e) => setImages(e.target.files)} />
                 </div>
-                <Button text={'افزودن محصول'} onClick={addProduct} isDisabled={name && price && shortDescription && longDescription && images ? false : true} />
-            </div>
-            <div className={`fixed ${isImageUploaded ? "right-5" : " -right-96"} top-5  z-50 w-64 transition-all`}>
-                <div className="flex justify-between items-center shadow-xl border-b-1 border-rose-500 bg-secondary text-white p-5 rounded-[2rem] overflow-hidden">
-                    <span>درحال آپلود تصاویر</span>
-                    <LuLoader2 className=' animate-spin text-2xl text-rose-500' />
-                </div>
+                <Button text={'افزودن محصول'} onClick={addProduct} isDisabled={name && price && shortDescription && longDescription && images ? false : true} >
+                <LuLoader2 className={` ${isImageUploaded ? 'block' : 'hidden'} animate-spin text-xl text-inherit`} />
+                </Button>
             </div>
         </>
     )

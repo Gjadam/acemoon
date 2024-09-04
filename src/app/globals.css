@@ -74,11 +74,11 @@ input:-webkit-autofill {
  /* Start Sweet Alert */
 .swal2-popup {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  border-radius: 3rem;
-  -webkit-border-radius: 3rem;
-  -moz-border-radius: 3rem;
-  -ms-border-radius: 3rem;
-  -o-border-radius: 3rem;
+  border-radius: 1.5rem;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
 }
 
 .swal2-title {

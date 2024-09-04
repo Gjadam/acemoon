@@ -104,9 +104,6 @@ export default function Navbar({ isLogin }) {
                         <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-md p-2 bg-white outline-none placeholder:text-sm w-full transition-colors' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                     </form>
                     <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
-                        <NavBarLink text={'صفحه اصلی'} route={'/'} >
-                            <IoHome />
-                        </NavBarLink>
                         <NavBarLink text={'فروشگاه'} route={'/shop'} >
                             <IoStorefront />
                         </NavBarLink>
