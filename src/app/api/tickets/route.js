@@ -1,6 +1,6 @@
 import connectToDB from "@/configs/db"
 import TicketModel from "@/models/Ticket"
-import { authUser } from "@/utils/serverHelpers"
+import { authAdmin, authUser } from "@/utils/serverHelpers"
 
 export async function POST(req) {
     try {
@@ -41,6 +41,16 @@ export async function POST(req) {
 
 export async function DELETE(req) {
     try {
+
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const {

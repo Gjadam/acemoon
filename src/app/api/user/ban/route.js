@@ -1,7 +1,18 @@
 import connectToDB from "@/configs/db"
 import BanModel from "@/models/Ban"
+import { authAdmin } from "@/utils/serverHelpers"
 export async function POST(req) {
     try {
+
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { phone, email } = body
@@ -40,8 +51,17 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
-
     try {
+        
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { phone, email, banUserID } = body

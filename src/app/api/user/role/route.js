@@ -1,8 +1,19 @@
 import connectToDB from "@/configs/db"
 import UserModel from "@/models/User"
+import { authAdmin } from "@/utils/serverHelpers"
 
 export async function PUT(req) {
     try {
+
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { userID } = body

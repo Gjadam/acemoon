@@ -1,8 +1,19 @@
 import connectToDB from "@/configs/db"
 import CollectionModel from "@/models/Collection"
+import { authAdmin } from "@/utils/serverHelpers"
 
 export async function POST(req) {
     try {
+        
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { name } = body
@@ -22,6 +33,8 @@ export async function POST(req) {
         )
 
     } catch (err) {
+        console.log(err);
+        
         return Response.json(
             { message: err },
             { status: 500 }
@@ -31,6 +44,16 @@ export async function POST(req) {
 
 export async function PUT(req) {
     try { 
+
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { collectionID, name } = body
@@ -61,6 +84,16 @@ export async function PUT(req) {
 
 export async function DELETE(req) {
     try { 
+
+        const isAdmin = await authAdmin()
+
+        if (!isAdmin) {
+            return Response.json(
+                { message: "This api protected and you can't access it !!"},
+                { status: 401 }
+            )
+        }
+
         connectToDB()
         const body = await req.json()
         const { collectionID } = body
