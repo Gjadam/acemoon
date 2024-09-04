@@ -8,8 +8,12 @@ import RegisterForm from "@/components/templates/register/RegisterForm";
 // Icons
 import { IoHome } from "react-icons/io5";
 
-export default function page() {
+export const metadata = {
+    title: "ماه آس | ثبت نام"
+}
 
+
+export default function page() {
     return (
         <LoginRegisterLayout>
             <div data-aos='fade-right' className=' w-full' >

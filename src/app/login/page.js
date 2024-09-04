@@ -9,6 +9,10 @@ import LoginForm from "@/components/templates/login/LoginForm";
 // Icons
 import { IoHome } from "react-icons/io5";
 
+export const metadata = {
+    title: "ماه آس | ورود"
+}
+
 export default function page() {
     return (
         <LoginRegisterLayout>

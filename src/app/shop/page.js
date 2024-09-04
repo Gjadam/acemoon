@@ -9,6 +9,13 @@ import Shop from "@/components/templates/shop/Shop";
 import connectToDB from "@/configs/db";
 import ProductModel from "@/models/Product";
 
+export const metadata = {
+  title: "ماه آس | فروشگاه",
+  description: "فروشگاه ما شامل مجموعه‌ای از بهترین محصولات با کیفیت در دسته‌های مختلف است. از الکترونیک تا پوشاک، با تخفیف‌های ویژه و ارسال رایگان خرید کنید",
+  keywords: 'فروشگاه آنلاین , خرید اینترنتی , فروشگاه ماه آس',
+};
+
+
 export default async function page() {
   
   connectToDB()

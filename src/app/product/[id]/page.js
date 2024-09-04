@@ -7,21 +7,32 @@ import Product from "@/components/templates/product/Product";
 import connectToDB from "@/configs/db";
 import ProductModel from "@/models/Product";
 
-export default async function page({ params }) {
 
+const getProductData = async (productID) => {
   connectToDB()
-  const productID = params.id
-
   const product = await ProductModel.findOne({ _id: productID })
-  .populate('collection', 'name')
-  .populate('comments')
- 
+    .populate('collection', 'name')
+    .populate('comments')
+
+  return product
+}
+
+export async function generateMetadata({ params }) {
+  const product = await getProductData(params.id)
+  return {
+    title: `ماه آس | ${product.name}`,
+    description: `${product.longDescription}`,
+  };
+}
+
+export default async function page({ params }) {
+  const product = await getProductData(params.id)
+
   const relatedProducts = await ProductModel.find({
     collection: product?.collection?._id,
-    _id: { $ne: productID }
+    _id: { $ne: params.id }
   })
     .populate('collection', 'name')
-
 
   return (
     <>

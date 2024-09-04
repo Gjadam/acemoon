@@ -9,6 +9,11 @@ import connectToDB from "@/configs/db"
 import WishlistModel from "@/models/Wishlist"
 import { authUser } from "@/utils/serverHelpers"
 
+
+export const metadata = {
+    title: 'ماه آس | لیست علاقه مندی ها'
+}
+
 export default async function page() {
 
     connectToDB()

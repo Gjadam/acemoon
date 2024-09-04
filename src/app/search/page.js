@@ -9,6 +9,11 @@ import CollectionModel from "@/models/Collection"
 import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader"
 import Search from "@/components/templates/search/Search"
 
+export const metadata = {
+    title: "ماه آس | جستوجو"
+}
+
+
 export default async function page({ searchParams }) {
     const { q } = searchParams
 

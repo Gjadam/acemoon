@@ -10,22 +10,38 @@ import ProductModel from "@/models/Product";
 import CollectionModel from "@/models/Collection";
 import ShopLayout from "@/components/layouts/ShopLayout";
 
-export default async function page({ params }) {
 
+
+async function getCollectionData(collectionID) {
+    await connectToDB();
+    const collection = await CollectionModel.findOne({ _id: collectionID });
+    return collection;
+}
+
+export async function generateMetadata({ params }) {
+    const collection = await getCollectionData(params.id)
+    return {
+        title: `ماه آس | دسته بندی ${collection.name}`,
+        description:`دسته بندی ${collection.name} ماه آس`,
+    };
+}
+
+
+export default async function page({ params }) {
 
     connectToDB()
     const collectionID = params.id
     const collection = await CollectionModel.findOne({ _id: collectionID })
     const products = await ProductModel.find({ collection: collectionID })
-    .populate('collection', 'name')
+        .populate('collection', 'name')
         .sort({ _id: -1 })
         .lean()
 
     return (
         <MainLayout>
-            <CategoryHeader title={collection.name} />
+            <CategoryHeader title={`دسته بندی ${collection.name}`} />
             <ShopLayout>
-            <Collection products={JSON.parse(JSON.stringify(products))} />
+                <Collection products={JSON.parse(JSON.stringify(products))} />
             </ShopLayout>
         </MainLayout>
     )
