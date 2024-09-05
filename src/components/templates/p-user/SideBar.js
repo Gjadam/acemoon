@@ -59,7 +59,7 @@ export default function SideBar({ user }) {
                             <SideBarLink text={'علاقه مندی ها'} route={'/p-user/wishlist'}>
                                 <IoHeart />
                             </SideBarLink>
-                            <SideBarLink text={'جزئیات حساب'}>
+                            <SideBarLink text={'جزئیات حساب'} route={'/p-user/account-detail'}>
                                 <FaUserEdit />
                             </SideBarLink>
                             <SideBarLink text={'خروج '} onClick={logOut} >

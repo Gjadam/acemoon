@@ -106,7 +106,7 @@ export default function Header({ products }) {
             </div>
             <div className=" flex xl:hidden justify-center items-center flex-col absolute left-0 right-0 -bottom-1 ">
                 <a href="#category" className=' z-20 '>
-                    <div className=" md:hidden p-5 rounded-full text-zinc-600 hover:text-rose-500 bg-white border-b-1  hover:border-rose-300 transition-all duration-200 cursor-pointer">
+                    <div className=" md:hidden p-5 rounded-full text-zinc-600 hover:text-rose-500 bg-white border-y-1  hover:border-rose-300 transition-all duration-200 cursor-pointer">
                         <FaArrowDown />
                     </div>
                 </a>

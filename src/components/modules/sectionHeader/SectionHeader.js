@@ -7,8 +7,8 @@ import { IoIosLink } from "react-icons/io";
 
 export default function SectionHeader({ title, linkText, route }) {
     return (
-        <div className={`flex ${route ? "justify-between" : "justify-center"} flex-wrap p-5 xl:p-0 items-center w-full`}>
-            <div className=" flex justify-center items-center ">
+        <div className={`flex ${route ? " justify-center sm:justify-between" : "justify-center"} flex-wrap p-5 xl:p-0 items-center w-full`}>
+            <div className=" flex justify-center items-center text-center ">
                 {
                     route ? (
                         <>
@@ -17,6 +17,7 @@ export default function SectionHeader({ title, linkText, route }) {
                                 src={'/images/png/header.png'}
                                 width={40}
                                 height={0}
+                                className=" hidden sm:block"
                             />
                             <h1 className=" mr-1  text-xl xl:text-2xl text-center text-secondary font-bold">{title}</h1>
                         </>
@@ -38,11 +39,8 @@ export default function SectionHeader({ title, linkText, route }) {
                                 className=" -rotate-90"
                             />
                         </>
-
                     )
                 }
-
-
             </div>
             {
                 route &&

@@ -16,12 +16,11 @@ import SearchBox from '../searchBox/SearchBox';
 
 // Icons
 import { RxExternalLink } from "react-icons/rx";
-import { IoBookmark, IoHeart, IoHome, IoLogOut, IoStorefront, IoTicket } from "react-icons/io5";
+import { IoBookmark, IoHeart, IoLogOut, IoStorefront, IoTicket } from "react-icons/io5";
 import { FiLogIn } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu"
-import { BiSolidCategory } from 'react-icons/bi';
 import { MdAdminPanelSettings } from "react-icons/md";
-import { FaBars, FaPhone } from 'react-icons/fa6';
+import { FaBars, FaHouseUser, FaPhone } from 'react-icons/fa6';
 import { HiCollection } from "react-icons/hi";
 
 // Hooks
@@ -233,17 +232,14 @@ export default function Navbar({ isLogin }) {
                                             <MdAdminPanelSettings />
                                         </LinkWithIcon>
                                     }
-                                    <LinkWithIcon text='پیشخوان' route={'/p-user'}>
-                                        <IoHome />
+                                    <LinkWithIcon text='حساب کاربری من' route={'/p-user'}>
+                                        <FaHouseUser/>
                                     </LinkWithIcon>
                                     <LinkWithIcon text='علاقه مندی ها' route={'/wishlist'}>
                                         <IoHeart />
                                     </LinkWithIcon>
                                     <LinkWithIcon text='تیکت های پشتیبانی' route={'/p-user/tickets'}>
                                         <IoTicket />
-                                    </LinkWithIcon>
-                                    <LinkWithIcon text='جزئیات حساب' route={'/p-user/account-details'}>
-                                        <BiSolidCategory />
                                     </LinkWithIcon>
                                     <LinkWithIcon text='خروج' onClick={logOut}>
                                         <IoLogOut />
