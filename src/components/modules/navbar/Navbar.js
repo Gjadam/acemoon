@@ -201,7 +201,7 @@ export default function Navbar({ isLogin }) {
                                 <LuUser2 className=" text-xl" />
                             </Button>
                         ) : (
-                            <Link href={'/login'}>
+                            <Link href={'/login-otp'}>
                                 <Button type='circle' >
                                     <FiLogIn className=" text-xl" />
                                 </Button>

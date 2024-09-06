@@ -1,16 +1,19 @@
+
 // Components
 import LoginRegisterLayout from "@/components/layouts/LoginRegisterLayout";
-import RegisterForm from "@/components/templates/register/RegisterForm";
+import FormHeader from "@/components/modules/FormHeader/FormHeader";
+import EmailLoginForm from "@/components/templates/login/EmailLoginForm";
 
 export const metadata = {
-    title: "ماه آس | ثبت نام"
+    title: "ماه آس | ورود"
 }
 
 export default function page() {
     return (
         <LoginRegisterLayout>
             <div data-aos='fade-right' className=' w-full' >
-                <RegisterForm />
+                <FormHeader title={'ورود با ایمیل'} />
+                <EmailLoginForm />
             </div>
         </LoginRegisterLayout>
     )

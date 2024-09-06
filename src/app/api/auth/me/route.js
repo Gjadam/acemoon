@@ -13,7 +13,9 @@ export async function GET() {
             const tokenPayload = verifyAccessToken(token.value)
             if (tokenPayload) {
                 user = await UserModel.findOne(
-                    { email: tokenPayload.email },
+                    { 
+                        $or: [{ email: tokenPayload.email }, { phone: tokenPayload.phone }]
+                    },
                     "-password -refreshToken -__v"
                 );
             }

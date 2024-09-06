@@ -14,10 +14,10 @@ export default async function AdminPanelLayout({ children }) {
 
     if (user) {
         if (user.role !== roles.ADMIN) {
-            redirect("/login")
+            redirect("/login-otp")
         }
     } else {
-        redirect("/login")
+        redirect("/login-otp")
     }
 
     return (

@@ -13,7 +13,7 @@ export default async function UserPanelLayout({ children }) {
     const user = await authUser()
 
     if (!user) {
-        redirect("/login")
+        redirect("/login-otp")
     }
 
 

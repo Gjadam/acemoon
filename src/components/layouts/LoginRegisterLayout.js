@@ -7,7 +7,7 @@ export default function LoginRegisterLayout({ children }) {
     return (
         <div className=' flex gap-5 w-full h-screen  overflow-hidden '>
             <div className=" h-full hidden lg:flex flex-col gap-5 lg:w-3/5 p-10 ">
-                <BreadCrumb routeText={'ورود'} />
+                <BreadCrumb routeText={'ورود / ثبت نام'} />
                 <div className="relative w-full  h-full rounded-3xl bg-[url('/images/jpg/login.jpg')] bg-cover bg-center bg-no-repeat z-10 ">
                 <Image
                         alt='cloud'
@@ -20,7 +20,7 @@ export default function LoginRegisterLayout({ children }) {
                 </div>
             </div>
             <div className="flex justify-start items-center w-full lg:w-2/5 transition-all duration-200">
-                <div className=" flex justify-start items-center w-full p-10">
+                <div data-aos='fade-right' className=" flex justify-start items-center w-full p-10">
                     {children}
                 </div>
             </div>

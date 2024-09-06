@@ -41,7 +41,7 @@ const validateEmail = (email) => {
 }
 
 const validatePhone = (phone) => {
-    const pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g;
+    const pattern = /^09\d{9}$/;
     return pattern.test(phone)
 }
 

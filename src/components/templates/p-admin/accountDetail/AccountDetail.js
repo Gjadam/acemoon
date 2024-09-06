@@ -56,7 +56,7 @@ export default function AccountDetail() {
       .catch(err => {
         if (err.response?.status === 400) {
           toastAlert.fire({
-            text: "نام کاربری یا ایمیل یا شماره تلفن اشتباه است",
+            text: "نام کاربری یا ایمیل یا شماره موبایل اشتباه است",
             icon: "error"
           })
         }
@@ -97,7 +97,7 @@ export default function AccountDetail() {
       <div className=" flex flex-col gap-5 mt-5">
         <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
           <FormInput type={'text'} placeholder={'نام کاربری'} error={!name && 'نام کاربری را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)} />
-          <FormInput type={'number'} placeholder={'شماره موبایل'} error={!phone ? 'شماره تلفن را وارد کنید' : !validatePhone(phone) ? "شماره تلفن را به درستی وارد کنید" : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <FormInput type={'number'} placeholder={'شماره موبایل'} error={!phone ? 'شماره موبایل را وارد کنید' : !validatePhone(phone) ? "شماره موبایل را به درستی وارد کنید" : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
           <FormInput type={'email'} placeholder={'ایمیل'} error={!email ? 'ایمیل را وارد کنید' : !validateEmail(email) ? "ایمیل را به درستی وارد کنید" : null} value={email} onChange={(e) => setEmail(e.target.value)} />

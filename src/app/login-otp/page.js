@@ -1,16 +1,16 @@
 // Components
 import LoginRegisterLayout from "@/components/layouts/LoginRegisterLayout";
-import RegisterForm from "@/components/templates/register/RegisterForm";
+import OtpLoginForm from "@/components/templates/login/OtpLoginForm";
 
 export const metadata = {
-    title: "ماه آس | ثبت نام"
+    title: "ماه آس | ورود"
 }
 
 export default function page() {
     return (
         <LoginRegisterLayout>
             <div data-aos='fade-right' className=' w-full' >
-                <RegisterForm />
+                <OtpLoginForm />
             </div>
         </LoginRegisterLayout>
     )
