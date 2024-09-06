@@ -54,7 +54,8 @@ export default function Tickets({ tickets }) {
                     .then(res => {
                         if (res.status === 200) {
                             toastAlert.fire({
-                                text: ".پاسخ شما با موفقیت ارسال شد"
+                                text: "پاسخ شما با موفقیت ارسال شد",
+                                icon: "success"
                             })
                         }
                         router.refresh()

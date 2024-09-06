@@ -9,7 +9,7 @@ import connectToDB from "@/configs/db";
 
 export default async function page() {
     connectToDB()
-    const tickets = await TicketModel.find({ isAnswer: false })
+    const tickets = await TicketModel.find({ hasAnswer: false })
         .populate('user')
         .lean()
         .sort({_id: -1})

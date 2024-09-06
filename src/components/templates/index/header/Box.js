@@ -52,7 +52,7 @@ export default function Box({ _id, images, name, price, priceBeforeDiscount, col
                 {
                     collection ? (
                         <>
-                            <div data-swiper-parallax="-100" className=' flex items-center gap-1 text-4xl xl:text-6xl font-bold '>
+                            <div data-swiper-parallax="-100" className=' flex justify-center items-center flex-wrap  gap-1 text-center text-4xl xl:text-6xl font-bold '>
                                 <span>کالکشن</span>
                                 <p className=' text-rose-500'>{collection.name}</p>
                             </div>

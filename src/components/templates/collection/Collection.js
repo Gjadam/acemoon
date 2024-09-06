@@ -11,7 +11,7 @@ export default function Collection({ products }) {
     const [paginateProducts, setPaginateProducts] = useState(products)
 
     return (
-        <div className=" flex justify-center items-center flex-wrap gap-5">
+        <div className=" flex justify-center items-center flex-wrap gap-5 overflow-x-hidden">
             {
                 products.length > 0 ? (
                     <>

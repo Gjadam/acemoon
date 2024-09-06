@@ -19,13 +19,15 @@ import connectToDB from "@/configs/db";
 import TicketMode from "@/models/Ticket";
 import ProductModel from "@/models/Product";
 import UserModel from "@/models/User";
+import { authUser } from "@/utils/serverHelpers";
 
 
 export default async function page() {
     connectToDB()
+    const user = await authUser()
     const tickets = await TicketMode.find({})
     const products = await ProductModel.find({})
-    const users = await UserModel.find({})
+    const users = await UserModel.find({ _id: { $ne: user._id } })
 
     return (
         <AdminPanelLayout>
@@ -45,12 +47,11 @@ export default async function page() {
                     </Box>
                 </div>
                 <div className=" flex justify-between items-start flex-wrap gap-5">
-                    <Table title={'تیکت های اخیر'} linkText={'همه تیکت ها'} route={'/p-user/tickets'}>
+                    <Table title={'تیکت های اخیر'} linkText={'همه تیکت ها'} route={'/p-admin/tickets'}>
                         {
                             tickets.length > 0 ? (
                                 tickets.slice(0, 10).map(ticket => (
                                     <PanelCard title={ticket.title} date={ticket.createdAt} >
-                                       
                                         <PanelCardButton bgColor={ticket.hasAnswer ? 'bg-green-500' : "bg-zinc-500"} condition={ticket.hasAnswer ? 'پاسخ داده شده' : 'در انتظار پاسخ'} />
                                     </PanelCard>
                                 ))
@@ -59,7 +60,7 @@ export default async function page() {
                             )
                         }
                     </Table>
-                    <Table title={'سفارش های اخیر'} linkText={'همه سفارش ها'} route={'/p-user/orders'}>
+                    <Table title={'سفارش های اخیر'} linkText={'همه سفارش ها'} route={'/p-admin/orders'}>
                         <PanelCard></PanelCard>
                     </Table>
                 </div>
