@@ -13,7 +13,6 @@
     "aos": "^2.3.4",
     "axios": "^1.7.3",
     "bcryptjs": "^2.4.3",
-    "formik": "^2.4.6",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.2",
