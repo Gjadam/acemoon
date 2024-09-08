@@ -44,7 +44,8 @@ export default function Comments({ comments }) {
             .then(res => {
                 if (res.status === 200) {
                     toastAlert.fire({
-                        text: "کامنت موردنظر با موفقیت تایید شد"
+                        text: "کامنت موردنظر با موفقیت تایید شد",
+                        icon: 'success'
                     })
                 }
                 router.refresh()
@@ -58,7 +59,8 @@ export default function Comments({ comments }) {
             .then(res => {
                 if (res.status === 200) {
                     toastAlert.fire({
-                        text: "کامنت موردنظر با موفقیت رد شد"
+                        text: "کامنت موردنظر با موفقیت رد شد",
+                        icon: 'success'
                     })
                 }
                 router.refresh()
@@ -78,11 +80,16 @@ export default function Comments({ comments }) {
                 })
                     .then(res => {
                         if (res.status === 200) {
+                            apiRequest.post('/comments/accept', {
+                                commentID
+                            })
                             toastAlert.fire({
-                                text: ".پاسخ شما با موفقیت ارسال شد"
+                                text: "پاسخ شما با موفقیت ارسال شد",
+                                icon: "success"
+                            }).then(() => {
+                                router.refresh()
                             })
                         }
-                        router.refresh()
                     })
             }
         })

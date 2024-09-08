@@ -14,9 +14,9 @@ import { FaArrowDown } from 'react-icons/fa6';
 
 export default function Header({ products }) {
     return (
-        <div className=" relative">
+        <div className=" relative ">
             <div className="  container mx-auto xl:container-fluid  ">
-                <div data-aos='fade-left' data-aos-delay="400" className='relative flex lg:hidden justify-center items-center bg-zinc-50 w-full h-[50rem] rounded-t-3xl overflow-hidden'>
+                <div data-aos='fade-left' data-aos-delay="400" className='relative flex lg:hidden justify-center items-center bg-zinc-50 w-full h-[50rem] rounded-b-3xl overflow-hidden'>
                     <Swiper
                         direction={'horizontal'}
                         autoplay={{
@@ -70,7 +70,7 @@ export default function Header({ products }) {
                     width={0}
                     height={0}
                     sizes='100%'
-                    className=' hidden xl:block w-full absolute left-0 -bottom-5 drag-none z-10'
+                    className=' hidden lg:block w-full absolute left-0 -bottom-5 drag-none z-10'
                 />
                 <Image
                     alt='logo'
@@ -104,16 +104,13 @@ export default function Header({ products }) {
                     </a>
                 </div>
             </div>
-            <div className=" flex xl:hidden justify-center items-center flex-col absolute left-0 right-0 -bottom-1 ">
+            <div className=" flex xl:hidden justify-center items-center flex-col absolute left-0 right-0 -bottom-7 ">
                 <a href="#category" className=' z-20 '>
                     <div className=" md:hidden p-5 rounded-full text-zinc-600 hover:text-rose-500 bg-white border-y-1  hover:border-rose-300 transition-all duration-200 cursor-pointer">
                         <FaArrowDown />
                     </div>
                 </a>
-                <svg className='xl:hidden absolute right-0 left-0 -bottom-10 fill-white' viewBox="0 0 500 150" preserveAspectRatio='none' width="100%" >
-                    <path
-                        d="M0,150 L0,40 Q250,150 500,40 L580,150 Z" />
-                </svg>
+
             </div>
         </div>
     )

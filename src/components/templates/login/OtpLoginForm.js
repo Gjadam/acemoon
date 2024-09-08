@@ -29,34 +29,53 @@ export default function LoginForm() {
 
     const loginWithOtp = (e) => {
         e.preventDefault()
-        apiRequest.post('/auth/sms/signin/send', { phone, password })
+        apiRequest.post('/user/ban/verify', { phone })
             .then(res => {
-                if (res.status === 201) {
-                    Swal.fire({
-                        title: `کد ورود : ${res.data.code}`,
-                        text: "لطفا قبل از وارد شدن به صفحه وارد کردن کد ، کد را بخاطر بسپارید.",
-                        icon: "success",
-                        confirmButtonText: "وارد کردن کد"
-                    }).then(result => {
-                        if (result.isConfirmed) {
-                            setIsLoginWithOtp(true)
-                        }
-                    })
+                if (res.status === 200) {
+                    apiRequest.post('/auth/sms/signin/send', { phone, password })
+                        .then(res => {
+                            if (res.status === 201) {
+                                Swal.fire({
+                                    title: `کد ورود : ${res.data.code}`,
+                                    text: "لطفا قبل از وارد شدن به صفحه وارد کردن کد ، کد را بخاطر بسپارید.",
+                                    icon: "success",
+                                    confirmButtonText: "وارد کردن کد"
+                                }).then(result => {
+                                    if (result.isConfirmed) {
+                                        setIsLoginWithOtp(true)
+                                    }
+                                })
+                            }
+                        })
+                        .catch(err => {
+                            if (err.response) {
+                                if (err.response.status === 400) {
+                                    toastAlert.fire({
+                                        text: "کاربری با این اطلاعات یافت نشد!",
+                                        icon: "error",
+                                    })
+                                } else if (err.response.status === 401) {
+                                    toastAlert.fire({
+                                        text: "شماره موبایل یا رمزعبور صحیح نیست!",
+                                        icon: "error",
+                                    })
+                                }
+                            }
+                        })
                 }
             })
             .catch(err => {
-                if (err.response) {
-                    if (err.response.status === 400) {
-                        toastAlert.fire({
-                            text: "کاربری با این اطلاعات یافت نشد!",
-                            icon: "error",
-                        })
-                    } else if (err.response.status === 401) {
-                        toastAlert.fire({
-                            text: "شماره موبایل یا رمزعبور صحیح نیست!",
-                            icon: "error",
-                        })
-                    }
+                if (err.response.status === 400) {
+                    toastAlert.fire({
+                        text: "متاسفانه شماره تلفن شما مسدود شده است.",
+                        icon: "error",
+                        confirmButtonText: "باشه"
+                    })
+                } else if (err.response.status === 404) {
+                    toastAlert.fire({
+                        text: "متاسفانه شماره تلفن شما یافت نشد!",
+                        icon: "error",
+                    })
                 }
             })
     }

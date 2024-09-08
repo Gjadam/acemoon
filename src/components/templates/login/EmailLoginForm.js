@@ -22,36 +22,53 @@ export default function LoginForm() {
 
     const registerWithEmail = (e) => {
         e.preventDefault()
-        apiRequest.post('/auth/signin', {
-            email,
-            password
-        })
+        apiRequest.post('/user/ban/verify', { email })
             .then(res => {
                 if (res.status === 200) {
-                    toastAlert.fire({
-                        text: "با موفقیت وارد شدید",
-                        icon: "success",
-                    }).then(() => {
-                        router.replace("/")
+                    apiRequest.post('/auth/signin', {
+                        email,
+                        password
                     })
-                }
-            })
-            .catch(err => {
-                if (err.response) {
-                    if (err.response.status === 422) {
-                        toastAlert.fire({
-                            text: "کاربری با این اطلاعات یافت نشد!",
-                            icon: "error",
+                        .then(res => {
+                            if (res.status === 200) {
+                                toastAlert.fire({
+                                    text: "با موفقیت وارد شدید",
+                                    icon: "success",
+                                }).then(() => {
+                                    router.replace("/")
+                                })
+                            }
                         })
-                    } else if (err.response.status === 401) {
-                        toastAlert.fire({
-                            text: "ایمیل یا رمزعبور صحیح نیست!",
-                            icon: "error",
+                        .catch(err => {
+                            if (err.response) {
+                                if (err.response.status === 422) {
+                                    toastAlert.fire({
+                                        text: "کاربری با این اطلاعات یافت نشد!",
+                                        icon: "error",
+                                    })
+                                } else if (err.response.status === 401) {
+                                    toastAlert.fire({
+                                        text: "ایمیل یا رمزعبور صحیح نیست!",
+                                        icon: "error",
+                                    })
+                                }
+                            }
                         })
                     }
+            })
+            .catch(err => {
+                if(err.response.status === 400) {
+                    toastAlert.fire({
+                        text: "متاسفانه ایمیل شما مسدود شده است!",
+                        icon: "error",
+                    })
+                } else if(err.response.status === 404) {
+                    toastAlert.fire({
+                        text: "متاسفانه ایمیل شما یافت نشد!",
+                        icon: "error",
+                    }) 
                 }
             })
-
     }
 
 

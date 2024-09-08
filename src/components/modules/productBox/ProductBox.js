@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,11 +14,11 @@ import useProduct from "@/Hooks/useProduct";
 
 export default function ProductBox({ _id, name, price, priceBeforeDiscount, images }) {
 
-      // AddToWishlist
-      const { addToWishlist } = useProduct(_id )
+  // AddToWishlist
+  const { addToWishlist } = useProduct(_id)
 
   return (
-    <div className=" relative  flex justify-center items-center flex-col w-120 mx-auto">
+    <div className=" relative  flex justify-center items-center flex-col w-full sm:w-120 mx-auto">
       <div className=" relative group flex justify-center items-center flex-col mt-8 h-72 w-full overflow-hidden border-1 rounded-3xl transition-all">
         <Image
           alt='product'
@@ -39,12 +40,12 @@ export default function ProductBox({ _id, name, price, priceBeforeDiscount, imag
           />
         }
         <div className=" absolute bottom-10 group-hover:bottom-0  border-t-1  backdrop-blur-md opacity-0 group-hover:opacity-100 invisible group-hover:visible w-full transition-all duration-500">
-          <div className=" flex justify-between items-center w-full p-5 rounded-2xl">
+          <div className=" flex justify-center sm:justify-between items-center flex-wrap gap-5 w-full p-5 rounded-2xl">
             <Button type={'circle'}>
               <IoBasket />
             </Button>
-            <Link href={`/product/${_id}`}>
-              <div className=" w-40">
+            <Link href={`/product/${_id}`} className="order-1 sm:order-none">
+              <div className=" w-40 ">
                 <Button text={'مشاهده'} isWidthFull={true} />
               </div>
             </Link>

@@ -6,8 +6,13 @@ import Details from "../product/details/Details";
 import Tabs from "./tabs/Tabs";
 import MoreProducts from "./tabs/moreProducts/MoreProducts";
 
-export default function Product({product, relatedProducts}) {
+// Backend
+import { authUser } from "@/utils/serverHelpers";
+
+export default async function Product({product, relatedProducts}) {
     
+    const user = await authUser()
+
     return (
         <div className=" bg-[url('/images/jpg/product.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
             <div className=" container mx-auto xl:container-fluid bg-zinc-100 p-5 overflow-hidden">
@@ -20,7 +25,7 @@ export default function Product({product, relatedProducts}) {
                     <Gallery images={product.images}/>
                     <Details {...product} />
                 </div>
-                <Tabs productID={product._id} longDescription={product.longDescription} comments={product.comments}/>
+                <Tabs productID={product._id} longDescription={product.longDescription} comments={product.comments} user={user}/>
                 {
                     relatedProducts.length > 0 ? (
                         <MoreProducts relatedProducts={relatedProducts}/>

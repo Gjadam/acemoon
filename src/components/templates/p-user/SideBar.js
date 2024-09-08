@@ -1,24 +1,61 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Components
 import SideBarLink from "@/components/modules/sideBarLink/SideBarLink";
+import Button from "@/components/modules/button/Button";
 
 // Icons
-import { IoHeart, IoHome, IoPower, IoTicket } from "react-icons/io5";
+import { IoHeart, IoHome, IoPower, IoTicket, IoTrash } from "react-icons/io5";
 import { HiMiniShoppingCart } from "react-icons/hi2";
 import { FaAddressCard, FaBars, FaBarsStaggered } from "react-icons/fa6";
 import { FaUserEdit } from "react-icons/fa";
+import { IoIosChatboxes } from "react-icons/io";
 
 // Hooks
 import useAuth from "@/Hooks/useAuth";
-import Button from "@/components/modules/button/Button";
+
+// Axios
+import apiRequest from "@/Services/Axios/Configs/configs";
+
+// SweetAlert
+import Swal from "sweetalert2";
+import toastAlert from "@/utils/toastAlert";
+
 
 export default function SideBar({ user }) {
 
+    const router = useRouter()
+
     const { logOut } = useAuth()
     const [isOpenSidebar, setIsOpenSidebar] = useState(false)
+
+    const deleteAccount = () => {
+        Swal.fire({
+            title: "آیا از حذف حساب کاریری خود اطمینان دارید؟",
+            text: "بعد از حذف شدن قابل بازیابی نخواهد بود.",
+            icon: "question",
+            confirmButtonText: "بله",
+            showCancelButton: true,
+            cancelButtonText: "خیر"
+        }).then(value => {
+            if (value.isConfirmed) {
+                const userID = user._id
+                apiRequest.delete('/user', { data: { userID } })
+                    .then(res => {
+                        if (res.status === 200) {
+                            toastAlert.fire({
+                                text: "حساب کاربری شما موفقیت حذف شد.",
+                                icon: 'success'
+                            })
+                            router.replace('/')
+                        }
+                    })
+            }
+        })
+    }
 
     return (
         <>
@@ -53,6 +90,9 @@ export default function SideBar({ user }) {
                             <SideBarLink text={'آدرس ها'}>
                                 <FaAddressCard />
                             </SideBarLink>
+                            <SideBarLink text={'کامنت ها'} route={'/p-user/comments'}>
+                                <IoIosChatboxes />
+                            </SideBarLink>
                             <SideBarLink text={'تیکت های پشتیبانی'} route={'/p-user/tickets'}>
                                 <IoTicket />
                             </SideBarLink>
@@ -64,6 +104,9 @@ export default function SideBar({ user }) {
                             </SideBarLink>
                             <SideBarLink text={'خروج '} onClick={logOut} >
                                 <IoPower />
+                            </SideBarLink>
+                            <SideBarLink text={'حذف حساب کاریری'} onClick={deleteAccount} >
+                                <IoTrash />
                             </SideBarLink>
                         </div>
                     </div>

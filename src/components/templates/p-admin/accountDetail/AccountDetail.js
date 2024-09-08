@@ -50,7 +50,7 @@ export default function AccountDetail() {
             icon: "success"
           })
           apiRequest.post('/auth/signout')
-          router.replace('/login')
+          router.replace('/login-otp')
         }
       })
       .catch(err => {
@@ -73,7 +73,7 @@ export default function AccountDetail() {
             icon: "success"
           })
           apiRequest.post('/auth/signout')
-          router.replace('/login')
+          router.replace('/login-otp')
         }
       })
       .catch(err => {

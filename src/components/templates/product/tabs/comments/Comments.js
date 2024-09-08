@@ -17,7 +17,7 @@ import toastAlert from "@/utils/toastAlert"
 import Alert from "@/components/modules/alert/Alert"
 import { validateEmail } from "@/utils/auth"
 
-export default function Comments({ productID, comments }) {
+export default function Comments({ productID, comments, user }) {
 
     const [hoverRateIcon, setHoverRateIcon] = useState(null)
     const [isSaveUserInfo, setIsSaveUserInfo] = useState(false)
@@ -26,6 +26,19 @@ export default function Comments({ productID, comments }) {
     const [email, setEmail] = useState('')
     const [body, setBody] = useState('')
     const [score, setScore] = useState(5)
+
+    const disableSubmit = () => {
+        if (user) {
+            if (user.name && user.email && body) {
+                return false
+            }
+        } else {
+            if (username && email && body) {
+                return false
+            }
+        }
+        return true
+    }
 
     useEffect(() => {
         const userInfos = JSON.parse(localStorage.getItem("userInfo"))
@@ -39,15 +52,15 @@ export default function Comments({ productID, comments }) {
 
         if (isSaveUserInfo) {
             const userInfo = {
-                username,
-                email
+                username: user ? user.name : username,
+                email: user ? user.email : email,
             }
             localStorage.setItem("userInfo", JSON.stringify(userInfo))
         }
 
         apiRequest.post('/comments', {
-            username,
-            email,
+            username: user ? user.name : username,
+            email: user ? user.email : email,
             body,
             score,
             productID
@@ -118,15 +131,20 @@ export default function Comments({ productID, comments }) {
             </div>
             <div className=" flex flex-col gap-5 mt-5">
                 <FormInput type={'textarea'} placeholder={'دیدگاه شما'} error={!body && 'دیدگاه خود را وارد کنید'} onChange={(e) => setBody(e.target.value)} value={body} />
-                <div className=" flex justify-center items-start flex-col md:flex-row gap-5">
-                    <FormInput type={'text'} placeholder={'نام'} error={!username && 'نام خود را وارد کنید'} onChange={(e) => setUsername(e.target.value)} value={username} />
-                    <FormInput type={'email'} placeholder={'ایمیل'} error={!email ? 'ایمیل خود را وارد کنید' : !validateEmail(email) && 'لطفا ایمیل را به درستی وارد کنید'} onChange={(e) => setEmail(e.target.value)} value={email} />
-                </div>
+                {
+                    !user ? (
+                        <div className=" flex justify-center items-start flex-col md:flex-row gap-5">
+                            <FormInput type={'text'} placeholder={'نام'} error={!username && 'نام خود را وارد کنید'} onChange={(e) => setUsername(e.target.value)} value={username} />
+                            <FormInput type={'email'} placeholder={'ایمیل'} error={!email ? 'ایمیل خود را وارد کنید' : !validateEmail(email) && 'لطفا ایمیل را به درستی وارد کنید'} onChange={(e) => setEmail(e.target.value)} value={email} />
+                        </div>
+
+                    ) : null
+                }
                 <div className="">
                     <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value={isSaveUserInfo} onChange={() => setIsSaveUserInfo(!isSaveUserInfo)} />
                     <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام و ایمیل من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
                 </div>
-                <Button text={'ثبت دیدگاه'} onClick={submitComment} isDisabled={body && username && email ? false : true} />
+                <Button text={'ثبت دیدگاه'} onClick={submitComment} isDisabled={disableSubmit()} />
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ import { useState } from "react"
 import Description from "./description/Description"
 import Comments from "./comments/Comments"
 
-export default function Tabs({ productID, longDescription, comments }) {
+export default function Tabs({ productID, longDescription, comments, user }) {
     const [active, setActive] = useState('desc')
 
     return (
@@ -34,7 +34,7 @@ export default function Tabs({ productID, longDescription, comments }) {
                     active === 'desc' ? (
                         <Description longDescription={longDescription} />
                     ) : (
-                        <Comments productID={productID} comments={comments} />
+                        <Comments productID={productID} comments={comments} user={user} />
                     )
                 }
             </div>

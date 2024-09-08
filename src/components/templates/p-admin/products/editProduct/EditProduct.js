@@ -50,7 +50,7 @@ export default function EditProduct({ isShowEditProduct, setIsShowEditProduct, c
 
     return (
         <div className={` container-fluid fixed left-0 top-0 right-0 bottom-0 z-40 flex justify-center items-center bg-[rgba(0,0,0,0.6)] ${isShowEditProduct ? ' visible opacity-100' : ' invisible opacity-0'} transition-all duration-300`} onClick={() => setIsShowEditProduct(false)}>
-            <div className=" flex justify-between items-start flex-col gap-10 md:w-[50rem] w-full h-120 overflow-y-auto p-5 bg-white rounded-xl z-50" onClick={(e) => e.stopPropagation()}>
+            <div className=" flex justify-between items-start flex-col gap-10 md:w-[50rem] min-w-72 h-120 overflow-y-auto p-5 bg-white rounded-xl z-50" onClick={(e) => e.stopPropagation()}>
                 <SectionHeader title={'ویرایش محصول'}/>
                 <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap w-full">
                     <FormInput type={'text'} placeholder={'نام محصول'} value={editName} onChange={(e) => setEditName(e.target.value)} />

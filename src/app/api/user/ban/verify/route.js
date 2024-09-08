@@ -8,27 +8,41 @@ export async function POST(req) {
         const { phone, email } = body
 
         if (phone) {
-            const banUserWithPhone = await BanModel.findOne({ phone })
+            const banUserWithPhone = await BanModel.findOne({ phone });
             if (banUserWithPhone) {
                 return Response.json(
                     { message: "This user is banned." },
-                )
+                    { status: 400 }
+                );
+            } else {
+                return Response.json(
+                    { message: "This user is valid." },
+                );
             }
-        } else if (email) {
-            const banUserWithEmail = await BanModel.findOne({ email })
+        }
+
+        if (email) {
+            const banUserWithEmail = await BanModel.findOne({ email });
             if (banUserWithEmail) {
                 return Response.json(
                     { message: "This user is banned." },
-                )
+                    { status: 400 }
+                );
+            } else {
+                return Response.json(
+                    { message: "This user is valid." },
+                );
             }
-        } else {
-            return Response.json(
-                { message: "Phone or email not found !" },
-                { status: 400 }
-            )
         }
 
+        return Response.json(
+            { message: "Phone or email not found!" },
+            { status: 404 }
+        );
+
     } catch (err) {
+        console.log(err);
+
         return Response.json(
             { message: err },
             { status: 500 }

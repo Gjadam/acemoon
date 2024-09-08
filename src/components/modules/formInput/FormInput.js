@@ -19,7 +19,7 @@ export default function FormInput({ error, placeholder, name, type, value, isDis
   return (
     type === 'password' ? (
       <div className=" relative flex flex-col gap-2 w-full">
-        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <label className={` absolute right-2  focus:-top-4  ${value ? '-top-3 text-rose-500 px-2' : 'top-3 text-zinc-400 p-2'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
         <input disabled={isDisabled} value={value} name={name} type={showPassword ? 'text' : 'password'} className={` w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
         {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
         <div className=" absolute left-4 top-5 text-xl bg-white cursor-pointer" onClick={showPasswordHandler}>
@@ -34,13 +34,13 @@ export default function FormInput({ error, placeholder, name, type, value, isDis
       </div>
     ) : type === 'textarea' ? (
       <div className=" relative flex  flex-col gap-2 w-full">
-        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500 px-2' : 'top-3 text-zinc-400 p-2'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
         <textarea disabled={isDisabled} name={name} value={value} className={` h-60 w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
         {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>
     ) : type === 'select-option' ? (
       <div className="flex  flex-col gap-2 w-full">
-        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-3 text-rose-500 px-2' : 'top-3 text-zinc-400 p-2'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
         <select name={name} className={` w-full px-3 py-4 border-1 text-gray-400 text-sm ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} >
           <option value={-1} selected >دسته بندی</option>
           {
@@ -65,7 +65,7 @@ export default function FormInput({ error, placeholder, name, type, value, isDis
       </label>
     ) : (
       <div className="relative flex flex-col gap-2 w-full">
-        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500' : 'top-3 text-zinc-400'}  bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
+        <label className={` absolute right-2 p-2 focus:-top-4  ${value ? '-top-4 text-rose-500 px-2' : 'top-3 text-zinc-400 p-2'} bg-white rounded-xl text-sm select-none transition-all duration-300 pointer-events-none`}>{placeholder}</label>
         <input disabled={isDisabled} name={name} value={value} type={type} min={0} className={` w-full px-3 py-4 border-1  ${error ? "border-red-600" : "focus:border-rose-500"} focus:placeholder:text-secondary rounded-xl outline-0 placeholder:transition-all placeholder:duration-300 transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
         {error ? <span className=' text-sm text-red-500'>{error}</span> : null}
       </div>

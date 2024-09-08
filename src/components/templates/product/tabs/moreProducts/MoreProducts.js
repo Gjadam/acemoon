@@ -14,7 +14,7 @@ export default function MoreProducts({ relatedProducts }) {
     return (
         <div data-aos='fade-up' className=' my-20'>
             <SectionHeader title={'محصولات مرتبط'} />
-            <div className="">
+            <div>
                 <Swiper
                     style={{
                         '--swiper-navigation-color': '#f43f5e',
@@ -45,6 +45,7 @@ export default function MoreProducts({ relatedProducts }) {
                     {
                         relatedProducts.map(relatedProduct => (
                             <SwiperSlide>
+
                                 <ProductBox key={relatedProduct._id} {...relatedProduct} />
                             </SwiperSlide>
                         ))
