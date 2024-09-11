@@ -34,6 +34,7 @@ export default function useProduct(productID) {
             })
     }
 
+
     return { addToWishlist }
 
 }

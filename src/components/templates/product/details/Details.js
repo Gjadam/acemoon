@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 // Components
@@ -12,23 +13,115 @@ import SelectItem from "./selectItem/SelectItem";
 
 // Icons
 import { IoHeartOutline } from "react-icons/io5";
-
+import { MdKeyboardArrowLeft } from "react-icons/md";
 // Hooks
 import useProduct from "@/Hooks/useProduct";
+import toastAlert from "@/utils/toastAlert";
 
 
-export default function Details({_id: productID, name, price, priceBeforeDiscount, shortDescription, collection, score, size: sizes, color: colors, comments }) {
+export default function Details({ _id: productID, name, price, priceBeforeDiscount, shortDescription, collection, score, size: sizes, color: colors, comments, images }) {
+
+    const router = useRouter()
 
     const [count, setCount] = useState(1)
     const [selectedSize, setSelectedSize] = useState(-1);
     const [selectedColor, setSelectedColor] = useState(-1);
-
+    const [isInCart, setIsInCart] = useState(false)
     // AddToWishlist
     const { addToWishlist } = useProduct(productID)
+
+    const addToCart = () => {
+
+        if (sizes && selectedSize === -1) {
+            toastAlert.fire({
+                text: "لطفا سایز محصول را انتخاب کنید",
+                icon: "warning",
+            })
+        } else if (colors && selectedColor === -1) {
+            toastAlert.fire({
+                text: "لطفا رنگ محصول را انتخاب کنید",
+                icon: "warning",
+            })
+        } else {
+            const cart = JSON.parse(localStorage.getItem('cart')) || []
+
+            if (cart.length) {
+                const isInCart = cart.some(item => item.id === productID)
+                if (isInCart) {
+                    cart.forEach(item => {
+                        if (item.id === productID) {
+                            item.count = item.count + count
+                            if (sizes) {
+                                item.sizes = selectedSize
+                            }
+                            if (colors) {
+                                item.colors = selectedColor
+                            }
+                        }
+                    })
+                    localStorage.setItem('cart', JSON.stringify(cart))
+                    toastAlert.fire({
+                        text: "اطلاعات محصول با موفقیت آپدیت شد.",
+                        icon: "success",
+                    })
+                } else {
+                    const cartItem = {
+                        id: productID,
+                        name,
+                        price,
+                        count,
+                        images,
+                        sizes: selectedSize !== -1 && selectedSize,
+                        colors: selectedColor !== -1 && selectedColor,
+                    }
+                    cart.push(cartItem)
+
+                    localStorage.setItem("cart", JSON.stringify(cart))
+                    toastAlert.fire({
+                        text: "محصول با موفقیت به سبد خرید اضافه شد.",
+                        icon: "success",
+                    })
+                    setIsInCart(true)
+                }
+            } else {
+                const cartItem = {
+                    id: productID,
+                    name,
+                    price,
+                    count,
+                    images,
+                    sizes: selectedSize !== -1 && selectedSize,
+                    colors: selectedColor !== -1 && selectedColor,
+                }
+                cart.push(cartItem)
+
+                localStorage.setItem("cart", JSON.stringify(cart))
+                toastAlert.fire({
+                    text: "محصول با موفقیت به سبد خرید اضافه شد.",
+                    icon: "success",
+                })
+                setIsInCart(true)
+            }
+        }
+
+    }
+
 
     return (
         <div data-aos='fade-right' className=" w-full xl:w-1/2">
             <div className=" flex flex-col gap-5 text-secondary">
+                {
+                    isInCart &&
+                    <div className=" flex justify-between items-center flex-wrap gap-3 p-5 rounded-2xl bg-rose-500">
+                        <p className=" text-white">"{name}" به سبد خرید شما اضافه شد</p>
+                        <Link href={'/cart'} >
+                            <div className=" flex items-center  rounded px-2 py-1 text-rose-500 bg-white ">
+                                <span className="  text-sm  ">سبد خرید</span>
+                                <MdKeyboardArrowLeft className=" text-lg" />
+                            </div>
+                        </Link>
+                    </div>
+                }
                 <div className="flex flex-col gap-5 pb-5 border-b-1">
                     <div className=" flex justify-between items-start gap-5">
                         <div className=" flex flex-col gap-3">
@@ -69,9 +162,9 @@ export default function Details({_id: productID, name, price, priceBeforeDiscoun
                     </div>
                     <div className="flex items-center flex-wrap gap-3">
                         <QuantityCounter count={count} setCount={setCount} />
-                        <Button text={"افزودن به سبد خرید"} />
+                        <Button text={"افزودن به سبد خرید"} onClick={addToCart} />
                     </div>
-                    <span className=" flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer select-none"  onClick={addToWishlist}><IoHeartOutline className=" text-xl"/>افزودن به علاقه مندی ها</span>
+                    <span className=" flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer select-none" onClick={addToWishlist}><IoHeartOutline className=" text-xl" />افزودن به علاقه مندی ها</span>
                 </div>
                 {
                     collection ? (
