@@ -70,9 +70,8 @@ export default function Details({ _id: productID, name, price, priceBeforeDiscou
                         name,
                         price,
                         count,
-                        images,
-                        sizes: selectedSize !== -1 && selectedSize,
-                        colors: selectedColor !== -1 && selectedColor,
+                        size: selectedSize !== -1 && selectedSize,
+                        color: selectedColor !== -1 && selectedColor,
                     }
                     cart.push(cartItem)
 
@@ -89,9 +88,8 @@ export default function Details({ _id: productID, name, price, priceBeforeDiscou
                     name,
                     price,
                     count,
-                    images,
-                    sizes: selectedSize !== -1 && selectedSize,
-                    colors: selectedColor !== -1 && selectedColor,
+                    size: selectedSize !== -1 && selectedSize,
+                    color: selectedColor !== -1 && selectedColor,
                 }
                 cart.push(cartItem)
 

@@ -65,7 +65,7 @@ export default function SideBar({ user }) {
                 </Button>
             </div>
             <div className={`${isOpenSidebar && 'fixed left-0 right-0 top-0 bottom-0 bg-[rgba(0,0,0,0.5)] z-50 xl:bg-inherit xl:relative transition-all ease-in-out duration-500'} h-full xl:-translate-y-24`} onClick={() => setIsOpenSidebar(false)}>
-                <div className={` fixed ${isOpenSidebar ? 'left-0' : '-left-96'}  top-0 bottom-0  bg-white  w-72 rounded-r-2xl xl:rounded-2xl shadow-xl  xl:sticky xl:top-48 transition-all ease-in-out duration-500`} onClick={(e) => e.stopPropagation()}>
+                <div className={` fixed ${isOpenSidebar ? 'left-0' : '-left-96'}  top-0 bottom-0  bg-white  w-60 xl:w-72 rounded-r-2xl xl:rounded-2xl shadow-xl  xl:sticky  xl:top-48 transition-all ease-in-out duration-500`} onClick={(e) => e.stopPropagation()}>
                     <div className=" flex justify-center items-center flex-col gap-3 p-5 border-b-1 ">
                         <Image
                             alt="user-icon"
@@ -87,7 +87,7 @@ export default function SideBar({ user }) {
                             <SideBarLink text={'سفارشات'}>
                                 <HiMiniShoppingCart />
                             </SideBarLink>
-                            <SideBarLink text={'آدرس ها'}>
+                            <SideBarLink text={'آدرس ها'}  route={'/p-user/addresses'}>
                                 <FaAddressCard />
                             </SideBarLink>
                             <SideBarLink text={'کامنت ها'} route={'/p-user/comments'}>

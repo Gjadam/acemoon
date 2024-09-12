@@ -22,7 +22,7 @@ export default function SideBar({ collections, products }) {
         </Button>
       </div>
       <div className={`${isOpenSidebar && 'fixed left-0 right-0 top-0 bottom-0 bg-[rgba(0,0,0,0.5)] xl:bg-inherit xl:relative transition-all ease-in-out duration-500'} z-50 `} onClick={() => setIsOpenSidebar(false)}>
-        <div className={` fixed ${isOpenSidebar ? 'left-0' : '-left-96'} -left-96 top-0 bottom-0   bg-white xl:bg-inherit  w-72 p-5 rounded-r-2xl xl:rounded-none  xl:sticky xl:top-48 transition-all ease-in-out duration-500`} onClick={(e) => e.stopPropagation()}>
+        <div className={` fixed ${isOpenSidebar ? 'left-0' : '-left-96'} -left-96 top-0 bottom-0   bg-white xl:bg-inherit  w-60 xl:w-72 p-5 rounded-r-2xl xl:rounded-none  xl:sticky xl:top-48 transition-all ease-in-out duration-500`} onClick={(e) => e.stopPropagation()}>
           <div className=" flex flex-col gap-10 translate-y-[26px]">
             <ContentLayout title={'دسته بندی ها'}>
               <div className=" max-h-96 py-1 overflow-y-auto flex flex-col gap-3" >

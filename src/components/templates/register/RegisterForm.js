@@ -67,7 +67,7 @@ export default function RegisterForm() {
                 <FormHeader title={'ثبت نام'} />
                 <form onSubmit={(e) => registerUser(e)}>
                     <div className=" flex flex-col gap-5 my-5">
-                        <FormInput name={"name"} placeholder={'نام کاربری'} type={'text'} error={!name && 'این فیلد الزامی است.'} value={name} onChange={(e) => setName(e.target.value)} />
+                        <FormInput name={"name"} placeholder={'نام و نام خانوادگی'} type={'text'} error={!name && 'این فیلد الزامی است.'} value={name} onChange={(e) => setName(e.target.value)} />
                         <FormInput name={"phone"} placeholder={'شماره موبایل'} type={'number'} error={!phone ? 'این فیلد الزامی است.' : !validatePhone(phone) ? 'لطفا شماره موبایل را به درستی وارد کنید.' : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
                         <FormInput name={"email"} placeholder={'ایمیل'} type={'email'} error={!email ? 'این فیلد الزامی است.' : !validateEmail(email) ? 'لطفا ایمیل را به درستی وارد کنید.' : null} value={email} onChange={(e) => setEmail(e.target.value)} />
                         <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={!password ? 'این فیلد الزامی است.' : !validatePassword(password) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={password} onChange={(e) => setPassword(e.target.value)} />

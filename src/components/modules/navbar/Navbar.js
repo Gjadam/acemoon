@@ -21,7 +21,8 @@ import { FiLogIn } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu"
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaBars, FaHouseUser, FaPhone } from 'react-icons/fa6';
-import { HiCollection } from "react-icons/hi";
+import { HiCollection, HiShoppingCart } from "react-icons/hi";
+import { RiShoppingCart2Line } from "react-icons/ri";
 
 // Hooks
 import useAuth from '@/Hooks/useAuth';
@@ -38,10 +39,16 @@ export default function Navbar({ isLogin }) {
 
     const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
 
+    const [cartCount, setCartCount] = useState(0)
+
     // LogOut
     const { logOut } = useAuth()
 
     useEffect(() => {
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCartCount(cart.length)
+
         const fixNavbarToTop = () => {
             const currentScroll = window.pageYOffset
             if (currentScroll > 150) {
@@ -90,7 +97,7 @@ export default function Navbar({ isLogin }) {
                 />
             </Link>
             <div className={` fixed z-50 ${isOpenNavbar ? ' xl:relative left-0 right-0 bottom-0 top-0 bg-[rgba(0,0,0,0.5)] xl:bg-inherit ' : '-right-[40rem] '}  xl:right-0 xl:relative transition-all duration-500 ease-in-out`} onClick={isOpenNavbar ? () => setIsOpenNavbar(false) : null}>
-                <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0 ' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-72 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all duration-500 ease-in-out`} onClick={(e) => e.stopPropagation()}>
+                <div className={`fixed xl:relative ${isOpenNavbar ? 'right-0 ' : '-right-[40rem]'} xl:right-0 top-0 bottom-0 w-60 xl:w-auto p-5 xl:p-0 z-50 border-l-1 xl:border-none rounded-l-3xl xl:rounded-none shadow-xl xl:shadow-none bg-white xl:bg-inherit xl:flex justify-center items-center flex-col xl:flex-row gap-10 transition-all duration-500 ease-in-out`} onClick={(e) => e.stopPropagation()}>
                     <Link href={'/'} className='hidden xl:block'>
                         <Image
                             alt='logo'
@@ -103,6 +110,17 @@ export default function Navbar({ isLogin }) {
                         <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 focus:border-rose-500 rounded-md p-2 bg-white outline-none placeholder:text-sm w-full transition-colors' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                     </form>
                     <div className=" flex justify-center items-start flex-col xl:flex-row gap-5 w-full ">
+                        <div className=" relative xl:hidden w-full">
+                            <NavBarLink text={'سبد خرید'} route={'/cart'} >
+                                <HiShoppingCart />
+                            </NavBarLink>
+                            {
+                                cartCount > 0 &&
+                                <div className=" absolute left-3 bottom-2.5 flex justify-center items-center overflow-hidden w-5 h-5 rounded-full  border-1 border-primary bg-rose-500 text-white text-xs">
+                                    <span>{cartCount}</span>
+                                </div>
+                            }
+                        </div>
                         <NavBarLink text={'فروشگاه'} route={'/shop'} >
                             <IoStorefront />
                         </NavBarLink>
@@ -145,6 +163,19 @@ export default function Navbar({ isLogin }) {
                 </div>
             </div>
             <div className=" flex justify-center items-center gap-5">
+                <div className=" relative hidden xl:block">
+                    <Link href={'/cart'}>
+                        <Button type={'circle'} >
+                            <RiShoppingCart2Line />
+                        </Button>
+                    </Link>
+                    {
+                        cartCount > 0 &&
+                        <div className=" absolute -right-0.5 -top-0.5 flex justify-center items-center overflow-hidden w-4 h-4 rounded-full  border-1 border-primary bg-rose-500 text-white text-xs">
+                            <span>{cartCount}</span>
+                        </div>
+                    }
+                </div>
                 <div className="hidden xl:block">
                     <div className=" relative">
                         <SearchBox value={searchValue} onChange={(e) => setSearchValue(e.target.value)} isOpenSearchBox={isOpenSearchBox} setIsOpenSearchBox={setIsOpenSearchBox} />
@@ -233,7 +264,7 @@ export default function Navbar({ isLogin }) {
                                         </LinkWithIcon>
                                     }
                                     <LinkWithIcon text='حساب کاربری من' route={'/p-user'}>
-                                        <FaHouseUser/>
+                                        <FaHouseUser />
                                     </LinkWithIcon>
                                     <LinkWithIcon text='علاقه مندی ها' route={'/wishlist'}>
                                         <IoHeart />
