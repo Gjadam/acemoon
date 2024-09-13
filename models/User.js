@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-
+require('./Address')
 const schema = new mongoose.Schema({
     name: {
         type: String,
@@ -20,6 +20,10 @@ const schema = new mongoose.Schema({
     role: {
         type: String,
         default: "USER"
+    },
+    address: {
+        type: mongoose.Types.ObjectId,
+        ref: "Address"
     },
     refreshToken: String
 })
