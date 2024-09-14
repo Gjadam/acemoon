@@ -7,7 +7,7 @@ import { IoIosLink } from "react-icons/io";
 
 export default function SectionHeader({ title, linkText, route }) {
     return (
-        <div className={`flex ${route ? " justify-center sm:justify-between" : "justify-center"} flex-wrap p-5 xl:p-0 items-center w-full`}>
+        <div className={`flex ${route ? " justify-center sm:justify-between" : "justify-center"} gap-5 flex-wrap p-5 xl:p-0 items-center w-full`}>
             <div className=" flex justify-center items-center text-center ">
                 {
                     route ? (

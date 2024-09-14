@@ -32,11 +32,11 @@ export default async function Home() {
   return (
     <MainLayout>
       <Header products={JSON.parse(JSON.stringify(products))} />
-      <Collections collections={JSON.parse(JSON.stringify(collections))} />
+      <Facility/>
       <AllProducts products={JSON.parse(JSON.stringify(products))} />
+      <Collections collections={JSON.parse(JSON.stringify(collections))} />
       <NewProducts sortedProducts={JSON.parse(JSON.stringify(sortedProducts))} />
       <CollectionsBanner collections={JSON.parse(JSON.stringify(collections))}/>
-      <Facility/>
       <SocialMedias/>
     </MainLayout>
   );

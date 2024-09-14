@@ -20,7 +20,7 @@ export default function Box({ _id, images, name, price, priceBeforeDiscount, col
             <div className=" w-96 xl:w-120 h-96 z-10 xl:h-[40rem] ">
                 <Swiper
                     style={{
-                        '--swiper-navigation-color': '#f43f5e',
+                        '--swiper-navigation-color': '#fff',
                     }}
                     spaceBetween={20}
                     speed={1000}
@@ -35,6 +35,7 @@ export default function Box({ _id, images, name, price, priceBeforeDiscount, col
                         images.map(image => (
                             <SwiperSlide>
                                 <Image
+                                key={image?.url}
                                     alt='product'
                                     src={image?.url}
                                     width={0}

@@ -51,7 +51,7 @@ export default async function page() {
                         {
                             tickets.length > 0 ? (
                                 tickets.slice(0, 10).map(ticket => (
-                                    <PanelCard title={ticket.title} date={ticket.createdAt} >
+                                    <PanelCard key={ticket._id} title={ticket.title} date={ticket.createdAt} >
                                         <PanelCardButton bgColor={ticket.hasAnswer ? 'bg-green-500' : "bg-zinc-500"} condition={ticket.hasAnswer ? 'پاسخ داده شده' : 'در انتظار پاسخ'} />
                                     </PanelCard>
                                 ))

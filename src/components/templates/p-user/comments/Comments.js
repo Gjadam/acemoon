@@ -30,7 +30,7 @@ export default function Comments({comments}) {
           <>
             {
               paginateComments.slice(0, 9).map(comment => (
-                <PanelCard title={comment.productID.name} date={comment.date}>
+                <PanelCard key={comment._id} title={comment.productID.name} date={comment.date}>
                   <PanelCardButton bgColor={'bg-sky-500'} text={'مشاهده'} onClick={() => showCommentBody(comment.body)} />
                   <PanelCardButton condition={comment.isAccept ? "تایید شده" : "درانتظار تایید"} bgColor={comment.isAccept ? 'bg-green-500' : 'bg-zinc-500'}/>
                 </PanelCard>

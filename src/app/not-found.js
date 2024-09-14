@@ -14,6 +14,7 @@ export default function NotFound() {
             src='/images/png/logo.png'
             width={70}
             height={0}
+            
           />
         </Link>
       </div>

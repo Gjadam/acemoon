@@ -75,7 +75,7 @@ export default function ContactUs({ contacts }) {
                     <>
                         {
                             paginateContacts.map((contact) => (
-                                <PanelCard title={contact.title} date={contacts.createdAt}>
+                                <PanelCard key={contact._id} title={contact.title} date={contacts.createdAt}>
                                     <PanelCardButton bgColor={"bg-sky-500"} text={"مشاهده"} onClick={() => showContactBody(contact)} />
                                     <PanelCardButton bgColor={"bg-red-500"} text={"حذف"} onClick={() => deleteContact(contact._id)} />
                                 </PanelCard>

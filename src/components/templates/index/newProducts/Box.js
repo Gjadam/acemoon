@@ -32,6 +32,7 @@ export default function Box({ _id, images, name, price, score, priceBeforeDiscou
                                 images.map(image => (
                                     <SwiperSlide>
                                         <Image
+                                        key={image?.url}
                                             alt="product"
                                             src={image?.url}
                                             width={0}

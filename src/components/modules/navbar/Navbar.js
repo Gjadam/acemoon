@@ -134,14 +134,6 @@ export default function Navbar({ isLogin }) {
                             <FaPhone />
                         </NavBarLink>
                         <div className=" flex xl:hidden items-center gap-3 border-t-1 pt-3 mt-3 w-full">
-                            <a href="https://eitaa.com/LadyShop7171">
-                                <Image
-                                    alt="social"
-                                    src={'/images/png/eitaa.png'}
-                                    width={24}
-                                    height={0}
-                                />
-                            </a>
                             <a href="https://www.instagram.com/ladyshop7191">
                                 <Image
                                     alt="social"
@@ -281,6 +273,7 @@ export default function Navbar({ isLogin }) {
                     }
                 </div>
             </div>
+            
         </div>
     )
 }

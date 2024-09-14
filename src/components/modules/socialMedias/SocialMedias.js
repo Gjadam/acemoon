@@ -18,11 +18,6 @@ export default function SocialMedias() {
                     socialImage={"/images/png/rubika.png"}
                     socialLink={"https://rubika.ir/Ladyshop2222"}
                 />
-                <Box
-                    imageUrl={'/images/png/social-3.png'}
-                    socialImage={"/images/png/eitaa.png"}
-                    socialLink={"https://eitaa.com/LadyShop7171"}
-                />
             </div>
         </div>
     )

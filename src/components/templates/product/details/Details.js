@@ -180,14 +180,6 @@ export default function Details({ _id: productID, name, price, priceBeforeDiscou
                     <div className="flex items-center gap-2">
                         <span className=" text-secondary ">صفحات ما در فضای مجازی:</span>
                         <div className=" flex items-center gap-3">
-                            <a href="https://eitaa.com/LadyShop7171">
-                                <Image
-                                    alt="social"
-                                    src={'/images/png/eitaa.png'}
-                                    width={24}
-                                    height={0}
-                                />
-                            </a>
                             <a href="https://www.instagram.com/ladyshop7191">
                                 <Image
                                     alt="social"

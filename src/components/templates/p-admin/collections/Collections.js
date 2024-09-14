@@ -76,7 +76,7 @@ export default function Collections({ collections }) {
           <>
             {
               paginateCollection.slice(0, 9).map(collection => (
-                <PanelCard title={collection.name} date={collection.createdAt}>
+                <PanelCard key={collection._id} title={collection.name} date={collection.createdAt}>
                   <PanelCardButton bgColor={'bg-blue-500'} text={'ویرایش'} onClick={() => editCollection(collection._id)} />
                   <PanelCardButton bgColor={'bg-red-500'} text={'حذف'} onClick={() => deleteCollection(collection._id)} />
                 </PanelCard>

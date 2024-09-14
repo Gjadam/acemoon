@@ -47,8 +47,8 @@ export default function Gallery({ images }) {
                             <>
                                 <Swiper
                                     style={{
-                                        '--swiper-navigation-color': '#f43f5e',
-                                        '--swiper-pagination-color': '#f43f5e',
+                                        '--swiper-navigation-color': '#fff',
+                                        '--swiper-pagination-color': '#fff',
                                     }}
                                     slidesPerView={1}
                                     speed={1000}
@@ -63,6 +63,7 @@ export default function Gallery({ images }) {
                                         images.map(image => (
                                             <SwiperSlide>
                                                 <Image
+                                                key={image?.url}
                                                     alt={image?.url}
                                                     src={image?.url}
                                                     width={500}
@@ -89,7 +90,8 @@ export default function Gallery({ images }) {
                                         images.map(image => (
                                             <SwiperSlide>
                                                 <Image
-                                                    alt='product'
+                                                   key={image?.url}
+                                                   alt={image?.url}
                                                     src={image?.url}
                                                     width={400}
                                                     height={0}

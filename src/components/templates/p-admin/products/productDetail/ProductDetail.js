@@ -52,7 +52,7 @@ export default function ProductDetail({ isShowProductDetail, setIsShowProductDet
                 <div className=" justify-center items-center  w-full md:w-1/2 overflow-hidden h-full">
                     <Swiper
                         style={{
-                            '--swiper-navigation-color': '#f43f5e',
+                            '--swiper-navigation-color': '#fff',
                         }}
                         spaceBetween={20}
                         loop={true}
@@ -68,6 +68,7 @@ export default function ProductDetail({ isShowProductDetail, setIsShowProductDet
                             images.map(image => (
                                 <SwiperSlide>
                                     <Image
+                                    key={image?.url}
                                         alt="product"
                                         src={image?.url}
                                         width={0}

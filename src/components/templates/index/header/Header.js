@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 // Components
 import Box from './Box';
 import { FaArrowDown } from 'react-icons/fa6';
+import CustomNavigation from './CustomNavigation';
 
 export default function Header({ products }) {
     return (
@@ -48,13 +49,11 @@ export default function Header({ products }) {
                         }}
                         speed={2000}
                         loop={true}
-                        pagination={{
-                            dynamicBullets: true
-                        }}
                         parallax={true}
-                        modules={[Pagination, Autoplay, Parallax]}
+                        modules={[Autoplay, Parallax]}
                         className="mySwiper"
                     >
+                        <CustomNavigation/>
                         {
                             products.map(product => (
                                 <SwiperSlide>
@@ -91,7 +90,7 @@ export default function Header({ products }) {
                     data-aos-delay='800'
                 />
             </div>
-            <div className=" hidden xl:block absolute -rotate-90  -left-16 top-1/2 z-30">
+            <div className=" hidden xl:block absolute -rotate-90  -left-8 top-1/2 z-30">
                 <div className=" flex items-center gap-10 text-lg">
                     <a href="https://www.instagram.com/ladyshop7191">
                         <p className=' hover:text-rose-500 transition-colors'>اینستاگرام</p>
@@ -99,18 +98,14 @@ export default function Header({ products }) {
                     <a href="https://rubika.ir/Ladyshop2222">
                         <p className=' hover:text-rose-500 transition-colors'>روبیکا</p>
                     </a>
-                    <a href="https://eitaa.com/LadyShop7171">
-                        <p className=' hover:text-rose-500 transition-colors'>ایتا</p>
-                    </a>
                 </div>
             </div>
             <div className=" flex xl:hidden justify-center items-center flex-col absolute left-0 right-0 -bottom-7 ">
-                <a href="#category" className=' z-20 '>
+                <a href="#products" className=' z-20 '>
                     <div className=" md:hidden p-5 rounded-full text-zinc-600 hover:text-rose-500 bg-white border-y-1  hover:border-rose-300 transition-all duration-200 cursor-pointer">
                         <FaArrowDown />
                     </div>
                 </a>
-
             </div>
         </div>
     )

@@ -24,7 +24,7 @@ export default function Search({ products, collections }) {
                 {
                     collections.length > 0 ? (
                         collections.map(collection => (
-                                <CollectionBox {...collection} />
+                            <CollectionBox key={collection._id} {...collection} />
                         ))
                     ) : (
                         <Alert text={'دسته بندی موردنظر یافت نشد'} />

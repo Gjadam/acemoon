@@ -17,7 +17,7 @@ export default function MoreProducts({ relatedProducts }) {
             <div>
                 <Swiper
                     style={{
-                        '--swiper-navigation-color': '#f43f5e',
+                        '--swiper-navigation-color': '#fff',
                     }}
                     breakpoints={{
                         320: {

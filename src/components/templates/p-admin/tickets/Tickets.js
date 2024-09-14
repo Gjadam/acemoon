@@ -98,7 +98,7 @@ export default function Tickets({ tickets }) {
                             {
                                 paginateTickets.slice(0, 9).map(ticket => (
 
-                                    <PanelCard title={ticket.title} date={ticket.createdAt}>
+                                    <PanelCard key={ticket._id} title={ticket.title} date={ticket.createdAt}>
                                         <PanelCardButton bgColor={'bg-sky-500'} text={'مشاهده'} onClick={() => showTicketBody(ticket)} />
                                         {
                                             ticket.answer ? (

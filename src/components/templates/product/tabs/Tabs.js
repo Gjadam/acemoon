@@ -19,8 +19,8 @@ export default function Tabs({ productID, longDescription, comments, user }) {
                     height={0}
                     className=' drag-none -rotate-90 hidden md:block'
                 />
-                <button className={` w-full md:w-40 h-12  hover:bg-rose-500 hover:text-white ${active === 'desc' ? ' bg-rose-500 text-white' : 'bg-zinc-100 text-secondary'} rounded-3xl transition-colors`} onClick={() => setActive("desc")}>توضیحات</button>
-                <button className={` w-full md:w-40 h-12  hover:bg-rose-500 hover:text-white ${active === 'comments' ? ' bg-rose-500 text-white' : 'bg-zinc-100 text-secondary'} rounded-3xl transition-colors`} onClick={() => setActive("comments")}>نظرات({comments.filter(comment => comment.isAccept).length})</button>
+                <button className={` w-full md:w-40 h-12  hover:bg-rose-500 hover:text-white ${active === 'desc' ? ' bg-rose-500 text-white' : 'bg-zinc-100 text-secondary'} rounded-lg transition-colors`} onClick={() => setActive("desc")}>توضیحات</button>
+                <button className={` w-full md:w-40 h-12  hover:bg-rose-500 hover:text-white ${active === 'comments' ? ' bg-rose-500 text-white' : 'bg-zinc-100 text-secondary'} rounded-lg transition-colors`} onClick={() => setActive("comments")}>نظرات({comments.filter(comment => comment.isAccept).length})</button>
                 <Image
                     alt='logo'
                     src={'/images/png/flower1.png'}

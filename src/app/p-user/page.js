@@ -47,7 +47,7 @@ export default async function page() {
             {
               tickets.length > 0 ? (
                 tickets.slice(0, 5).map(ticket => (
-                  <PanelCard title={ticket.title} >
+                  <PanelCard key={ticket._id} title={ticket.title} >
                     <Link href={`/p-user/tickets/${ticket._id}`}>
                       <PanelCardButton bgColor={'bg-sky-500'} text={"مشاهده"} />
                     </Link>

@@ -52,7 +52,7 @@ export default function BanUsers({ banUsers }) {
             {
                 banUsers.length > 0 ? (
                     banUsers.map(banUser => (
-                        <PanelCard title={banUser.phone} date={banUser.createdAt}>
+                        <PanelCard key={banUser._id} title={banUser.phone} date={banUser.createdAt}>
                             <PanelCardButton bgColor={'bg-sky-500'} text={'مشاهده جزئیات'} onClick={() => showBanUserDetail(banUser)} />
                             <PanelCardButton bgColor={'bg-green-500'} text={'رفع مسدودیت'} onClick={() => unBanUser(banUser._id)} />
                         </PanelCard>

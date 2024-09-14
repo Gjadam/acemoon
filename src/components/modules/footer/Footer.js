@@ -44,14 +44,6 @@ export default async function Footer() {
                   height={0}
                 />
               </Button>
-              <Button type={'circle'}>
-                <Image
-                  alt="social"
-                  src='/images/png/eitaa.png'
-                  width={20}
-                  height={0}
-                />
-              </Button>
             </div>
           </div>
           <List title={"دسته بندی ها"}>
