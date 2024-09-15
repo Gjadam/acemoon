@@ -1,10 +1,17 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout";
 import Cart from "@/components/templates/cart/Cart";
 
-export default function page() {
+// Backend
+import connectToDB from "@/configs/db";
+import ShippingCostModel from "@/models/ShippingCost";
+
+export default async function page() {
+
+  connectToDB()
+  const shippingCost = await ShippingCostModel.findOne({})
+  
   return (
-        <Cart/>
+    <Cart shippingCost={JSON.parse(JSON.stringify(shippingCost))}/>
   )
 }
