@@ -107,19 +107,17 @@ export default function Details({ _id: productID, name, price, priceBeforeDiscou
 
     return (
         <div data-aos='fade-right' className=" w-full xl:w-1/2">
-            <div className=" flex flex-col gap-5 text-secondary">
-                {
-                    isInCart &&
-                    <div className=" flex justify-between items-center flex-wrap gap-3 p-5 rounded-2xl bg-rose-500">
+            <div className={` flex flex-col gap-5 text-secondary ${isInCart ? "-translate-y-0" : "-translate-y-20"} transition-transform duration-300 `}>
+
+                    <div className={` ${isInCart ? ' visible opacity-100  -translate-y-0' : ' opacity-0 invisible'} flex justify-between items-center flex-wrap gap-3 p-5 rounded-2xl bg-rose-500 transition-transform duration-300`}>
                         <p className=" text-white">"{name}" به سبد خرید شما اضافه شد</p>
-                        <Link href={'/cart'} >
-                            <div className=" flex items-center  rounded px-2 py-1 text-rose-500 bg-white ">
+                        <Link href={'/cart'} className=" grow sm:grow-0" >
+                            <div className=" flex justify-center items-center text-center rounded px-2 py-1 text-rose-500 bg-white hover:bg-rose-500 hover:text-white transition-colors ">
                                 <span className="  text-sm  ">سبد خرید</span>
                                 <MdKeyboardArrowLeft className=" text-lg" />
                             </div>
                         </Link>
                     </div>
-                }
                 <div className="flex flex-col gap-5 pb-5 border-b-1">
                     <div className=" flex justify-between items-start gap-5">
                         <div className=" flex flex-col gap-3">
@@ -128,7 +126,7 @@ export default function Details({ _id: productID, name, price, priceBeforeDiscou
                         </div>
                         <div className=" flex items-center flex-wrap mt-2 gap-3">
                             <StarScore score={score} />
-                            <span className=" text-sm text-secondary">(دیدگاه {comments.length} کاربر)</span>
+                            <span className=" text-sm text-secondary">(دیدگاه {comments.filter(comment => comment.isAccept).length} کاربر)</span>
                         </div>
                     </div>
                     <p>{shortDescription}</p>

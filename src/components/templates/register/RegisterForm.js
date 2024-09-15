@@ -20,9 +20,14 @@ import Swal from "sweetalert2";
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
 
+// Hooks
+import useForm from "@/Hooks/useForm";
+
 export default function RegisterForm() {
 
-    const router = useRouter()
+
+
+    const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
     const [isRegisterWithOtp, setIsRegisterWithOtp] = useState(false)
 
@@ -31,7 +36,17 @@ export default function RegisterForm() {
     const [phone, setPhone] = useState(null)
     const [password, setPassword] = useState("")
 
+
+    function validateRegister() {
+        if (name && validatePhone(phone) && validateEmail(email) && validatePassword(password)) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     const registerUser = (e) => {
+        disableSubmitHandler()
         e.preventDefault()
         apiRequest.post('/auth/sms/signup/send', { phone })
             .then(res => {
@@ -73,7 +88,7 @@ export default function RegisterForm() {
                         <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={!password ? 'این فیلد الزامی است.' : !validatePassword(password) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
-                        <Button text={'ثبت نام'} isSubmitType={true} isWidthFull={true} isDisabled={name && validatePhone(phone) && validateEmail(email) && validatePassword(password) ? false : true} />
+                        <Button text={'ثبت نام'} isSubmitType={true} isWidthFull={true} isDisabled={validateRegister() || isDisabledSubmit} />
                         <div className="w-full">
                             <Link href={'/login-otp'}>
                                 <Button text={'بازگشت به صفحه ورود'} type={'outline'} isWidthFull={true} />
@@ -86,7 +101,7 @@ export default function RegisterForm() {
 
         ) : (
             <>
-                   <FormHeader title={'کد تایید'} />
+                <FormHeader title={'کد تایید'} />
                 <Sms name={name} email={email} password={password} phone={phone} isRegisterWithOtp={setIsRegisterWithOtp} />
             </>
         )

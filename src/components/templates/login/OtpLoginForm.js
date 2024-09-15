@@ -19,15 +19,30 @@ import apiRequest from '@/Services/Axios/Configs/configs'
 // SweetAlert
 import Swal from 'sweetalert2'
 
+// Hooks
+import useForm from '@/Hooks/useForm'
+
 export default function LoginForm() {
 
+    const { disableSubmitHandler, isDisabledSubmit} = useForm()
 
     const [isLoginWithOtp, setIsLoginWithOtp] = useState(false)
 
     const [phone, setPhone] = useState(null)
     const [password, setPassword] = useState(null)
 
+    function validateLogin ()  {
+        if (validatePhone(phone) && validatePassword(password)) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+
+
     const loginWithOtp = (e) => {
+        disableSubmitHandler()
         e.preventDefault()
         apiRequest.post('/user/ban/verify', { phone })
             .then(res => {
@@ -90,7 +105,7 @@ export default function LoginForm() {
                         <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={!password ? 'این فیلد الزامی است.' : !validatePassword(password) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
-                        <Button text={'ورود'} isSubmitType={true} isDisabled={validatePhone(phone) && validatePassword(password) ? false : true} isWidthFull={true} />
+                        <Button text={'ورود'} isSubmitType={true} isDisabled={validateLogin() || isDisabledSubmit} isWidthFull={true} />
                         <div className="w-full">
                             <Link href={'/login-email'}>
                                 <Button text={'ورود با ایمیل '} isWidthFull={true} />

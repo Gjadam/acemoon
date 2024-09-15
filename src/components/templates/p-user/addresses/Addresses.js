@@ -6,19 +6,24 @@ import { useRouter } from "next/navigation"
 import FormInput from "@/components/modules/formInput/FormInput"
 import Button from "@/components/modules/button/Button"
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader"
+import Pagination from "@/components/modules/pagination/Pagination"
+import Alert from "@/components/modules/alert/Alert"
+import PanelCard from "@/components/modules/panelCard/PanelCard"
+import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton"
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs"
 
 // SweetAlert
 import toastAlert from "@/utils/toastAlert"
-import Pagination from "@/components/modules/pagination/Pagination"
-import Alert from "@/components/modules/alert/Alert"
-import PanelCard from "@/components/modules/panelCard/PanelCard"
-import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton"
 import Swal from "sweetalert2"
 
+// Hooks
+import useForm from "@/Hooks/useForm"
+
 export default function Addresses({ addresses }) {
+
+    const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
     const router = useRouter()
 
@@ -29,7 +34,16 @@ export default function Addresses({ addresses }) {
     const [address, setAddress] = useState('')
     const [zipCode, setZipCode] = useState('')
 
+    function validateAddress() {
+        if (province && city && address && zipCode) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     const addNewAddress = () => {
+        disableSubmitHandler()
         const newAddress = ` ${province} / ${city} / ${address} / کدپستی: ${zipCode} `
 
         apiRequest.post('/user/address', { text: newAddress })
@@ -83,7 +97,7 @@ export default function Addresses({ addresses }) {
                     <FormInput type={'text'} placeholder={'آدرس (شامل نام خیابان ، کوچه ، پلاک)'} error={!address && "لطفا ادرس را وارد کنید"} value={address} onChange={(e) => setAddress(e.target.value)} />
                     <FormInput type={'number'} placeholder={'کد پستی'} error={!zipCode && "کدپستی را وارد کنید"} value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
                 </div>
-                <Button text={'افزودن'} onClick={addNewAddress} isDisabled={province && city && address && zipCode ? false : true} />
+                <Button text={'افزودن'} onClick={addNewAddress} isDisabled={validateAddress() || isDisabledSubmit} />
             </div>
             <SectionHeader title={'آدرس ها'} />
             <div className=" flex justify-center items-center flex-col gap-5 bg-white p-5 rounded-2xl w-full">

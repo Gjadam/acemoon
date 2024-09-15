@@ -14,13 +14,27 @@ import toastAlert from '@/utils/toastAlert'
 // Axios
 import apiRequest from '@/Services/Axios/Configs/configs'
 
+// Hooks
+import useForm from '@/Hooks/useForm'
+
 export default function LoginForm() {
+
+    const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    function validateLogin () {
+        if (validateEmail(email) && validatePassword(password)) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     const registerWithEmail = (e) => {
+        disableSubmitHandler()
         e.preventDefault()
         apiRequest.post('/user/ban/verify', { email })
             .then(res => {
@@ -54,19 +68,19 @@ export default function LoginForm() {
                                 }
                             }
                         })
-                    }
+                }
             })
             .catch(err => {
-                if(err.response.status === 400) {
+                if (err.response.status === 400) {
                     toastAlert.fire({
                         text: "متاسفانه ایمیل شما مسدود شده است!",
                         icon: "error",
                     })
-                } else if(err.response.status === 404) {
+                } else if (err.response.status === 404) {
                     toastAlert.fire({
                         text: "متاسفانه ایمیل شما یافت نشد!",
                         icon: "error",
-                    }) 
+                    })
                 }
             })
     }
@@ -79,7 +93,7 @@ export default function LoginForm() {
                 <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={!password ? 'این فیلد الزامی است.' : !validatePassword(password) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
-                <Button text={'ورود'} isSubmitType={true} isDisabled={validateEmail(email) && validatePassword(password) ? false : true} isWidthFull={true} />
+                <Button text={'ورود'} isSubmitType={true} isDisabled={validateLogin() || isDisabledSubmit} isWidthFull={true} />
                 <div className="w-full">
                     <Link href={'/login-otp'}>
                         <Button text={'ورود با شماره موبایل'} isWidthFull={true} />

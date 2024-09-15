@@ -1,19 +1,27 @@
 'use client'
 import { useEffect, useState } from "react";
-// Components 
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+// Components
+
 import Button from "@/components/modules/button/Button";
 import Stepper from "../stepper/Stepper";
 import FormInput from "@/components/modules/formInput/FormInput";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import AddressBox from "./addressBox/AddressBox";
-import { RiAlertFill } from "react-icons/ri";
-import Link from "next/link";
 import ProductBox from "./productBox/ProductBox";
-import { useRouter } from "next/navigation";
 
-export default function Checkout({ user, addresses }) {
+// Icons
+import { RiAlertFill } from "react-icons/ri";
+
+// Hooks
+import useForm from "@/Hooks/useForm";
+
+export default function Checkout({ user, addresses, shippingCost }) {
 
   const router = useRouter()
+ 
+  const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
   const [name, setName] = useState(user ? user.name : "")
   const [phone, setPhone] = useState(user ? user.phone : "")
@@ -26,6 +34,8 @@ export default function Checkout({ user, addresses }) {
 
   const [cartItems, setCartItems] = useState([])
   const [totalPrice, setTotalPrice] = useState(0);
+
+ 
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -43,7 +53,7 @@ export default function Checkout({ user, addresses }) {
 
   function calcTotalPrice() {
     const price = cartItems.reduce((prev, current) => prev + current.price * current.count, 0);
-    setTotalPrice(price + 50000);
+    setTotalPrice(price + shippingCost.price);
   }
 
   function validateOrder() {
@@ -55,6 +65,7 @@ export default function Checkout({ user, addresses }) {
   }
 
   const checkOut = () => {
+    disableSubmitHandler()
     const newAddress = user ? address : `${province} / ${city} / ${address} / کدپستی: ${zipCode}`;
 
     const orderInfo = {
@@ -65,6 +76,7 @@ export default function Checkout({ user, addresses }) {
     };
 
     console.log(orderInfo);
+
   };
 
   return (
@@ -133,14 +145,14 @@ export default function Checkout({ user, addresses }) {
             <div className=" flex justify-between items-center border-b-1 py-3 ">
               <span>جمع جزء</span>
               <span className=" text-lg text-rose-500 ">
-                {(totalPrice ? totalPrice - 50_000 : 0)?.toLocaleString()}
+                {(totalPrice ? totalPrice - shippingCost.price : 0)?.toLocaleString()}
                 <span className=' text-xs mr-1 '>تومان</span>
               </span>
             </div>
             <div className=" flex justify-between items-center border-b-1 py-3 ">
               <span>حمل و نقل</span>
               <span className=" text-lg text-rose-500">
-                {(50_000)?.toLocaleString()}
+                {shippingCost.price?.toLocaleString()}
                 <span className=' text-xs mr-1 '>تومان</span>
               </span>
             </div>
@@ -157,7 +169,7 @@ export default function Checkout({ user, addresses }) {
               text={'پرداخت'}
               isWidthFull={true}
               onClick={checkOut}
-              isDisabled={validateOrder()}
+              isDisabled={validateOrder() || isDisabledSubmit}
             />
           </div>
         </div>

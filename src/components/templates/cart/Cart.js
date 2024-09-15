@@ -8,7 +8,7 @@ import Button from "@/components/modules/button/Button";
 import Link from "next/link";
 
 
-export default function Cart() {
+export default function Cart({ shippingCost }) {
 
     const [cartItems, setCartItems] = useState([])
     const [totalPrice, setTotalPrice] = useState(0);
@@ -22,10 +22,10 @@ export default function Cart() {
         calcTotalPrice()
     }, [cartItems])
 
-    function calcTotalPrice() {  
-        const price = cartItems.reduce((prev, current) => prev + current.price * current.count, 0);  
-        setTotalPrice(price + 50000);
-      }  
+    function calcTotalPrice() {
+        const price = cartItems.reduce((prev, current) => prev + current.price * current.count, 0);
+        setTotalPrice(price + shippingCost.price);
+    }
 
     return (
         <div className=" container mx-auto flex justify-center items-center flex-col gap-10 md:mt-28 p-5">
@@ -49,14 +49,14 @@ export default function Cart() {
                                     <div className=" flex justify-between items-center ">
                                         <span>جمع جزء:</span>
                                         <span className=" text-xl ">
-                                            {(totalPrice - 50_000)?.toLocaleString()}
+                                            {(totalPrice - shippingCost.price)?.toLocaleString()}
                                             <span className=' text-xs mr-1 '>تومان</span>
                                         </span>
                                     </div>
                                     <div className=" flex justify-between items-center border-b-1 pb-4">
                                         <span>هزینه حمل و نقل: </span>
                                         <span className=" text-xl   ">
-                                            50,000
+                                        {shippingCost.price?.toLocaleString()}
                                             <span className=' text-xs mr-1 '>تومان</span>
                                         </span>
                                     </div>

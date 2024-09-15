@@ -12,13 +12,28 @@ import apiRequest from "@/Services/Axios/Configs/configs";
 // SweetAlert
 import toastAlert from "@/utils/toastAlert";
 
+// Hooks
+import useForm from "@/Hooks/useForm";
+
 export default function Sms({ name, email, password, phone, isRegisterWithOtp }) {
 
+    const { disableSubmitHandler, isDisabledSubmit } = useForm()
+ 
     const router = useRouter()
 
     const [code, setCode] = useState(null)
 
+    function validateSms () {
+        if(code) {
+            return false
+        } else {
+            return true
+        }
+
+    }
+
     const verifyCodeAndRegister = () => {
+        disableSubmitHandler()
         apiRequest.post("/auth/sms/verify", {
             name,
             phone,
@@ -78,7 +93,7 @@ export default function Sms({ name, email, password, phone, isRegisterWithOtp })
                 <p className=" text-rose-500 font-bold text-xl">{phone}</p>
             </div>
             <FormInput type={'number'} placeholder={"کد تایید"} error={!code && 'این فیلد الزامی است.'} value={code} onChange={(e) => setCode(e.target.value)} />
-            <Button text={'ورود'} isWidthFull={true} onClick={verifyCodeAndRegister} isDisabled={code ? false : true} />
+            <Button text={'ورود'} isWidthFull={true} onClick={verifyCodeAndRegister} isDisabled={validateSms() || isDisabledSubmit} />
             <Button text={'بازگشت به صفحه قبل'} isWidthFull={true} onClick={() => isRegisterWithOtp(false)} />
         </div>
     )

@@ -69,14 +69,14 @@ export default function Header({ products }) {
                     width={0}
                     height={0}
                     sizes='100%'
-                    className=' hidden lg:block w-full absolute left-0 -bottom-5 drag-none z-10'
+                    className=' hidden lg:block w-full absolute left-0 -bottom-5 drag-none select-none z-10'
                 />
                 <Image
                     alt='logo'
                     src={'/images/png/flower1.png'}
                     width={150}
                     height={0}
-                    className=' absolute left-36 top-10 drag-none -rotate-45 hidden lg:block'
+                    className=' absolute left-36 top-10 drag-none -rotate-45 hidden select-none lg:block'
                     data-aos='fade-up'
                     data-aos-delay='600'
                 />
@@ -85,13 +85,13 @@ export default function Header({ products }) {
                     src={'/images/png/flower2.png'}
                     width={150}
                     height={0}
-                    className=' absolute right-36 top-10 drag-none  rotate-45 hidden lg:block'
+                    className=' absolute right-36 top-10 drag-none  rotate-45 hidden select-none lg:block'
                     data-aos='fade-up'
                     data-aos-delay='800'
                 />
             </div>
             <div className=" hidden xl:block absolute -rotate-90  -left-8 top-1/2 z-30">
-                <div className=" flex items-center gap-10 text-lg">
+                <div className=" flex items-center gap-10 text-lg select-none">
                     <a href="https://www.instagram.com/ladyshop7191">
                         <p className=' hover:text-rose-500 transition-colors'>اینستاگرام</p>
                     </a>

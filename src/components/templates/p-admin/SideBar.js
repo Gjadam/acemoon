@@ -17,6 +17,7 @@ import { HiShoppingCart } from "react-icons/hi2";
 
 // Hooks
 import useAuth from "@/Hooks/useAuth";
+import { FaShippingFast } from "react-icons/fa";
 
 export default function SideBar({ user }) {
 
@@ -52,11 +53,6 @@ export default function SideBar({ user }) {
                         height={0}
                     />
                 </Link>
-                            <div className="xl:hidden">
-                                <Button type={'circle'} onClick={() => setIsOpenSidebar(false)}>
-                                    <LiaTimesSolid />
-                                </Button>
-                            </div>
                         </div>
                         <div className=" flex justify-start flex-col gap-5">
                             <SideBarLink text='داشبورد' route={'/p-admin'}>
@@ -67,6 +63,9 @@ export default function SideBar({ user }) {
                             </SideBarLink>
                             <SideBarLink text='دسته بندی ها' route={'/p-admin/collections'}>
                                 <BiSolidCategoryAlt />
+                            </SideBarLink>
+                            <SideBarLink text='هزینه حمل و نقل' route={'/p-admin/shipping-cost'}>
+                                <FaShippingFast />
                             </SideBarLink>
                             <SideBarLink text='کاربران' route={'/p-admin/users'}>
                                 <FaUsers />

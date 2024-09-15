@@ -2,7 +2,7 @@ import {  RiCheckboxBlankCircleLine, RiCheckboxCircleFill } from "react-icons/ri
 
 export default function AddressBox({ address, state, setState }) {
     return (
-        <label htmlFor={address} className={`flex justify-start items-center gap-5 grow p-5 ${state === address ? 'bg-rose-500 text-white' : 'border-1  bg-zinc-100 text-secondary hover:text-rose-500'} cursor-pointer  w-60 rounded-lg transition-colors`}>
+        <label htmlFor={address} className={`flex justify-start items-center gap-5 grow p-5 ${state === address ? 'bg-rose-500 text-white' : 'border-1  bg-zinc-100 text-secondary hover:text-rose-500'} cursor-pointer  w-60 h-20 rounded-lg transition-colors`}>
             <div className="">
                 {
                     state === address ? (

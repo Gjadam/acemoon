@@ -13,8 +13,11 @@ import apiRequest from "@/Services/Axios/Configs/configs";
 // SweetAlert
 import toastAlert from "@/utils/toastAlert";
 import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+import useForm from "@/Hooks/useForm";
 
 export default function AccountDetail() {
+
+  const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
   const router = useRouter()
 
@@ -41,7 +44,24 @@ export default function AccountDetail() {
   }, [])
 
 
+  function validateUserDetail() {
+    if (name && validatePhone(phone) && validateEmail(email)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  function validateUserPassword() {
+    if (oldPassword && newPassword && validatePassword(newPassword)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   const changeDetail = () => {
+    disableSubmitHandler()
     apiRequest.put('/user', { name, email, phone })
       .then(res => {
         if (res.status === 200) {
@@ -65,6 +85,7 @@ export default function AccountDetail() {
 
 
   const changePassword = () => {
+    disableSubmitHandler()
     apiRequest.put('/user/change-password', { oldPassword, newPassword })
       .then(res => {
         if (res.status === 200) {
@@ -101,7 +122,7 @@ export default function AccountDetail() {
         </div>
         <div className="flex justify-center items-center gap-5 flex-wrap md:flex-nowrap">
           <FormInput type={'email'} placeholder={'ایمیل'} error={!email ? 'ایمیل را وارد کنید' : !validateEmail(email) ? "ایمیل را به درستی وارد کنید" : null} value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Button text={'ثبت تغییرات'} isWidthFull={true} onClick={changeDetail} isDisabled={name && validatePhone(phone) && validateEmail(email) ? false : true} />
+          <Button text={'ثبت تغییرات'} isWidthFull={true} onClick={changeDetail} isDisabled={validateUserDetail() || isDisabledSubmit} />
         </div>
       </div>
       <div className=" mt-5">
@@ -111,7 +132,7 @@ export default function AccountDetail() {
             <FormInput type={'password'} placeholder={'رمزعبور قدیمی'} error={!oldPassword && 'رمزعبور قدیمی را وارد کنید'} value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
             <FormInput type={'password'} placeholder={'رمزعبور جدید'} error={!newPassword ? 'رمزعبور جدید را وارد کنید' : !validatePassword(newPassword) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
           </div>
-          <Button text={'تغییر رمز عبور'} onClick={changePassword} isDisabled={oldPassword && newPassword && validatePassword(newPassword) ? false : true} />
+          <Button text={'تغییر رمز عبور'} onClick={changePassword} isDisabled={validateUserPassword() || isDisabledSubmit} />
         </div>
       </div>
     </div>

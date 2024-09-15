@@ -7,7 +7,9 @@ export default function PanelCard({ title, date, text, children }) {
         <span className=' text-sm text-zinc-500'>
           {
             date ? (
-              new Date(date).toLocaleDateString("fa-IR")
+              <div className=" mt-1">
+                {new Date(date).toLocaleDateString("fa-IR")}
+              </div>
             ) : (
               text
             )

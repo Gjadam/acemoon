@@ -15,9 +15,17 @@ import apiRequest from "@/Services/Axios/Configs/configs"
 // SweetAlert
 import toastAlert from "@/utils/toastAlert"
 import Alert from "@/components/modules/alert/Alert"
+
+// Validations
 import { validateEmail } from "@/utils/auth"
 
+// Hooks
+import useForm from "@/Hooks/useForm"
+
 export default function Comments({ productID, comments, user }) {
+
+
+    const { disableSubmitHandler, isDisabledSubmit } = useForm()
 
     const [hoverRateIcon, setHoverRateIcon] = useState(null)
     const [isSaveUserInfo, setIsSaveUserInfo] = useState(false)
@@ -27,7 +35,8 @@ export default function Comments({ productID, comments, user }) {
     const [body, setBody] = useState('')
     const [score, setScore] = useState(5)
 
-    const disableSubmit = () => {
+
+    function validateComment () {
         if (user) {
             if (user.name && user.email && body) {
                 return false
@@ -49,7 +58,7 @@ export default function Comments({ productID, comments, user }) {
     }, [])
 
     const submitComment = async () => {
-
+        disableSubmitHandler()
         if (isSaveUserInfo) {
             const userInfo = {
                 username: user ? user.name : username,
@@ -144,7 +153,7 @@ export default function Comments({ productID, comments, user }) {
                     <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value={isSaveUserInfo} onChange={() => setIsSaveUserInfo(!isSaveUserInfo)} />
                     <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام و ایمیل من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
                 </div>
-                <Button text={'ثبت دیدگاه'} onClick={submitComment} isDisabled={disableSubmit()} />
+                <Button text={'ثبت دیدگاه'} onClick={submitComment} isDisabled={validateComment() || isDisabledSubmit} />
             </div>
         </div>
     )

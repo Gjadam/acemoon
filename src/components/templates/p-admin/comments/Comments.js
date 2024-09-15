@@ -5,6 +5,7 @@ import Pagination from "@/components/modules/pagination/Pagination";
 import PanelCard from "@/components/modules/panelCard/PanelCard";
 import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
+import StarScore from "@/components/modules/starScore/StarScore";
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
@@ -129,6 +130,7 @@ export default function Comments({ comments }) {
                             {
                                 paginateComments.slice(0, 9).map(comment => (
                                     <PanelCard key={comment._id} title={comment.productID.name} date={comment.date}>
+                                        <PanelCardButton bgColor={'bg-none'} condition={<StarScore score={comment.score}/>}  />
                                         <PanelCardButton bgColor={'bg-sky-500'} text={'مشاهده'} onClick={() => showCommentBody(comment)} />
                                         <PanelCardButton bgColor={comment.isAccept ? 'bg-rose-500' : 'bg-green-500'} text={comment.isAccept ? 'رد کردن' : 'تایید کردن'} onClick={comment.isAccept ? () => rejectComment(comment._id) : () => acceptComment(comment._id)} />
                                         {
