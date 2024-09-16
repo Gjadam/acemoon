@@ -23,8 +23,10 @@ export default function Cart({ shippingCost }) {
     }, [cartItems])
 
     function calcTotalPrice() {
-        const price = cartItems.reduce((prev, current) => prev + current.price * current.count, 0);
-        setTotalPrice(price + shippingCost.price);
+        if(cartItems) {
+            const price = cartItems.reduce((prev, current) => prev + current.price * current.count, 0);
+            setTotalPrice(price + shippingCost.price);
+        }
     }
 
     return (
