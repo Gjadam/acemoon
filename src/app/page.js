@@ -6,13 +6,13 @@ import Collections from "@/components/templates/index/collections/Collections";
 import Header from "@/components/templates/index/header/Header";
 import CollectionsBanner from "@/components/templates/index/collectionsBanner/CollectionsBanner";
 import NewProducts from "@/components/templates/index/newProducts/NewProducts";
+import Facility from "@/components/templates/index/facility/Facility";
+import SocialMedias from "@/components/modules/socialMedias/SocialMedias";
 
 // Backend
 import connectToDB from "@/configs/db";
 import ProductModel from "@/models/Product";
 import CollectionModel from "@/models/Collection";
-import Facility from "@/components/templates/index/facility/Facility";
-import SocialMedias from "@/components/modules/socialMedias/SocialMedias";
 
 export default async function Home() {
 

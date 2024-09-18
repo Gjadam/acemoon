@@ -5,7 +5,6 @@ import Box from "@/components/templates/p-admin/index/Box";
 import Table from "@/components/modules/p-user/Table";
 import PanelCard from "@/components/modules/panelCard/PanelCard";
 import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton";
-import Link from "next/link";
 import Alert from "@/components/modules/alert/Alert";
 
 // Icons
