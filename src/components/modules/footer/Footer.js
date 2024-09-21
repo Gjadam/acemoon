@@ -1,14 +1,16 @@
 import Image from "next/image";
-import Button from "../button/Button";
 
 // Components
 import List from "./list/List";
+import Button from "../button/Button";
+
+// Icons
+import { IoMdHeart } from "react-icons/io";
 
 // Backend
 import connectToDB from "@/configs/db";
 import CollectionModel from "@/models/Collection";
 import Link from "next/link";
-import { IoMdHeart } from "react-icons/io";
 
 export default async function Footer() {
 

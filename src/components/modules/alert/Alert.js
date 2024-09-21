@@ -1,4 +1,4 @@
-
+// Icons
 import { RiAlertFill } from "react-icons/ri";
 
 export default function Alert({text}) {

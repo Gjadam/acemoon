@@ -1,3 +1,4 @@
+// Components
 import BreadCrumb from "../breadCrumb/BreadCrumb";
 
 export default function CategoryHeader({ title }) {

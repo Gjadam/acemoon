@@ -1,13 +1,13 @@
 
 // Components
 import MainLayout from "@/components/layouts/MainLayout"
+import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader"
+import Search from "@/components/templates/search/Search"
 
 // Backend
 import connectToDB from "@/configs/db"
 import ProductModel from "@/models/Product"
 import CollectionModel from "@/models/Collection"
-import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader"
-import Search from "@/components/templates/search/Search"
 
 export const metadata = {
     title: "ماه آس | جستوجو"
