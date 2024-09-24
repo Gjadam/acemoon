@@ -7,7 +7,7 @@ import ProductPrice from "../productPrice/ProductPrice";
 import Button from "../button/Button";
 
 // Icons
-import { IoBasket, IoEye, IoHeart } from "react-icons/io5";
+import { IoEye, IoHeart } from "react-icons/io5";
 
 // Hooks
 import useProduct from "@/Hooks/useProduct";

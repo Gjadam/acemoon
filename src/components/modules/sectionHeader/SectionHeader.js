@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 // Components
 import Button from "../button/Button";
-// Icons
-import { IoIosLink } from "react-icons/io";
+
 
 export default function SectionHeader({ title, linkText, route }) {
     return (

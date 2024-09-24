@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+
+// Components
 import ProductPrice from "../productPrice/ProductPrice";
 import StarScore from "../starScore/StarScore";
-import Button from "../button/Button";
+
+// Icons
 import { IoBasket, IoHeart } from "react-icons/io5";
 
 export default function ProductList({ _id, name, priceBeforeDiscount, price, images, shortDescription, size, color, score, collection }) {
