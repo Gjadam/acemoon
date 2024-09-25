@@ -1,4 +1,5 @@
-import React from 'react'
+
+// Icons
 import { FaStar } from 'react-icons/fa6'
 
 export default function StarScore({ score }) {

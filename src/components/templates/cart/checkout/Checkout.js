@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-// Components
 
+// Components
 import Button from "@/components/modules/button/Button";
 import Stepper from "../stepper/Stepper";
 import FormInput from "@/components/modules/formInput/FormInput";
@@ -105,7 +105,7 @@ export default function Checkout({ user, addresses, shippingCost }) {
                   <div className=" flex justify-center md:justify-between items-center flex-wrap gap-5 p-5 text-center w-full  text-red-600 border-1 border-red-600 rounded-lg">
                     <div className=" flex items-center gap-3">
                       <RiAlertFill className=" text-xl " />
-                      <span className="">آدرسی وجود ندارد</span>
+                      <span >آدرسی وجود ندارد</span>
                     </div>
                     <Link href={'/p-user/addresses'}>
                       <Button type={'simple'} text={'افزودن آدرس جدید'} />
@@ -126,7 +126,7 @@ export default function Checkout({ user, addresses, shippingCost }) {
                 <FormInput type={'text'} placeholder={'شهر'} error={!city && 'نام شهر را وارد کنید'} value={city} onChange={(e) => setCity(e.target.value)} />
               </div>
               <FormInput type={'text'} placeholder={'آدرس (شامل نام خیابان ، کوچه ، پلاک)'} error={!address && "آدرس را وارد کنید"} value={address} onChange={(e) => setAddress(e.target.value)} />
-              <FormInput type={'number'} placeholder={'کد پستی'} error={!zipCode && "لطفا ادرس را وارد کنید"} value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+              <FormInput type={'number'} placeholder={'کد پستی'} error={!zipCode && "کدپستی را وارد کنید"} value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
               <FormInput type={'textarea'} placeholder={"توضیحات تکمیلی"} value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} />
             </div>
           )
