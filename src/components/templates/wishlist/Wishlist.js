@@ -1,3 +1,5 @@
+
+// Components
 import Alert from "@/components/modules/alert/Alert";
 import ProductList from "@/components/modules/productList/ProductList";
 

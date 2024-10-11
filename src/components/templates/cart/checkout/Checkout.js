@@ -81,7 +81,7 @@ export default function Checkout({ user, addresses, shippingCost }) {
 
   return (
     <div className=" container mx-auto flex justify-center items-center flex-col gap-10 md:mt-28  p-5">
-      <Stepper step={'checkout'} />
+      <Stepper step={'complete'} />
       <div className=" flex justify-center items-start flex-col md:flex-row gap-10 w-full ">
         {
           user ? (

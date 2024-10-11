@@ -117,7 +117,7 @@ export default function Comments({ productID, comments, user }) {
 
             </div>
             <div className="flex flex-col gap-5">
-                <div className="">
+                <div >
                     <span className=" text-2xl" >دیدگاه خود را بنویسید</span>
                     <p className=" text-zinc-600 text-sm ">نشانی ایمیل شما منتشر نخواهد شد.</p>
                 </div>
@@ -149,7 +149,7 @@ export default function Comments({ productID, comments, user }) {
 
                     ) : null
                 }
-                <div className="">
+                <div >
                     <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value={isSaveUserInfo} onChange={() => setIsSaveUserInfo(!isSaveUserInfo)} />
                     <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام و ایمیل من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
                 </div>

@@ -15,6 +15,8 @@ import toastAlert from "@/utils/toastAlert";
 
 // Validations
 import { validateEmail, validatePhone } from "@/utils/auth";
+
+// Hooks
 import useForm from "@/Hooks/useForm";
 
 

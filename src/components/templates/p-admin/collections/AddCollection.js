@@ -8,6 +8,8 @@ import FormInput from "@/components/modules/formInput/FormInput";
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
+
+// SweetAlert
 import toastAlert from "@/utils/toastAlert";
 
 export default function AddCollection() {

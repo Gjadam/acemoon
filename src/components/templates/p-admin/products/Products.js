@@ -1,9 +1,9 @@
 'use client'
+import { useState } from "react";
 // Components
 import Alert from "@/components/modules/alert/Alert";
 import Product from "./Product";
 import Pagination from "@/components/modules/pagination/Pagination";
-import { useState } from "react";
 
 export default function Products({ products, collections }) {
     const [paginateProducts, setPaginateProducts] = useState(products)

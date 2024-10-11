@@ -23,14 +23,14 @@ export default function Gallery({ images }) {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setLoading(false);
-        }, 200);
+        }, 1000);
 
         return () => clearTimeout(timeoutId);
     }, []);
 
     return (
         <div data-aos='fade-left' className=" ">
-            <div className={` flex justify-center items-center flex-col gap-5 w-80 md:w-120 ${images.length > 1 && loading ? " h-96" : null} overflow-hidden`}>
+            <div className={` flex justify-center items-center flex-col gap-5 w-80 md:w-120 ${images.length > 1 && loading ? " h-120" : null} overflow-hidden`}>
                 {
                     images.length === 1 ? (
                         <Image

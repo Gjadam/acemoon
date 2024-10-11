@@ -7,6 +7,8 @@ import Pagination from "@/components/modules/pagination/Pagination";
 import PanelCard from "@/components/modules/panelCard/PanelCard";
 import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
+
+// SweetAlert
 import Swal from "sweetalert2";
 
 export default function Comments({comments}) {

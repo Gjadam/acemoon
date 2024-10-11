@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+// Icons
 import { GiFlowerStar } from "react-icons/gi";
 
 export default function Box({ id, text }) {

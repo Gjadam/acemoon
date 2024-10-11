@@ -104,7 +104,7 @@ export default function UserBox({ _id: userID, name, email, role, phone }) {
         <div className=' group relative w-80 p-5 bg-white hover: border-1 shadow hover:shadow-lg rounded-2xl transition-shadow'>
             <div className="  flex  w-full items-center flex-col border-b-1 ">
                 <div className=" flex justify-between items-center w-full">
-                    <div className="">
+                    <div >
                         <h1 className=' text-base'>{name}</h1>
                         <h2 className=' text-xs'>{email ? email : 'ایمیل یافت نشد'}</h2>
                     </div>

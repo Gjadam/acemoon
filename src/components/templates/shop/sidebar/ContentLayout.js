@@ -1,8 +1,7 @@
-import React from 'react'
 
 export default function ContentLayout({ title, children, isNewSection }) {
     return (
-        <div className="">
+        <div >
             <div className="  flex items-center border-b-1 border-rose-200 pb-1 ">
                 <div className=" relative">
                 <h3 className=' text-lg text-secondary font-bold '>{title}</h3>

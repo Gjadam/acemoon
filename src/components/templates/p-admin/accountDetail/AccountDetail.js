@@ -12,7 +12,11 @@ import apiRequest from "@/Services/Axios/Configs/configs";
 
 // SweetAlert
 import toastAlert from "@/utils/toastAlert";
+
+// Validations
 import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+
+// Hooks
 import useForm from "@/Hooks/useForm";
 
 export default function AccountDetail() {

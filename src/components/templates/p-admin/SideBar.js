@@ -12,12 +12,11 @@ import { IoBasket, IoHome, IoPower, IoTicket } from "react-icons/io5";
 import { FaBars, FaUsers } from "react-icons/fa6";
 import { BiSolidCategoryAlt, BiSolidContact } from "react-icons/bi";
 import { IoIosChatboxes } from "react-icons/io";
-import { LiaTimesSolid } from "react-icons/lia";
 import { HiShoppingCart } from "react-icons/hi2";
+import { FaShippingFast } from "react-icons/fa";
 
 // Hooks
 import useAuth from "@/Hooks/useAuth";
-import { FaShippingFast } from "react-icons/fa";
 
 export default function SideBar({ user }) {
 

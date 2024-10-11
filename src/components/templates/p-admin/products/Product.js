@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Components
 import PanelCard from "@/components/modules/panelCard/PanelCard";
@@ -13,7 +14,6 @@ import toastAlert from "@/utils/toastAlert";
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
-import { useRouter } from "next/navigation";
 
 
 export default function Product({ product, collections }) {

@@ -1,11 +1,13 @@
 'use client'
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 // Components
 import PanelCard from "@/components/modules/panelCard/PanelCard";
 import PanelCardButton from "@/components/modules/panelCard/panelCardButton/PanelCardButton";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import Alert from "@/components/modules/alert/Alert";
+import Pagination from "@/components/modules/pagination/Pagination";
 
 // SweetAlert
 import Swal from "sweetalert2";
@@ -13,8 +15,6 @@ import toastAlert from "@/utils/toastAlert";
 
 // Axios
 import apiRequest from "@/Services/Axios/Configs/configs";
-import { useState } from "react";
-import Pagination from "@/components/modules/pagination/Pagination";
 
 export default function Tickets({ tickets }) {
 
