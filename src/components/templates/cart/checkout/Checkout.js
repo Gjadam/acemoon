@@ -16,6 +16,7 @@ import { RiAlertFill } from "react-icons/ri";
 
 // Hooks
 import useForm from "@/Hooks/useForm";
+import { validatePhone } from "@/utils/auth";
 
 export default function Checkout({ user, addresses, shippingCost }) {
 
@@ -58,9 +59,9 @@ export default function Checkout({ user, addresses, shippingCost }) {
 
   function validateOrder() {
     if (user) {
-      return !(name && phone && address);
+      return !(name && validatePhone(phone) && address);
     } else {
-      return !(name && phone && address && province && city && zipCode);
+      return !(name && validatePhone(phone) && address && province && city && zipCode);
     }
   }
 
@@ -119,7 +120,7 @@ export default function Checkout({ user, addresses, shippingCost }) {
             <div className="flex flex-col gap-5 w-full">
               <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
                 <FormInput type={'text'} placeholder={'نام و نام خانوادگی'} error={!name && 'نام و نام خانوادگی را وارد کنید'} value={name} onChange={(e) => setName(e.target.value)} />
-                <FormInput type={'number'} placeholder={"شماره موبایل"} error={!phone && 'نام و نام خانوادگی را وارد کنید'} value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <FormInput type={'number'} placeholder={"شماره موبایل"} error={!phone ? 'شماره تلفن را وارد کنید' : !validatePhone(phone) ? 'لطفا شماره موبایل را به درستی وارد کنید.' : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
               </div>
               <div className="flex justify-center items-start gap-5 flex-wrap md:flex-nowrap">
                 <FormInput type={'text'} placeholder={'استان'} error={!province && 'نام استان را وارد کنید'} value={province} onChange={(e) => setProvince(e.target.value)} />
