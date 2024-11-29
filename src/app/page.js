@@ -4,7 +4,6 @@ import MainLayout from "@/components/layouts/MainLayout";
 import AllProducts from "@/components/templates/index/allProducts/AllProducts";
 import Collections from "@/components/templates/index/collections/Collections";
 import Header from "@/components/templates/index/header/Header";
-import CollectionsBanner from "@/components/templates/index/collectionsBanner/CollectionsBanner";
 import NewProducts from "@/components/templates/index/newProducts/NewProducts";
 import Facility from "@/components/templates/index/facility/Facility";
 import SocialMedias from "@/components/modules/socialMedias/SocialMedias";
@@ -36,7 +35,6 @@ export default async function Home() {
       <AllProducts products={JSON.parse(JSON.stringify(products))} />
       <Collections collections={JSON.parse(JSON.stringify(collections))} />
       <NewProducts sortedProducts={JSON.parse(JSON.stringify(sortedProducts))} />
-      <CollectionsBanner collections={JSON.parse(JSON.stringify(collections))}/>
       <SocialMedias/>
     </MainLayout>
   );
