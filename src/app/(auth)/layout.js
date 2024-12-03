@@ -16,6 +16,7 @@ export default function layout({ children }) {
                         height={0}
                         sizes='100%'
                         className=' w-full absolute left-0 -bottom-0 drag-none z-10'
+                        priority={true}
                     />
                 </div>
             </div>
