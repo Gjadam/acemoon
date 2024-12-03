@@ -14,7 +14,7 @@ export default function AllProducts({ products }) {
                 <div className=' flex justify-center items-center flex-wrap p-5 sm:p-0 my-10'>
                         {
                             products.map(product => (
-                                    <ProductBox key={product._id} {...product} />
+                                <ProductBox key={product._id} {...product} />
                             ))
                         }
                 </div>

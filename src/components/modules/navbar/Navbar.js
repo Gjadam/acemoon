@@ -178,8 +178,8 @@ export default function Navbar({ isLogin }) {
                                     {
                                         dataFromSearch.products?.length > 0 ? (
                                             dataFromSearch.products.map(product => (
-                                                <Link href={`/product/${product._id}`}>
-                                                    <ProductBox key={product._id} {...product} />
+                                                <Link key={product._id} href={`/product/${product._id}`}>
+                                                    <ProductBox  {...product} />
                                                 </Link>
                                             ))
                                         ) : (
@@ -192,8 +192,8 @@ export default function Navbar({ isLogin }) {
                                     {
                                         dataFromSearch.collections?.length > 0 ? (
                                             dataFromSearch.collections.map(collection => (
-                                                <Link href={`/collection/${collection._id}`}>
-                                                    <CollectionBox key={collection._id} {...collection} />
+                                                <Link key={collection._id} href={`/collection/${collection._id}`}>
+                                                    <CollectionBox  {...collection} />
                                                 </Link>
                                             ))
                                         ) : (

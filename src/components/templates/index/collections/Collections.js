@@ -47,7 +47,6 @@ export default function Categories({ collections }) {
                 >
                     {
                         collections.map(collection => (
-
                             <SwiperSlide>
                                 <Box key={collection._id} {...collection} />
                             </SwiperSlide>

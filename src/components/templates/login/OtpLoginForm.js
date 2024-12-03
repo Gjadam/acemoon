@@ -28,8 +28,8 @@ export default function LoginForm() {
 
     const [isLoginWithOtp, setIsLoginWithOtp] = useState(false)
 
-    const [phone, setPhone] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [phone, setPhone] = useState("")
+    const [password, setPassword] = useState("")
 
     function validateLogin ()  {
         if (validatePhone(phone) && validatePassword(password)) {
@@ -101,7 +101,7 @@ export default function LoginForm() {
                 <FormHeader title={'ورود با شماره موبایل'} />
                 <form className=' flex flex-col gap-5' onSubmit={(e) => loginWithOtp(e)}>
                     <div className=" flex flex-col gap-5 my-5" >
-                        <FormInput name={"phone"} placeholder={'شماره موبایل'} type={'number'} error={!phone ? 'این فیلد الزامی است.' : !validatePhone(phone) ? 'لطفا شماره موبایل را به درستی وارد کنید.' : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
+                        <FormInput name={"phone"} placeholder={'شماره موبایل'} type={'number'} error={!phone ? 'این فیلد الزامی است.' : !validatePhone("") ? 'لطفا شماره موبایل را به درستی وارد کنید.' : null} value={phone} onChange={(e) => setPhone(e.target.value)} />
                         <FormInput name={"password"} placeholder={'رمز عبور'} type={'password'} error={!password ? 'این فیلد الزامی است.' : !validatePassword(password) ? 'رمزعبور باید شامل حروف بزرگ ، عدد و کاراکترهایی همچون @ ، # و.. باشد.' : null} value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className=" flex items-center justify-center flex-col md:flex-row  gap-5">
