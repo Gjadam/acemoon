@@ -1,6 +1,5 @@
 
 // Components
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import Alert from "@/components/modules/alert/Alert";
 import WishBox from "@/components/templates/p-user/wishlist/WishBox";
 
@@ -19,7 +18,6 @@ export default async function page() {
         .lean()
 
     return (
-        <UserPanelLayout>
             <div className=" flex justify-center items-center flex-wrap gap-5">
                 {
                     wishes.length > 0 ? (
@@ -31,6 +29,5 @@ export default async function page() {
                     )
                 }
             </div>
-        </UserPanelLayout>
     )
 }

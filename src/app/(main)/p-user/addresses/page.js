@@ -1,6 +1,5 @@
 
 // Components
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import Addresses from "@/components/templates/p-user/addresses/Addresses";
 
 // Backend
@@ -17,8 +16,6 @@ export default async function page() {
     .lean()
     
   return (
-    <UserPanelLayout>
       <Addresses addresses={addresses} />
-    </UserPanelLayout>
   )
 }

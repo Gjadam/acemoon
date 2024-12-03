@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 // Components
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import Box from "@/components/modules/p-user/Box";
 import Table from "@/components/modules/p-user/Table";
 import PanelCard from "@/components/modules/panelCard/PanelCard";
@@ -24,7 +23,6 @@ export default async function page() {
   .sort({_id: -1})
 
   return (
-    <UserPanelLayout>
       <div className=" flex flex-col gap-5">
         <div className=" flex justify-between items-center flex-wrap gap-5 w-full">
           <Box title={'مجموع تیکت ها'} count={tickets.length} >
@@ -56,6 +54,5 @@ export default async function page() {
           </Table>
         </div>
       </div>
-    </UserPanelLayout>
   )
 }

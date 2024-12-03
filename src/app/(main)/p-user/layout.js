@@ -1,14 +1,12 @@
-import { redirect } from "next/navigation";
 
 // Components
-import CategoryHeader from "../modules/categoryHeader/CategoryHeader";
-import SideBar from "../templates/p-user/SideBar";
-import MainLayout from "./MainLayout";
+import CategoryHeader from '@/components/modules/categoryHeader/CategoryHeader'
+import SideBar from '@/components/templates/p-user/SideBar'
 
 // Backend
-import { authUser } from "@/utils/serverHelpers";
+import { authUser } from '@/utils/serverHelpers'
 
-export default async function UserPanelLayout({ children }) {
+export default async function layout({ children }) {
 
     const user = await authUser()
 
@@ -16,9 +14,8 @@ export default async function UserPanelLayout({ children }) {
         redirect("/login-otp")
     }
 
-
     return (
-        <MainLayout>
+        <>
             <CategoryHeader title={'حساب کاربری من'} />
             <div className=" relative container mx-auto  flex flex-col gap-5 xl:flex-row justify-center items-start xl:h-screen p-5">
                 <SideBar user={user} />
@@ -26,6 +23,6 @@ export default async function UserPanelLayout({ children }) {
                     {children}
                 </div>
             </div>
-        </MainLayout>
+        </>
     )
 }

@@ -1,6 +1,5 @@
 
 // Components
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import Comments from "@/components/templates/p-user/comments/Comments";
 
 // Backend
@@ -18,8 +17,6 @@ export default async function page() {
         .lean()
 
     return (
-        <UserPanelLayout>
             <Comments comments={comments} />
-        </UserPanelLayout>
     )
 }

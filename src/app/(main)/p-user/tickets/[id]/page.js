@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Components
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import Button from "@/components/modules/button/Button";
 
 // Icons
@@ -21,7 +20,6 @@ export default async function page({ params }) {
     const ticket = await TicketModel.findOne({ _id: ticketID })
 
     return (
-        <UserPanelLayout>
             <div className=" flex flex-col justify-start gap-10 h-120 overflow-y-auto xl:h-full bg-white p-5 rounded-xl ">
                 <div className=" flex justify-between items-center w-full p-3 border-b-1">
                     <div className=" flex items-center gap-3">
@@ -69,6 +67,5 @@ export default async function page({ params }) {
                     }
                 </div>
             </div>
-        </UserPanelLayout>
     )
 }
