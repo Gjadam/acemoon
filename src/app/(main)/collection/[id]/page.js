@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout";
 import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader";
 import Collection from "@/components/templates/collection/Collection";
 import ShopLayout from "@/components/layouts/ShopLayout";
@@ -38,11 +37,11 @@ export default async function page({ params }) {
         .lean()
 
     return (
-        <MainLayout>
+        <>
             <CategoryHeader title={`دسته بندی ${collection.name}`} />
             <ShopLayout>
                 <Collection products={JSON.parse(JSON.stringify(products))} />
             </ShopLayout>
-        </MainLayout>
+        </>
     )
 }

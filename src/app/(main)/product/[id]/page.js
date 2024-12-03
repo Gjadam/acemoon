@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout";
 import Product from "@/components/templates/product/Product";
 
 // Backend
@@ -34,11 +33,5 @@ export default async function page({ params }) {
   })
     .populate('collection', 'name')
 
-  return (
-    <>
-      <MainLayout>
-        <Product product={JSON.parse(JSON.stringify(product))} relatedProducts={JSON.parse(JSON.stringify(relatedProducts))} />
-      </MainLayout>
-    </>
-  )
+  return <Product product={JSON.parse(JSON.stringify(product))} relatedProducts={JSON.parse(JSON.stringify(relatedProducts))} />
 }

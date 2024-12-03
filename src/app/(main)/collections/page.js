@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout";
 import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader";
 import Collections from "@/components/templates/collections/Collections";
 
@@ -21,9 +20,9 @@ export default async function page() {
     .lean()
 
   return (
-    <MainLayout>
+    <>
       <CategoryHeader title={'دسته بندی ها'} />
       <Collections collections={JSON.parse(JSON.stringify(collections))} />
-    </MainLayout>
+    </>
   )
 }

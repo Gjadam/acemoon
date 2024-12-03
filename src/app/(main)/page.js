@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout";
 import AllProducts from "@/components/templates/index/allProducts/AllProducts";
 import Collections from "@/components/templates/index/collections/Collections";
 import Header from "@/components/templates/index/header/Header";
@@ -29,13 +28,13 @@ export default async function Home() {
 
 
   return (
-    <MainLayout>
+    <>
       <Header products={JSON.parse(JSON.stringify(products))} />
       <Facility/>
       <AllProducts products={JSON.parse(JSON.stringify(products))} />
       <Collections collections={JSON.parse(JSON.stringify(collections))} />
       <NewProducts sortedProducts={JSON.parse(JSON.stringify(sortedProducts))} />
       <SocialMedias/>
-    </MainLayout>
+    </>
   );
 }

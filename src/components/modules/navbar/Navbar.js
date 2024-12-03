@@ -192,7 +192,7 @@ export default function Navbar({ isLogin }) {
                                     {
                                         dataFromSearch.collections?.length > 0 ? (
                                             dataFromSearch.collections.map(collection => (
-                                                <Link href={`/product/${collection._id}`}>
+                                                <Link href={`/collection/${collection._id}`}>
                                                     <CollectionBox key={collection._id} {...collection} />
                                                 </Link>
                                             ))

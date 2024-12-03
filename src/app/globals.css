@@ -67,6 +67,8 @@ input:-webkit-autofill {
 
 .swiper-pagination-bullet-active {
   background-color: #f43f5e !important;
+  border-radius: 0.5rem !important;
+  width: 1rem !important;
 }
 
 .swiper-button-prev {

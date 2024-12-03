@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout"
 import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader"
 import Wishlist from "@/components/templates/wishlist/Wishlist"
 
@@ -25,9 +24,9 @@ export default async function page() {
 
 
     return (
-        <MainLayout>
+        <>
             <CategoryHeader title={'لیست علاقه مندی ها'} />
             <Wishlist wishes={wishes} />
-        </MainLayout>
+        </>
     )
 }

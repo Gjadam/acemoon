@@ -1,6 +1,5 @@
 
 // Components
-import MainLayout from "@/components/layouts/MainLayout"
 import CategoryHeader from "@/components/modules/categoryHeader/CategoryHeader"
 import Search from "@/components/templates/search/Search"
 
@@ -25,9 +24,9 @@ export default async function page({ searchParams }) {
 
 
     return (
-        <MainLayout>
+        <>
             <CategoryHeader title={'جستوجو'} />
             <Search products={JSON.parse(JSON.stringify(products))} collections={JSON.parse(JSON.stringify(collections))} />
-        </MainLayout>
+        </>
     )
 }
