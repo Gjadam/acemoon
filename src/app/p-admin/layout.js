@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 // Components
-import SideBar from "../templates/p-admin/SideBar";
+import SideBar from "@/components/templates/p-admin/SideBar";
 
 // Backend
 import { authUser } from "@/utils/serverHelpers";
