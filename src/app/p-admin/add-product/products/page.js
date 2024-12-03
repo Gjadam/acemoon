@@ -1,5 +1,4 @@
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import Products from "@/components/templates/p-admin/products/Products";
 
@@ -20,9 +19,9 @@ export default async function page() {
     .lean()
 
   return (
-    <AdminPanelLayout>
+    <>
       <SectionHeader title={'محصولات'} />
       <Products products={JSON.parse(JSON.stringify(products))} collections={JSON.parse(JSON.stringify(collections))} />
-    </AdminPanelLayout>
+    </>
   )
 }

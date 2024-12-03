@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import Comments from "@/components/templates/p-admin/comments/Comments";
 
 // Backend
@@ -17,8 +16,8 @@ export default async function page() {
     .lean()
 
   return (
-    <AdminPanelLayout>
+    <>
         <Comments comments={JSON.parse(JSON.stringify(comments))}/>
-    </AdminPanelLayout>
+    </>
   )
 }

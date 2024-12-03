@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import BanUsers from "@/components/templates/p-admin/users/banUsers/BanUsers";
 
@@ -16,9 +15,9 @@ export default async function page() {
     .lean()
 
   return (
-    <AdminPanelLayout>
+    <>
       <SectionHeader title={'کاربران مسدود شده'} />
       <BanUsers banUsers={JSON.parse(JSON.stringify(banUsers))}/>
-    </AdminPanelLayout>
+    </>
   )
 }

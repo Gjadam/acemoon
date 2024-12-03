@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import Tickets from "@/components/templates/p-admin/tickets/Tickets";
 
 // Backend
@@ -15,8 +14,8 @@ export default async function page() {
         .sort({_id: -1})
 
     return (
-        <AdminPanelLayout>
+        <>
             <Tickets tickets={JSON.parse(JSON.stringify(tickets))} />
-        </AdminPanelLayout>
+        </>
     )
 }

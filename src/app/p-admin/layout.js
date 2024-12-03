@@ -8,8 +8,7 @@ import { authUser } from "@/utils/serverHelpers";
 
 // Utils
 import { roles } from "@/utils/constants";
-
-export default async function AdminPanelLayout({ children }) {
+export default async function layout() {
     const user = await authUser()
 
     if (user) {

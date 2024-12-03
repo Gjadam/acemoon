@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import ContactUs from "@/components/templates/p-admin/contactUs/ContactUs";
 
@@ -15,9 +14,9 @@ export default async function page() {
         .lean()
 
     return (
-        <AdminPanelLayout>
+        <>
             <SectionHeader title={'ارتباط با ما'} />
             <ContactUs contacts={JSON.parse(JSON.stringify(contacts))}/>
-        </AdminPanelLayout>
+        </>
     )
 }

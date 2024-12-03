@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import Users from "@/components/templates/p-admin/users/Users";
 
@@ -18,9 +17,9 @@ export default async function page() {
     .lean()
 
   return (
-    <AdminPanelLayout>
+    <>
       <SectionHeader title={'کاربران'} linkText={'کاربران مسدود شده'} route={'/p-admin/users/ban'} />
       <Users users={JSON.parse(JSON.stringify(users))} />
-    </AdminPanelLayout>
+    </>
   )
 }

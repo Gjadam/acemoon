@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import Box from "@/components/templates/p-admin/index/Box";
 import Table from "@/components/modules/p-user/Table";
 import PanelCard from "@/components/modules/panelCard/PanelCard";
@@ -29,7 +28,6 @@ export default async function page() {
     const users = await UserModel.find({ _id: { $ne: user._id } })
 
     return (
-        <AdminPanelLayout>
             <div className="flex flex-col gap-5">
                 <div className="flex justify-center items-center flex-wrap gap-5">
                     <Box title={'مجموع تیکت های دریافتی'} count={tickets.length}>
@@ -64,6 +62,5 @@ export default async function page() {
                     </Table>
                 </div>
             </div>
-        </AdminPanelLayout>
     )
 }

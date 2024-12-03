@@ -1,6 +1,5 @@
 
 // Components
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import SectionHeader from "@/components/modules/sectionHeader/SectionHeader";
 import ShippingCost from "@/components/templates/p-admin/shippingCost/ShippingCost";
 
@@ -14,11 +13,11 @@ export default async function page() {
     const cost = await ShippingCostModel.findOne({})
 
     return (
-        <AdminPanelLayout>
+        <>
             <SectionHeader title={'هزینه حمل و نقل'} />
             <div className="flex justify-center items-start flex-col  gap-5 mt-5 w-full">
                 <ShippingCost cost={JSON.parse(JSON.stringify(cost))} />
             </div>
-        </AdminPanelLayout>
+        </>
     )
 }
